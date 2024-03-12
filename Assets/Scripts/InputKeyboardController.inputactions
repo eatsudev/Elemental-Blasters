@@ -276,6 +276,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "attack",
+            "id": "ba921bca-0e18-4ea3-ac45-918c77266629",
+            "actions": [
+                {
+                    "name": "Attack",
+                    "type": "PassThrough",
+                    "id": "0b24b34b-a84c-4920-b1f4-1ed942a209e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "410efaee-f237-4cb9-84de-10b04e17b833",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "mouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3426f84f-ccc7-4063-b4c2-22d03089b5b1",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "controller",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
@@ -287,6 +326,11 @@
         {
             "name": "controller",
             "bindingGroup": "controller",
+            "devices": []
+        },
+        {
+            "name": "mouse",
+            "bindingGroup": "mouse",
             "devices": []
         }
     ]

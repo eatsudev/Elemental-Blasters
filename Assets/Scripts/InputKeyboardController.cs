@@ -298,6 +298,45 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""attack"",
+            ""id"": ""ba921bca-0e18-4ea3-ac45-918c77266629"",
+            ""actions"": [
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""0b24b34b-a84c-4920-b1f4-1ed942a209e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""410efaee-f237-4cb9-84de-10b04e17b833"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3426f84f-ccc7-4063-b4c2-22d03089b5b1"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""controller"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -310,6 +349,11 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             ""name"": ""controller"",
             ""bindingGroup"": ""controller"",
             ""devices"": []
+        },
+        {
+            ""name"": ""mouse"",
+            ""bindingGroup"": ""mouse"",
+            ""devices"": []
         }
     ]
 }");
@@ -319,6 +363,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         // jumping
         m_jumping = asset.FindActionMap("jumping", throwIfNotFound: true);
         m_jumping_Jump = m_jumping.FindAction("Jump", throwIfNotFound: true);
+        // attack
+        m_attack = asset.FindActionMap("attack", throwIfNotFound: true);
+        m_attack_Attack = m_attack.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -468,6 +515,52 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         }
     }
     public JumpingActions @jumping => new JumpingActions(this);
+
+    // attack
+    private readonly InputActionMap m_attack;
+    private List<IAttackActions> m_AttackActionsCallbackInterfaces = new List<IAttackActions>();
+    private readonly InputAction m_attack_Attack;
+    public struct AttackActions
+    {
+        private @InputKeyboardController m_Wrapper;
+        public AttackActions(@InputKeyboardController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Attack => m_Wrapper.m_attack_Attack;
+        public InputActionMap Get() { return m_Wrapper.m_attack; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AttackActions set) { return set.Get(); }
+        public void AddCallbacks(IAttackActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AttackActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AttackActionsCallbackInterfaces.Add(instance);
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+        }
+
+        private void UnregisterCallbacks(IAttackActions instance)
+        {
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+        }
+
+        public void RemoveCallbacks(IAttackActions instance)
+        {
+            if (m_Wrapper.m_AttackActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAttackActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AttackActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AttackActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AttackActions @attack => new AttackActions(this);
     private int m_keyboardSchemeIndex = -1;
     public InputControlScheme keyboardScheme
     {
@@ -486,6 +579,15 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             return asset.controlSchemes[m_controllerSchemeIndex];
         }
     }
+    private int m_mouseSchemeIndex = -1;
+    public InputControlScheme mouseScheme
+    {
+        get
+        {
+            if (m_mouseSchemeIndex == -1) m_mouseSchemeIndex = asset.FindControlSchemeIndex("mouse");
+            return asset.controlSchemes[m_mouseSchemeIndex];
+        }
+    }
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -493,5 +595,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     public interface IJumpingActions
     {
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IAttackActions
+    {
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
