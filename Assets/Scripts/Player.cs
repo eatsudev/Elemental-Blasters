@@ -9,13 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpTime = 0.5f;
     [SerializeField] private float extraHeight = 0.25f;
     [SerializeField] private LayerMask whatIsGround;
+
     private Rigidbody2D rb;
     private Collider2D coll;
     private float moveInput;
     private bool isFacingRight = true;
+    private bool isMoving; // New variable to track movement state
 
     private bool isJumping;
-    private bool isFalling;
     private float jumpTimeCounter;
 
     private RaycastHit2D groundHit;
@@ -32,12 +33,13 @@ public class Player : MonoBehaviour
         Jump();
     }
 
-
-
     private void Move()
     {
         moveInput = UserInput.instance.moveInput.x;
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+
+        // Update isMoving based on the movement input
+        isMoving = Mathf.Abs(moveInput) > 0.1f;
 
         if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
         {
@@ -45,16 +47,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*private void Flip()
+    public bool IsMoving()
     {
-        // Switch the direction the player is facing
-        isFacingRight = !isFacingRight;
-
-        // Flip the player's scale along the X-axis
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }*/
+        return isMoving;
+    }
 
     public bool PlayerFacingRight()
     {
