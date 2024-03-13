@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        rb= GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
     }
 
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         Jump();
     }
 
-    
+
 
     private void Move()
     {
@@ -41,11 +41,11 @@ public class Player : MonoBehaviour
 
         if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
         {
-            Flip();
+            //Flip();
         }
     }
 
-    private void Flip()
+    /*private void Flip()
     {
         // Switch the direction the player is facing
         isFacingRight = !isFacingRight;
@@ -54,9 +54,13 @@ public class Player : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-    }
+    }*/
+
     public bool PlayerFacingRight()
     {
+        if (transform.localScale.x > 0) { isFacingRight = true; }
+        else { isFacingRight = false; }
+
         return isFacingRight;
     }
 
@@ -71,7 +75,7 @@ public class Player : MonoBehaviour
 
         if (UserInput.instance.controls.jumping.Jump.IsPressed())
         {
-            if(jumpTimeCounter > 0 && isJumping)
+            if (jumpTimeCounter > 0 && isJumping)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
@@ -92,7 +96,7 @@ public class Player : MonoBehaviour
     {
         groundHit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, extraHeight, whatIsGround);
 
-        if(groundHit.collider != null)
+        if (groundHit.collider != null)
         {
             return true;
         }
