@@ -153,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
+  attack: 0
+  enterAim: 0
 --- !u!4 &199037948
 Transform:
   m_ObjectHideFlags: 0
@@ -778,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843003986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0.27, z: 0}
   m_LocalScale: {x: 2.99162, y: 0.8834032, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
