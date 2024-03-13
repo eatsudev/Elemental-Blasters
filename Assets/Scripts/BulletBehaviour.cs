@@ -27,6 +27,14 @@ public class BulletBehaviour : MonoBehaviour
         InitializeBulletStats();
     }
 
+    private void FixedUpdate()
+    {
+        if(bulletType == BulletType.Normal)
+        {
+            transform.right = rb.velocity;
+        }
+    }
+
     private void InitializeBulletStats()
     {
         if(bulletType == BulletType.Normal)
