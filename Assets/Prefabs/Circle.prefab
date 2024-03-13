@@ -151,3 +151,6 @@ MonoBehaviour:
   whatDestroysBullet:
     serializedVersion: 2
     m_Bits: 320
+  physicsBulletSpeed: 17.5
+  physicsBulletGravity: 3
+  bulletType: 0

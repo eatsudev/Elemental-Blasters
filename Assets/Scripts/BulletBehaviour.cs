@@ -7,13 +7,36 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private float normalBulletSpeed = 15f;
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysBullet;
+    [SerializeField] private float physicsBulletSpeed = 17.5f;
+    [SerializeField] private float physicsBulletGravity = 3f;
 
     private Rigidbody2D rb;
+
+    public enum BulletType
+    {
+        Normal,
+        Physics
+    }
+    public BulletType bulletType;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         SetDestroyTime();
-        SetStraightVelocity();
+        SetRBStats();
+        InitializeBulletStats();
+    }
+
+    private void InitializeBulletStats()
+    {
+        if(bulletType == BulletType.Normal)
+        {
+            SetStraightVelocity();
+        }
+        else if (bulletType == BulletType.Physics)
+        {
+            SetPhysicsVelocity();
+        }
     }
 
 
@@ -35,9 +58,25 @@ public class BulletBehaviour : MonoBehaviour
         rb.velocity = transform.right * normalBulletSpeed;
     }
     
+    private void SetPhysicsVelocity()
+    {
+        rb.velocity = transform.right * physicsBulletSpeed;
+    }
 
     private void SetDestroyTime()
     {
         Destroy(gameObject, destroyTime);
+    }
+
+    private void SetRBStats()
+    {
+        if(bulletType == BulletType.Normal)
+        {
+            rb.gravityScale = 0f;
+        }
+        else if (bulletType == BulletType.Physics)
+        {
+            rb.gravityScale = physicsBulletGravity;
+        }
     }
 }
