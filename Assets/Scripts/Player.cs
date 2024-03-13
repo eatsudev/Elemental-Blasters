@@ -55,6 +55,10 @@ public class Player : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
+    public bool PlayerFacingRight()
+    {
+        return isFacingRight;
+    }
 
     private void Jump()
     {
