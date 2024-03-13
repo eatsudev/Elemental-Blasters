@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-
 public class PlayerAimAndShoot : MonoBehaviour
 {
     [SerializeField] private GameObject gun;
@@ -25,12 +24,12 @@ public class PlayerAimAndShoot : MonoBehaviour
         originalScale = gun.transform.localScale;
         originalPlayerScale = transform.localScale;
     }
+
     private void Update()
     {
         HandleGunRotation();
         HandleGunShooting();
 
-        
         Debug.Log(gun.transform.rotation);
     }
 
@@ -40,16 +39,11 @@ public class PlayerAimAndShoot : MonoBehaviour
         direction = (worldPosition - (Vector2)gun.transform.position).normalized;
         gun.transform.right = direction;
 
-        
-
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Vector3 scale = gun.transform.localScale;
         Vector3 playerScale = player.transform.localScale;
 
-
-
         playerScale.x = (direction.x > 0) ? originalPlayerScale.x : -originalPlayerScale.x;
-
         player.transform.localScale = playerScale;
 
         gun.transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -72,6 +66,9 @@ public class PlayerAimAndShoot : MonoBehaviour
 
     private void HandleGunShooting()
     {
+        // Enable or disable the gun based on the player's movement
+        gun.SetActive(!player.IsMoving());
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);
