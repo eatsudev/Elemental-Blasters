@@ -17,9 +17,12 @@ public class PlayerAimAndShoot : MonoBehaviour
     private Vector3 originalScale;
     private Vector3 originalPlayerScale;
 
+    private bool isAiming;
+
     void Start()
     {
         player = GetComponent<Player>();
+        isAiming = false;
 
         originalScale = gun.transform.localScale;
         originalPlayerScale = transform.localScale;
@@ -27,10 +30,24 @@ public class PlayerAimAndShoot : MonoBehaviour
 
     private void Update()
     {
-        HandleGunRotation();
-        HandleGunShooting();
+        if (IsAiming())
+        {
+            HandleGunRotation();
+            HandleGunShooting();
+            AimModePlayerRotation();
+        }
+        else
+        {
+            PlayerRotation();
+        }
 
-        Debug.Log(gun.transform.rotation);
+        gun.SetActive(IsAiming());
+
+        if (Mouse.current.rightButton.wasPressedThisFrame) isAiming = !isAiming;
+    }
+    public bool IsAiming()
+    {
+        return isAiming;
     }
 
     private void HandleGunRotation()
@@ -41,10 +58,6 @@ public class PlayerAimAndShoot : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Vector3 scale = gun.transform.localScale;
-        Vector3 playerScale = player.transform.localScale;
-
-        playerScale.x = (direction.x > 0) ? originalPlayerScale.x : -originalPlayerScale.x;
-        player.transform.localScale = playerScale;
 
         gun.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
@@ -64,10 +77,42 @@ public class PlayerAimAndShoot : MonoBehaviour
         }
     }
 
+    private void PlayerRotation()
+    {
+        Vector3 playerScale = player.transform.localScale;
+
+        if(player.PlayerMoveDirection() > 0)
+        {
+            playerScale.x = originalPlayerScale.x;
+        }
+        else if(player.PlayerMoveDirection() < 0)
+        {
+            playerScale.x = -originalPlayerScale.x;
+        }
+       
+        player.transform.localScale = playerScale;
+    }
+
+    private void AimModePlayerRotation()
+    {
+        Vector3 playerScale = player.transform.localScale;
+
+        if (direction.x > 0)
+        {
+            playerScale.x = originalPlayerScale.x;
+        }
+        else if (direction.x < 0)
+        {
+            playerScale.x = -originalPlayerScale.x;
+        }
+
+        player.transform.localScale = playerScale;
+    }
+
     private void HandleGunShooting()
     {
         // Enable or disable the gun based on the player's movement
-        gun.SetActive(!player.IsMoving());
+        
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {

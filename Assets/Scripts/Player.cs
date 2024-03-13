@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Collider2D coll;
+    private PlayerAimAndShoot playerAimAndShoot;
     private float moveInput;
     private bool isFacingRight = true;
     private bool isMoving; // New variable to track movement state
 
     private bool isJumping;
     private float jumpTimeCounter;
+    private float direction;
 
     private RaycastHit2D groundHit;
 
@@ -25,12 +27,22 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
+        playerAimAndShoot = GetComponent<PlayerAimAndShoot>();
+        
     }
 
     private void Update()
     {
-        Move();
-        Jump();
+        if (playerAimAndShoot.IsAiming())
+        {
+
+            
+        }
+        else
+        {
+            Move();
+            Jump();
+        }
     }
 
     private void Move()
@@ -41,10 +53,7 @@ public class Player : MonoBehaviour
         // Update isMoving based on the movement input
         isMoving = Mathf.Abs(moveInput) > 0.1f;
 
-        if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
-        {
-            //Flip();
-        }
+        direction = moveInput;
     }
 
     public bool IsMoving()
@@ -52,6 +61,10 @@ public class Player : MonoBehaviour
         return isMoving;
     }
 
+    public float PlayerMoveDirection()
+    {
+        return direction;
+    }
     public bool PlayerFacingRight()
     {
         if (transform.localScale.x > 0) { isFacingRight = true; }
