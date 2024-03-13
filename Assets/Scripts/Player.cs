@@ -41,11 +41,11 @@ public class Player : MonoBehaviour
 
         if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
         {
-            Flip();
+            //Flip();
         }
     }
 
-    private void Flip()
+    /*private void Flip()
     {
         // Switch the direction the player is facing
         isFacingRight = !isFacingRight;
@@ -54,9 +54,13 @@ public class Player : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
-    }
+    }*/
+
     public bool PlayerFacingRight()
     {
+        if (transform.localScale.x > 0) { isFacingRight = true; }
+        else { isFacingRight = false; }
+
         return isFacingRight;
     }
 
