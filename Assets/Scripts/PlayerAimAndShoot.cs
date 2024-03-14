@@ -72,6 +72,9 @@ public class PlayerAimAndShoot : MonoBehaviour
 
     private void HandleGunShooting()
     {
+        // Enable or disable the gun based on the player's movement
+        gun.SetActive(!player.IsMoving());
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);

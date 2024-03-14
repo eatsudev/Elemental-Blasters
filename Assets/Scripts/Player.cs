@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpTime = 0.5f;
     [SerializeField] private float extraHeight = 0.25f;
     [SerializeField] private LayerMask whatIsGround;
+    public Animator anim;
     private Rigidbody2D rb;
     private Collider2D coll;
     private float moveInput;
@@ -17,13 +18,14 @@ public class Player : MonoBehaviour
     private bool isJumping;
     private bool isFalling;
     private float jumpTimeCounter;
-
+    private bool isMoving;
     private RaycastHit2D groundHit;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,11 +40,18 @@ public class Player : MonoBehaviour
     {
         moveInput = UserInput.instance.moveInput.x;
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        isMoving = Mathf.Abs(moveInput) > 0.1f;
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
         if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
         {
             //Flip();
         }
+    }
+
+    public bool IsMoving()
+    {
+        return isMoving;
     }
 
     /*private void Flip()
