@@ -11,9 +11,7 @@ public class ElementalWheelController : MonoBehaviour
     public Image selectedItem;
     public Sprite noImage;
 
-    
     private bool weaponWheelSelected;
-
     void Update()
     {
         if (UserInput.instance.controls.Interact.ElementalWheel.WasPressedThisFrame())
@@ -29,8 +27,6 @@ public class ElementalWheelController : MonoBehaviour
             }
         }
         
-        
-
         switch (elementID)
         {
             case 0:
