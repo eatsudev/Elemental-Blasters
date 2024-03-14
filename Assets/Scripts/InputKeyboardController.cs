@@ -368,6 +368,45 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Interact"",
+            ""id"": ""6d85c01e-25c8-47b6-963f-bab1c9c8fe2c"",
+            ""actions"": [
+                {
+                    ""name"": ""ElementalWheel"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9227d84-8f51-462a-9ba4-542c33025bb7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""8de14a32-2b26-40a1-8f5e-3d1bc672b35e"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ElementalWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""72e08622-c514-4369-8b97-9f74122c242b"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ElementalWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -398,6 +437,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         m_attack = asset.FindActionMap("attack", throwIfNotFound: true);
         m_attack_Attack = m_attack.FindAction("Attack", throwIfNotFound: true);
         m_attack_EnterAimMode = m_attack.FindAction("EnterAimMode", throwIfNotFound: true);
+        // Interact
+        m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
+        m_Interact_ElementalWheel = m_Interact.FindAction("ElementalWheel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -601,6 +643,52 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         }
     }
     public AttackActions @attack => new AttackActions(this);
+
+    // Interact
+    private readonly InputActionMap m_Interact;
+    private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
+    private readonly InputAction m_Interact_ElementalWheel;
+    public struct InteractActions
+    {
+        private @InputKeyboardController m_Wrapper;
+        public InteractActions(@InputKeyboardController wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ElementalWheel => m_Wrapper.m_Interact_ElementalWheel;
+        public InputActionMap Get() { return m_Wrapper.m_Interact; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InteractActions set) { return set.Get(); }
+        public void AddCallbacks(IInteractActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InteractActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InteractActionsCallbackInterfaces.Add(instance);
+            @ElementalWheel.started += instance.OnElementalWheel;
+            @ElementalWheel.performed += instance.OnElementalWheel;
+            @ElementalWheel.canceled += instance.OnElementalWheel;
+        }
+
+        private void UnregisterCallbacks(IInteractActions instance)
+        {
+            @ElementalWheel.started -= instance.OnElementalWheel;
+            @ElementalWheel.performed -= instance.OnElementalWheel;
+            @ElementalWheel.canceled -= instance.OnElementalWheel;
+        }
+
+        public void RemoveCallbacks(IInteractActions instance)
+        {
+            if (m_Wrapper.m_InteractActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInteractActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InteractActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InteractActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InteractActions @Interact => new InteractActions(this);
     private int m_keyboardSchemeIndex = -1;
     public InputControlScheme keyboardScheme
     {
@@ -640,5 +728,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     {
         void OnAttack(InputAction.CallbackContext context);
         void OnEnterAimMode(InputAction.CallbackContext context);
+    }
+    public interface IInteractActions
+    {
+        void OnElementalWheel(InputAction.CallbackContext context);
     }
 }
