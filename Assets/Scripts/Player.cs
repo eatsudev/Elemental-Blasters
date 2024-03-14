@@ -9,17 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpTime = 0.5f;
     [SerializeField] private float extraHeight = 0.25f;
     [SerializeField] private LayerMask whatIsGround;
-
     private Rigidbody2D rb;
     private Collider2D coll;
-    private PlayerAimAndShoot playerAimAndShoot;
     private float moveInput;
     private bool isFacingRight = true;
-    private bool isMoving; // New variable to track movement state
 
     private bool isJumping;
+    private bool isFalling;
     private float jumpTimeCounter;
-    private float direction;
 
     private RaycastHit2D groundHit;
 
@@ -27,44 +24,38 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
-        playerAimAndShoot = GetComponent<PlayerAimAndShoot>();
-        
     }
 
     private void Update()
     {
-        if (playerAimAndShoot.IsAiming())
-        {
-
-            
-        }
-        else
-        {
-            Move();
-            Jump();
-        }
+        Move();
+        Jump();
     }
+
+
 
     private void Move()
     {
         moveInput = UserInput.instance.moveInput.x;
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
-        // Update isMoving based on the movement input
-        isMoving = Mathf.Abs(moveInput) > 0.1f;
-
-        direction = moveInput;
+        if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
+        {
+            //Flip();
+        }
     }
 
-    public bool IsMoving()
+    /*private void Flip()
     {
-        return isMoving;
-    }
+        // Switch the direction the player is facing
+        isFacingRight = !isFacingRight;
 
-    public float PlayerMoveDirection()
-    {
-        return direction;
-    }
+        // Flip the player's scale along the X-axis
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }*/
+
     public bool PlayerFacingRight()
     {
         if (transform.localScale.x > 0) { isFacingRight = true; }
