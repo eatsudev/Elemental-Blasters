@@ -29,9 +29,6 @@ public class PlayerAimAndShoot : MonoBehaviour
     {
         HandleGunRotation();
         HandleGunShooting();
-
-
-        Debug.Log(gun.transform.rotation);
     }
 
     private void HandleGunRotation()
@@ -40,13 +37,9 @@ public class PlayerAimAndShoot : MonoBehaviour
         direction = (worldPosition - (Vector2)gun.transform.position).normalized;
         gun.transform.right = direction;
 
-
-
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Vector3 scale = gun.transform.localScale;
         Vector3 playerScale = player.transform.localScale;
-
-
 
         playerScale.x = (direction.x > 0) ? originalPlayerScale.x : -originalPlayerScale.x;
 

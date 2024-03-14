@@ -39,7 +39,6 @@ public class ElementalSelectionWheel : MonoBehaviour
         selected = false;
         ElementalWheelController.elementID = 0;
     }
-
     public void HoverEnter()
     {
         animator.SetBool("Hover", true);
