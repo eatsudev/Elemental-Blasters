@@ -11,9 +11,14 @@ public class PlayerAimAndShoot : MonoBehaviour
     [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject fireProjectile;
+    [SerializeField] private GameObject waterProjectile;
+    [SerializeField] private GameObject dirtProjectile;
+    [SerializeField] private GameObject shockProjectile;
+    [SerializeField] private GameObject windProjectile;
     [SerializeField] private Transform bulletSpawnPoint;
     private Player player;
-    private GameObject bulletInst;
+    private ElementalWheelController wheelController;
+    
     private Vector2 worldPosition;
     private Vector2 direction;
 
@@ -23,6 +28,7 @@ public class PlayerAimAndShoot : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
+        wheelController = FindObjectOfType<ElementalWheelController>();
 
         originalScale = gun.transform.localScale;
         originalPlayerScale = transform.localScale;
@@ -31,6 +37,10 @@ public class PlayerAimAndShoot : MonoBehaviour
     {
         HandleGunRotation();
         HandleGunShooting();
+        HandleElementalShooting();
+
+        //Debug.Log(wheelController.elementID);
+        //Debug.Log(wheelController.GetElementID() == 1);    
     }
 
     private void HandleGunRotation()
@@ -72,7 +82,42 @@ public class PlayerAimAndShoot : MonoBehaviour
 
         if (Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
         {
-            bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);
+            GameObject bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);
+        }
+        
+    }
+
+    private void HandleElementalShooting()
+    {
+        if (Mouse.current.rightButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
+        {
+
+            Debug.Log(wheelController.elementID);
+            if (wheelController.GetElementID() == 1)
+            {
+                GameObject fireInst = Instantiate(fireProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+            }
+            if (wheelController.GetElementID() == 2)
+            {
+                GameObject waterInst = Instantiate(waterProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+            }
+            if (wheelController.GetElementID() == 3)
+            {
+                GameObject shockInst = Instantiate(shockProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+            }
+            if (wheelController.GetElementID() == 4)
+            {
+                GameObject windInst = Instantiate(windProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+            }
+            if (wheelController.GetElementID() == 5)
+            {
+                GameObject dirtInst = Instantiate(dirtProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+            }
+            else
+            {
+                Debug.Log("No Elements");
+            }
+
         }
     }
 }

@@ -1,1 +1,5 @@
+<<<<<<< Updated upstream
 {"playerPosition":{"x":-3.8393197059631349,"y":-3.248269557952881,"z":0.0},"checkPoint":{"instanceID":0}}
+=======
+{"playerPosition":{"x":-6.145142078399658,"y":-3.248269557952881,"z":0.0},"checkPoint":{"instanceID":0}}
+>>>>>>> Stashed changes

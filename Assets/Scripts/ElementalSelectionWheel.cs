@@ -12,11 +12,13 @@ public class ElementalSelectionWheel : MonoBehaviour
     public Image selectedItem;
     public Sprite icon;
 
+    private ElementalWheelController controller;
     private Animator animator;
     private bool selected = false;
 
     void Start()
     {
+        controller = FindObjectOfType<ElementalWheelController>();
         animator = GetComponent<Animator>();
     }
 
@@ -32,12 +34,12 @@ public class ElementalSelectionWheel : MonoBehaviour
     public void Selected()
     {
         selected = true;
-        ElementalWheelController.elementID = ID;
+        controller.elementID = ID;
     }
     public void Deselected()
     {
         selected = false;
-        ElementalWheelController.elementID = 0;
+        controller.elementID = 0;
     }
     public void HoverEnter()
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ElementalWheelController : MonoBehaviour
 {
-    public static int elementID;
+    public int elementID;
     public Animator animator;
     public Image selectedItem;
     public Sprite noImage;
@@ -38,7 +38,6 @@ public class ElementalWheelController : MonoBehaviour
         switch (elementID)
         {
             case 0:
-                //selectedItem.sprite = noImage;
                 Debug.Log("0");
                 break;
             case 1:
@@ -60,6 +59,10 @@ public class ElementalWheelController : MonoBehaviour
                 Debug.Log("6");
                 break;
         }
+    }
+    public int GetElementID()
+    {
+        return elementID;
     }
     public void WheelSlowDown()
     {

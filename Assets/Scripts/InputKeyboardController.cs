@@ -320,6 +320,15 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""fff43eb1-6496-434e-a9c4-e54f7bb38c28"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -364,6 +373,17 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""groups"": ""controller"",
                     ""action"": ""EnterAimMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93ea5f63-b218-442a-8a57-6521fd6a01be"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""mouse"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -468,6 +488,7 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         m_attack = asset.FindActionMap("attack", throwIfNotFound: true);
         m_attack_Attack = m_attack.FindAction("Attack", throwIfNotFound: true);
         m_attack_EnterAimMode = m_attack.FindAction("EnterAimMode", throwIfNotFound: true);
+        m_attack_Fire = m_attack.FindAction("Fire", throwIfNotFound: true);
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_ElementalWheel = m_Interact.FindAction("ElementalWheel", throwIfNotFound: true);
@@ -627,12 +648,14 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     private List<IAttackActions> m_AttackActionsCallbackInterfaces = new List<IAttackActions>();
     private readonly InputAction m_attack_Attack;
     private readonly InputAction m_attack_EnterAimMode;
+    private readonly InputAction m_attack_Fire;
     public struct AttackActions
     {
         private @InputKeyboardController m_Wrapper;
         public AttackActions(@InputKeyboardController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Attack => m_Wrapper.m_attack_Attack;
         public InputAction @EnterAimMode => m_Wrapper.m_attack_EnterAimMode;
+        public InputAction @Fire => m_Wrapper.m_attack_Fire;
         public InputActionMap Get() { return m_Wrapper.m_attack; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -648,6 +671,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             @EnterAimMode.started += instance.OnEnterAimMode;
             @EnterAimMode.performed += instance.OnEnterAimMode;
             @EnterAimMode.canceled += instance.OnEnterAimMode;
+            @Fire.started += instance.OnFire;
+            @Fire.performed += instance.OnFire;
+            @Fire.canceled += instance.OnFire;
         }
 
         private void UnregisterCallbacks(IAttackActions instance)
@@ -658,6 +684,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             @EnterAimMode.started -= instance.OnEnterAimMode;
             @EnterAimMode.performed -= instance.OnEnterAimMode;
             @EnterAimMode.canceled -= instance.OnEnterAimMode;
+            @Fire.started -= instance.OnFire;
+            @Fire.performed -= instance.OnFire;
+            @Fire.canceled -= instance.OnFire;
         }
 
         public void RemoveCallbacks(IAttackActions instance)
@@ -768,6 +797,7 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     {
         void OnAttack(InputAction.CallbackContext context);
         void OnEnterAimMode(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
     public interface IInteractActions
     {

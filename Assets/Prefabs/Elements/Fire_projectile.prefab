@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 607585391950807662}
   - component: {fileID: 6950463307075086777}
   - component: {fileID: 438835158504332894}
+  - component: {fileID: 5924161169221281922}
   m_Layer: 0
   m_Name: Fire_projectile
   m_TagString: Untagged
@@ -123,3 +124,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &5924161169221281922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110420286078289652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf75030b4695a2a4483c5ed6ac6bc5fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalFireSpeed: 15
+  destroyTime: 3
+  whatDestroysFire:
+    serializedVersion: 2
+    m_Bits: 320
+  physicsBulletSpeed: 17.5
+  physicsBulletGravity: 3
+  bulletType: 1
