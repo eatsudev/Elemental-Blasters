@@ -4112,6 +4112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1609964780}
+  saveHandler: {fileID: 186638871}
   pausePanel: {fileID: 565475148}
 --- !u!4 &1464971814
 Transform:

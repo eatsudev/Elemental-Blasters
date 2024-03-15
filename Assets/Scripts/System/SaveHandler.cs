@@ -24,6 +24,7 @@ public class SaveHandler : MonoBehaviour
     public void LoadProcess()
     {
         Load();
+        OnLoad?.Invoke(this, EventArgs.Empty);
     }
 
     private void Save()

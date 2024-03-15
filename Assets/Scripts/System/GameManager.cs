@@ -8,12 +8,18 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Player player;
+    [SerializeField] private SaveHandler saveHandler;
     [SerializeField] private GameObject pausePanel;
     private bool pause;
     // Start is called before the first frame update
     void Start()
     {
-        
+        saveHandler.OnLoad += SaveHandler_OnLoad;
+    }
+
+    private void SaveHandler_OnLoad(object sender, System.EventArgs e)
+    {
+        UnPause();
     }
 
     // Update is called once per frame
