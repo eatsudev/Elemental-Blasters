@@ -11,7 +11,13 @@ public class ElementalWheelController : MonoBehaviour
     public Image selectedItem;
     public Sprite noImage;
 
+    private GameManager gameManager;
+
     private bool weaponWheelSelected;
+    void Start()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
     void Update()
     {
         if (UserInput.instance.controls.Interact.ElementalWheel.WasPressedThisFrame())
@@ -20,10 +26,12 @@ public class ElementalWheelController : MonoBehaviour
             if (weaponWheelSelected)
             {
                 animator.SetTrigger("OpenWheel");
+                WheelSlowDown();
             }
             else
             {
                 animator.SetTrigger("CloseWheel");
+                WheelResume();
             }
         }
         
@@ -52,5 +60,19 @@ public class ElementalWheelController : MonoBehaviour
                 Debug.Log("6");
                 break;
         }
+    }
+    public void WheelSlowDown()
+    {
+        gameManager.elementalWheelSlowDown = true;
+        animator.speed = 5f;
+
+        Time.timeScale = 0.2f;
+    }
+    public void WheelResume()
+    {
+        gameManager.elementalWheelSlowDown = false;
+        animator.speed = 1f;
+
+        Time.timeScale = 1f;
     }
 }

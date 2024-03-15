@@ -17,9 +17,9 @@ public class SaveHandler : MonoBehaviour
         SaveSystem.Init();
     }
     
-    public void SaveProcess()
+    public void SaveProcess(CheckPoint checkPoint)
     {
-        Save();
+        Save(checkPoint);
     }
     public void LoadProcess()
     {
@@ -27,9 +27,9 @@ public class SaveHandler : MonoBehaviour
         OnLoad?.Invoke(this, EventArgs.Empty);
     }
 
-    private void Save()
+    private void Save(CheckPoint checkPoint)
     {
-        Vector3 playerPosition = unit.GetPosition();
+        Vector3 playerPosition = checkPoint.transform.position;
         CheckPoint lastCheckPoint = unit.GetLastCheckPoint();
 
         SaveObject saveObject = new SaveObject

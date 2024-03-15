@@ -14,7 +14,7 @@ public class CheckPoint : MonoBehaviour
 
             if (unit.GetLastCheckPoint() != this)
             {
-                handler.SaveProcess();
+                handler.SaveProcess(this);
             }
         }
     }

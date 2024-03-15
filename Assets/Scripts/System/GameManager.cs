@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SaveHandler saveHandler;
     [SerializeField] private GameObject pausePanel;
     private bool pause;
-    // Start is called before the first frame update
+    public bool elementalWheelSlowDown;
     void Start()
     {
         saveHandler.OnLoad += SaveHandler_OnLoad;
@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
         UnPause();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (UserInput.instance.controls.Interact.Pause.WasPressedThisFrame() && !pause)
@@ -63,5 +62,16 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false);
 
         Time.timeScale = 1f;
+
+        if (elementalWheelSlowDown)
+        {
+            Time.timeScale = 0.2f;
+        }
     }
+    
+    public void RestartStage()
+    {
+
+    }
+    
 }
