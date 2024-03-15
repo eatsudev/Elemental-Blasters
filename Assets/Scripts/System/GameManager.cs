@@ -6,12 +6,13 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-
     [SerializeField] private Player player;
     [SerializeField] private SaveHandler saveHandler;
     [SerializeField] private GameObject pausePanel;
+
     private bool pause;
     public bool elementalWheelSlowDown;
+
     void Start()
     {
         saveHandler.OnLoad += SaveHandler_OnLoad;
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {
         Animator[] allAnimator = GameObject.FindObjectsOfType<Animator>();
 
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0f;
     }
-    private void UnPause()
+    public void UnPause()
     {
         Animator[] allAnimator = GameObject.FindObjectsOfType<Animator>();
 
@@ -68,10 +69,18 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0.2f;
         }
     }
+
     
     public void RestartStage()
     {
 
     }
     
+
+
+    public void ElementalWheelPause()
+    {
+
+    }
+
 }

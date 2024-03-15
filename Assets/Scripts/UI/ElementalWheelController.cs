@@ -34,7 +34,7 @@ public class ElementalWheelController : MonoBehaviour
                 WheelResume();
             }
         }
-        
+
         switch (elementID)
         {
             case 0:

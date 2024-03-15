@@ -10,6 +10,7 @@ public class PlayerAimAndShoot : MonoBehaviour
 {
     [SerializeField] private GameObject gun;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject fireProjectile;
     [SerializeField] private Transform bulletSpawnPoint;
     private Player player;
     private GameObject bulletInst;
