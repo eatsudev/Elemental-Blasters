@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SaveHandler handler;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
+        IUnit unit;
+        if (collision.gameObject.GetComponent<IUnit>() != null)
+        {
+            unit = collision.gameObject.GetComponent<IUnit>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (unit.GetLastCheckPoint() != this)
+            {
+                handler.SaveProcess();
+            }
+        }
     }
 }

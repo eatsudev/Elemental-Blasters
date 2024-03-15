@@ -381,6 +381,15 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9ba75e1-ed31-4d9b-b5d4-98454791e770"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -403,6 +412,28 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ElementalWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3dfd57d-da52-41bd-969b-67573d6959b2"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a800809-1320-4c65-9900-ddfb5aa55239"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -440,6 +471,7 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         // Interact
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_ElementalWheel = m_Interact.FindAction("ElementalWheel", throwIfNotFound: true);
+        m_Interact_Pause = m_Interact.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -648,11 +680,13 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     private readonly InputActionMap m_Interact;
     private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
     private readonly InputAction m_Interact_ElementalWheel;
+    private readonly InputAction m_Interact_Pause;
     public struct InteractActions
     {
         private @InputKeyboardController m_Wrapper;
         public InteractActions(@InputKeyboardController wrapper) { m_Wrapper = wrapper; }
         public InputAction @ElementalWheel => m_Wrapper.m_Interact_ElementalWheel;
+        public InputAction @Pause => m_Wrapper.m_Interact_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Interact; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -665,6 +699,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             @ElementalWheel.started += instance.OnElementalWheel;
             @ElementalWheel.performed += instance.OnElementalWheel;
             @ElementalWheel.canceled += instance.OnElementalWheel;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IInteractActions instance)
@@ -672,6 +709,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             @ElementalWheel.started -= instance.OnElementalWheel;
             @ElementalWheel.performed -= instance.OnElementalWheel;
             @ElementalWheel.canceled -= instance.OnElementalWheel;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IInteractActions instance)
@@ -732,5 +772,6 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     public interface IInteractActions
     {
         void OnElementalWheel(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

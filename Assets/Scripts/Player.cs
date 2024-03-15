@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IUnit
 {
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 5f;
@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D coll;
     private float moveInput;
-    private bool isFacingRight = true;
+    private CheckPoint lastCheckPoint;
 
+
+    private bool isFacingRight = true;
     private bool isJumping;
     private bool isFalling;
     private float jumpTimeCounter;
@@ -118,5 +120,22 @@ public class Player : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+    public CheckPoint GetLastCheckPoint()
+    {
+        return lastCheckPoint;
+    }
+    public void SetCheckPoint(CheckPoint checkPoint)
+    {
+        lastCheckPoint = checkPoint;
     }
 }

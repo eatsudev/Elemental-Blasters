@@ -11,6 +11,7 @@ public class UserInput : MonoBehaviour
     [HideInInspector] public bool attack;
     [HideInInspector] public bool enterAim;
     [HideInInspector] public bool elementalWheel;
+    [HideInInspector] public bool pause;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class UserInput : MonoBehaviour
         controls.attack.Attack.performed += ctx => attack = ctx.ReadValueAsButton();
         controls.attack.EnterAimMode.performed += ctx => enterAim = ctx.ReadValueAsButton();
         controls.Interact.ElementalWheel.performed += ctx => elementalWheel = ctx.ReadValueAsButton();
+        controls.Interact.Pause.performed += ctx => pause = ctx.ReadValueAsButton();
     }
 
     private void OnEnable()
