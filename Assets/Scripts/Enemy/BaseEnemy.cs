@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BaseEnemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float maxHP = 5f;
+    [SerializeField] private int maxHP = 5;
     [SerializeField] private int damage;
-    private float currHealth;
+    public int currHealth;
 
     private bool isDead;
 
-    private void Start()
+    void Start()
     {
         currHealth = maxHP;
     }
@@ -20,20 +20,25 @@ public class BaseEnemy : MonoBehaviour, IDamageable
     {
         
     }
+    
+    public int MaxHP()
+    {
+        return maxHP;
+    }
 
     public int Damage()
     {
         return damage;
     }
 
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         currHealth -= damageAmount;
         if (currHealth < 0)
         {
             currHealth = 0;
-            Destroy(gameObject);
             Debug.Log("dead");
+            Destroy(gameObject);
         }
             
     }

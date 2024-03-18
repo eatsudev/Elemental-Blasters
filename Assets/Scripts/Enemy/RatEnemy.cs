@@ -16,6 +16,7 @@ public class RatEnemy : BaseEnemy
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        currHealth = MaxHP();
     }
 
     // Update is called once per frame
