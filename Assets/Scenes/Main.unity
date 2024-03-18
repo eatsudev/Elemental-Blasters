@@ -1287,6 +1287,7 @@ GameObject:
   - component: {fileID: 441698339}
   - component: {fileID: 441698338}
   - component: {fileID: 441698337}
+  - component: {fileID: 441698341}
   m_Layer: 8
   m_Name: enemy
   m_TagString: Untagged
@@ -1408,6 +1409,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &441698341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441698336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f057556279741d41b3db1f04485cbfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &460027231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1724,7 @@ GameObject:
   - component: {fileID: 585571185}
   - component: {fileID: 585571184}
   - component: {fileID: 585571183}
+  - component: {fileID: 585571190}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1753,6 +1767,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 2054720311}
   bullet: {fileID: 3318671626925132455, guid: 2c0e6ac8cb70ab449a86be0118329310, type: 3}
+  fireProjectile: {fileID: 0}
+  waterProjectile: {fileID: 0}
+  dirtProjectile: {fileID: 0}
+  shockProjectile: {fileID: 0}
+  windProjectile: {fileID: 0}
   bulletSpawnPoint: {fileID: 2129550851}
 --- !u!114 &585571185
 MonoBehaviour:
@@ -1773,7 +1792,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 0}
+  anim: {fileID: 585571183}
 --- !u!50 &585571186
 Rigidbody2D:
   serializedVersion: 4
@@ -1889,6 +1908,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &585571190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585571182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed9c9255690ad244a65486424be4205, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  Dead: {fileID: 0}
+  animator: {fileID: 585571183}
 --- !u!1 &634767098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,8 +3163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
   attack: 0
+  fire: 0
   enterAim: 0
   elementalWheel: 0
+  pause: 0
 --- !u!4 &1215108822
 Transform:
   m_ObjectHideFlags: 0
@@ -3937,6 +3973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e85d078164d22641b1645fa62d90f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elementID: 0
   animator: {fileID: 1642234296}
   selectedItem: {fileID: 0}
   noImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
