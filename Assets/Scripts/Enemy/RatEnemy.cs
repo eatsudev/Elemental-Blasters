@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RatEnemy : BaseEnemy
+public class RatEnemy : BaseEnemy, IDamageable
 {
     [SerializeField] private float explosionRange;
     [SerializeField] private float speed;
@@ -19,7 +19,7 @@ public class RatEnemy : BaseEnemy
         currHealth = MaxHP();
     }
 
-    // Update is called once per frame
+    // Update is called once per frames
     void Update()
     {
         if (isActive)

@@ -64,8 +64,9 @@ public class FireBehaviour : MonoBehaviour
             if (iDamageable != null)
             {
                 iDamageable.TakeDamage((int)damage);
+                Debug.Log(damage);
             }
-
+            Debug.Log("Hit something");
             //Destroy bullet
             Destroy(gameObject);
         }

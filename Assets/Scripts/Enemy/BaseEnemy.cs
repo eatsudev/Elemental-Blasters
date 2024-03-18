@@ -34,7 +34,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable
     public void TakeDamage(int damageAmount)
     {
         currHealth -= damageAmount;
-        if (currHealth < 0)
+        if (currHealth <= 0)
         {
             currHealth = 0;
             Debug.Log("dead");
