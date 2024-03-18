@@ -157,10 +157,6 @@ public class Player : MonoBehaviour, IUnit
         isSliding = false;
     }*/
 
-    public void TakeDamage(float damage)
-    {
-
-    }
 
     public Vector3 GetPosition()
     {
