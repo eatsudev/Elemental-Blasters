@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   damage: 25
+  currHealth: 0
   explosionRange: 5
   speed: 5
   aggroColider: {fileID: 1392583309532350150}

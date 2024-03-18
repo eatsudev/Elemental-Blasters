@@ -5,15 +5,15 @@ using UnityEngine;
 public class FireBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalFireSpeed = 15f;
-    [SerializeField] private float normalFireDamage = 1f;
+    [SerializeField] private int normalFireDamage = 1;
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysFire;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
-    [SerializeField] private float physicsFireDamage = 2f;
+    [SerializeField] private int physicsFireDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
 
     private Rigidbody2D rb;
-    private float damage;
+    private int damage;
 
     public enum BulletType
     {
