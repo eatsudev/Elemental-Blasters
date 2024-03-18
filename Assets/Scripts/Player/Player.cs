@@ -9,6 +9,8 @@ public class Player : MonoBehaviour, IUnit
     [SerializeField] private float jumpTime = 0.5f;
     [SerializeField] private float extraHeight = 0.25f;
     [SerializeField] private LayerMask whatIsGround;
+    [SerializeField] private AudioSource walkingSFX;
+    [SerializeField] private AudioSource jumpSFX;
     public Animator anim;
     private Rigidbody2D rb;
     private Collider2D coll;
@@ -51,6 +53,18 @@ public class Player : MonoBehaviour, IUnit
         isMoving = Mathf.Abs(moveInput) > 0.1f;
         anim.SetFloat("Speed", Mathf.Abs(moveInput));
 
+        if (isMoving && IsGrounded())
+        {
+            if (!walkingSFX.isPlaying)
+            {
+                walkingSFX.Play();
+            }
+        }
+        else
+        {
+            walkingSFX.Stop();
+        }
+
         if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
         {
             //Flip();
@@ -89,6 +103,7 @@ public class Player : MonoBehaviour, IUnit
             jumpTimeCounter = jumpTime;
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             anim.SetBool("Jumping", true);
+            jumpSFX.Play();
         }
 
         if (UserInput.instance.controls.jumping.Jump.IsPressed())
