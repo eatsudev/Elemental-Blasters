@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        health = MAX_HEALTH;
         //hpCounter = GameObject.FindGameObjectWithTag("Canvas").GetComponent<HPCounter>();
 
         /*if (hpCounter == null)

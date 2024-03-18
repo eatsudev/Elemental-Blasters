@@ -52,6 +52,7 @@ public class RatEnemy : BaseEnemy
             if(hit.transform.gameObject.GetComponent<PlayerHealth>() != null)
             {
                 hit.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(Damage());
+                Debug.Log(Damage());
             }
             
         }
