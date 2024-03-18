@@ -63,7 +63,7 @@ public class FireBehaviour : MonoBehaviour
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
             if (iDamageable != null)
             {
-                iDamageable.TakeDamage(damage);
+                iDamageable.TakeDamage((int)damage);
             }
 
             //Destroy bullet
