@@ -35,6 +35,15 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slide"",
+                    ""type"": ""Button"",
+                    ""id"": ""b165ebea-ae0c-43df-8e99-48078da997c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -257,6 +266,28 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5f05c3a1-e35c-498b-b8a8-3fdef13a4359"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c199d38e-0058-4202-9700-efa5613eeded"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -481,6 +512,7 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
         // movement
         m_movement = asset.FindActionMap("movement", throwIfNotFound: true);
         m_movement_Move = m_movement.FindAction("Move", throwIfNotFound: true);
+        m_movement_Slide = m_movement.FindAction("Slide", throwIfNotFound: true);
         // jumping
         m_jumping = asset.FindActionMap("jumping", throwIfNotFound: true);
         m_jumping_Jump = m_jumping.FindAction("Jump", throwIfNotFound: true);
@@ -555,11 +587,13 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     private readonly InputActionMap m_movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_movement_Move;
+    private readonly InputAction m_movement_Slide;
     public struct MovementActions
     {
         private @InputKeyboardController m_Wrapper;
         public MovementActions(@InputKeyboardController wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_movement_Move;
+        public InputAction @Slide => m_Wrapper.m_movement_Slide;
         public InputActionMap Get() { return m_Wrapper.m_movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -572,6 +606,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Slide.started += instance.OnSlide;
+            @Slide.performed += instance.OnSlide;
+            @Slide.canceled += instance.OnSlide;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -579,6 +616,9 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Slide.started -= instance.OnSlide;
+            @Slide.performed -= instance.OnSlide;
+            @Slide.canceled -= instance.OnSlide;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -788,6 +828,7 @@ public partial class @InputKeyboardController: IInputActionCollection2, IDisposa
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnSlide(InputAction.CallbackContext context);
     }
     public interface IJumpingActions
     {

@@ -23,21 +23,27 @@ public class Player : MonoBehaviour, IUnit
     private bool isMoving;
     private RaycastHit2D groundHit;
 
+    private bool isSliding;
+    [SerializeField] private float slideSpeed;
+    [SerializeField] private float slideTime;
+    private float slideTimer;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
+        isSliding = false;
+        slideTimer = slideTime;
     }
 
     private void Update()
     {
         Move();
         Jump();
+
+
     }
-
-
-
     private void Move()
     {
         moveInput = UserInput.instance.moveInput.x;
@@ -115,11 +121,45 @@ public class Player : MonoBehaviour, IUnit
         {
             return true;
         }
-
         else
         {
             return false;
         }
+    }
+
+    /*private void Slide()
+    {
+        if (isSliding)
+        {
+            StartSlide();
+        }
+        else
+        {
+            isSliding = true;
+        }
+    }
+
+    private void StartSlide()
+    {
+        Vector2 inputDirection = new Vector2 (UserInput.instance.moveInput.x, rb.velocity.y);
+
+        rb.AddForce(inputDirection * slideSpeed, ForceMode2D.Impulse);
+
+        slideTimer -= Time.deltaTime;
+
+        if (slideTimer <= 0 || Mathf.Abs(rb.velocity.x) <= 0.1f)
+        {
+            stopSlide();
+        }
+    }
+    private void stopSlide()
+    {
+        isSliding = false;
+    }*/
+
+    public void TakeDamage(float damage)
+    {
+
     }
 
     public Vector3 GetPosition()

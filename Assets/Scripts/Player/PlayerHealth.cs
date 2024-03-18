@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    public void Damage(int amount)
+    public void TakeDamage(int amount)
     {
         if (amount < 0)
         {

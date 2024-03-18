@@ -510,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
+  slide: 0
   attack: 0
   fire: 0
   enterAim: 0
@@ -4288,6 +4289,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   anim: {fileID: 1609964782}
+  slideSpeed: 0
+  slideTime: 0
 --- !u!114 &1609964781
 MonoBehaviour:
   m_ObjectHideFlags: 0
