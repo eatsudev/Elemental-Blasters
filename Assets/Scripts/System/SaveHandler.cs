@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SaveHandler : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class SaveHandler : MonoBehaviour
     {
         unit = unitGameObject.GetComponent<IUnit>();
         SaveSystem.Init();
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
     }
     
     public void SaveProcess(CheckPoint checkPoint)

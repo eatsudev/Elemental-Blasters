@@ -36,7 +36,6 @@ public class PlayerAimAndShoot : MonoBehaviour
     private void Update()
     {
         HandleGunRotation();
-        HandleGunShooting();
         HandleElementalShooting();
 
         //Debug.Log(wheelController.elementID);
@@ -75,7 +74,7 @@ public class PlayerAimAndShoot : MonoBehaviour
         }
     }
 
-    private void HandleGunShooting()
+    /*private void HandleGunShooting()
     {
         // Enable or disable the gun based on the player's movement
         gun.SetActive(!player.IsMoving());
@@ -85,11 +84,12 @@ public class PlayerAimAndShoot : MonoBehaviour
             GameObject bulletInst = Instantiate(bullet, bulletSpawnPoint.position, gun.transform.rotation);
         }
         
-    }
+    }*/
 
     private void HandleElementalShooting()
     {
-        if (Mouse.current.rightButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
+        gun.SetActive(!player.IsMoving());
+        if (Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
         {
 
             Debug.Log(wheelController.elementID);

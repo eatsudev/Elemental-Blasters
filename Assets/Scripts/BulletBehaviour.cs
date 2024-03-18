@@ -5,12 +5,17 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalBulletSpeed = 15f;
+    [SerializeField] private float normalBulletDamage = 1f;
+
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysBullet;
+
     [SerializeField] private float physicsBulletSpeed = 17.5f;
+    [SerializeField] private float physicsBulletDamage = 2f;
     [SerializeField] private float physicsBulletGravity = 3f;
 
     private Rigidbody2D rb;
+    private float damage;
 
     public enum BulletType
     {
@@ -40,10 +45,12 @@ public class BulletBehaviour : MonoBehaviour
         if(bulletType == BulletType.Normal)
         {
             SetStraightVelocity();
+            //damage = normalBulletDamage;
         }
         else if (bulletType == BulletType.Physics)
         {
             SetPhysicsVelocity();
+            //damage = physicsBulletDamage;
         }
     }
 
@@ -55,6 +62,11 @@ public class BulletBehaviour : MonoBehaviour
             //SFX
 
             //Damage Enemy
+            /*IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
+            if(iDamageable != null)
+            {
+                iDamageable.Damage(damage);
+            }*/
 
             //Destroy bullet
             Destroy(gameObject);

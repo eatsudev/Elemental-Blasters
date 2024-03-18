@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ScrollingBackground : MonoBehaviour
 {
-    public float speed;
-    [SerializeField] private Renderer backgroundRenderer;
+    public float backgroundSpeed;
+    public Renderer backgroundRenderer;
     void Update()
     {
-        backgroundRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
-        //backgroundRenderer.material.mainTextureOffset += new Vector2(0, Time.deltaTime * speed);
+        backgroundRenderer.material.mainTextureOffset += new Vector2(backgroundSpeed * Time.deltaTime, 0f);
     }
 }

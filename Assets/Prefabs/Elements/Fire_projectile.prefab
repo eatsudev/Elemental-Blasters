@@ -137,10 +137,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalFireSpeed: 15
+  normalFireDamage: 25
   destroyTime: 3
   whatDestroysFire:
     serializedVersion: 2
     m_Bits: 320
   physicsBulletSpeed: 17.5
+  physicsFireDamage: 25
   physicsBulletGravity: 3
   bulletType: 1
