@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7938059682490705996}
   - component: {fileID: 7655813205255948413}
   - component: {fileID: 6591967973546818398}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7934020384442298708}
   - component: {fileID: 7934020384442298711}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

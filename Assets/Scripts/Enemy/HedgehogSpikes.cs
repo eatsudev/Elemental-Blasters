@@ -38,7 +38,7 @@ public class HedgehogSpikes : MonoBehaviour
             collision.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(parent.Damage());
         }
         
-        if(collision.transform.gameObject.layer != this.gameObject.layer)
+        if(collision.transform.gameObject.layer.Equals(parent.enemyLayer))
         {
             Destroy(gameObject);
         }  
