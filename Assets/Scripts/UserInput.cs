@@ -22,7 +22,6 @@ public class UserInput : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-
         else
         {
             Destroy(gameObject);

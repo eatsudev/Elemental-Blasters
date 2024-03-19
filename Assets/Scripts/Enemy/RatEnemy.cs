@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RatEnemy : BaseEnemy, IDamageable
+public class RatEnemy : BaseEnemy
 {
     [SerializeField] private float explosionRange;
     [SerializeField] private float speed;
@@ -62,9 +62,12 @@ public class RatEnemy : BaseEnemy, IDamageable
             if(hit.transform.gameObject.GetComponent<PlayerHealth>() != null)
             {
                 hit.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(Damage());
-                Debug.Log(Damage());
+
+                Vector2 dir = (hit.transform.position - transform.position).normalized;
+
+                hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition(dir * 30f, hit.transform.position, ForceMode2D.Impulse);
+                Debug.Log(dir);
             }
-            
         }
         
         Destroy(gameObject);

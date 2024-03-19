@@ -12,7 +12,8 @@ public class GorillaEnemy : BaseEnemy
     private bool isActive;
     void Start()
     {
-        
+        rb2d = GetComponent<Rigidbody2D>();
+        currHealth = MaxHP();
     }
 
     // Update is called once per frame
@@ -22,6 +23,7 @@ public class GorillaEnemy : BaseEnemy
         {
             CheckAgro();
         }
+
     }
 
     private void TargetPosition(Vector2 targetPos)
