@@ -14,7 +14,7 @@ public class HedgehogEnemy : BaseEnemy
 
     public CircleCollider2D rangeCollider;
     public LayerMask playerLayer;
-    public LayerMask enemyLayer;
+    public LayerMask notDestroyable;
 
     private Rigidbody2D rb2d;
     private GameObject spawnedSpikes;

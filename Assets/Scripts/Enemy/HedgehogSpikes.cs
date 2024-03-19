@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class HedgehogSpikes : MonoBehaviour
 {
@@ -38,7 +39,7 @@ public class HedgehogSpikes : MonoBehaviour
             collision.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(parent.Damage());
         }
         
-        if(collision.transform.gameObject.layer.Equals(parent.enemyLayer))
+        if(!((parent.notDestroyable.value & (1 << collision.gameObject.layer)) > 0))
         {
             Destroy(gameObject);
         }  
