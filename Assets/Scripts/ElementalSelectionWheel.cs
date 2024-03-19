@@ -15,6 +15,7 @@ public class ElementalSelectionWheel : MonoBehaviour
     private ElementalWheelController controller;
     private Animator animator;
     private bool selected = false;
+    [SerializeField] private AudioSource elementPressedSFX;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class ElementalSelectionWheel : MonoBehaviour
     {
         selected = true;
         controller.elementID = ID;
+        elementPressedSFX.Play();
     }
     public void Deselected()
     {
