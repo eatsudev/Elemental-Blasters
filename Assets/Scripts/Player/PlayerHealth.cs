@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private bool isDead = false;
     public Animator animator;
     [SerializeField] private AudioSource playerHitSFX;
-
+    public static PlayerHealth Instance { get; private set; }
     private int MAX_HEALTH = 100;
 
     void Start()
@@ -30,6 +30,12 @@ public class PlayerHealth : MonoBehaviour
         {
             Heal(10);
         }
+    }
+
+    private void Awake()
+    {
+        // Set the static instance reference when the object is instantiated
+        Instance = this;
     }
 
     private IEnumerator VisualIndicator(Color color)
@@ -103,7 +109,7 @@ public class PlayerHealth : MonoBehaviour
         return health;
     }
 
-    private void Die()
+    public void Die()
     {
         if (!isDead)
         {
