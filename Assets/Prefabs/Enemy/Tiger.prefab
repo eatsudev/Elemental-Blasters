@@ -107,7 +107,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  animator: {fileID: 0}
+  animator: {fileID: 1145573790}
 --- !u!95 &1145573790
 Animator:
   serializedVersion: 5
