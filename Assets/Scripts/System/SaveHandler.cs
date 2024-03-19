@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class SaveHandler : MonoBehaviour
 {
     public event EventHandler OnLoad;
+    //public GameObject deadScreen;
 
     public static SaveHandler instance;
     [SerializeField] private GameObject unitGameObject;
@@ -32,6 +33,7 @@ public class SaveHandler : MonoBehaviour
     {
         Load();
         OnLoad?.Invoke(this, EventArgs.Empty);
+        //deadScreen.SetActive(false);
     }
 
     private void Save(CheckPoint checkPoint)

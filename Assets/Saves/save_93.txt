@@ -1,0 +1,1 @@
+{"playerPosition":{"x":-4.809999942779541,"y":-0.07999999821186066,"z":0.0},"checkPoint":{"instanceID":0}}

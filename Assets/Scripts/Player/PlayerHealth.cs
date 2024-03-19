@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject Dead;
     private bool isDead = false;
     public Animator animator;
+    [SerializeField] private AudioSource playerHitSFX;
 
     private int MAX_HEALTH = 100;
 
@@ -47,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
         this.health -= amount;
         StartCoroutine(VisualIndicator(Color.red));
+        playerHitSFX.Play();
 
         if (health <= 0)
         {
@@ -107,15 +109,15 @@ public class PlayerHealth : MonoBehaviour
         {
             isDead = true;
             Debug.Log("Player dead!");
-            //StartCoroutine(DeathPauseAndShowUI());
+            StartCoroutine(DeathPauseAndShowUI());
         }
     }
 
-    /*private IEnumerator DeathPauseAndShowUI()
+    private IEnumerator DeathPauseAndShowUI()
     {
         Dead.SetActive(true);
         Time.timeScale = 0f;
         yield return new WaitForSeconds(3.0f);
         Time.timeScale = 1f;
-    }*/
+    }
 }

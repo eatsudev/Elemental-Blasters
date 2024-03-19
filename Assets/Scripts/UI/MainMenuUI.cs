@@ -19,10 +19,12 @@ public class MainMenuUI : MonoBehaviour
     public void BackButton()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1.0f;
     }
 
     public void CreditsButton()
     {
         SceneManager.LoadScene("Credits");
+        Time.timeScale = 1.0f;
     }
 }
