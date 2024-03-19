@@ -11,7 +11,7 @@ public class ShockBehaviour : MonoBehaviour
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsShockDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
-
+    [SerializeField] private AudioSource shockTriggerSFX;
     private Rigidbody2D rb;
     private int damage;
     public enum BulletType
@@ -57,7 +57,7 @@ public class ShockBehaviour : MonoBehaviour
         if ((whatDestroysShock.value & (1 << collision.gameObject.layer)) > 0)
         {
             //SFX
-
+            shockTriggerSFX.Play();
             //Explosion Animation
             Animator animator = GetComponent<Animator>();
             if (animator != null)

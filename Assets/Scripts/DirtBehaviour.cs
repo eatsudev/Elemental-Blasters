@@ -11,7 +11,7 @@ public class DirtBehaviour : MonoBehaviour
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsDirtDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
-
+    [SerializeField] private AudioSource earthTriggerSFX;
     private Rigidbody2D rb;
     private int damage;
 
@@ -58,6 +58,16 @@ public class DirtBehaviour : MonoBehaviour
         if ((whatDestroysDirt.value & (1 << collision.gameObject.layer)) > 0)
         {
             //SFX
+            earthTriggerSFX.Play();
+            //Explosion Animation
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetTrigger("Explode");
+            }
+
+            // Wait for the duration of the explosion animation
+            StartCoroutine(DestroyAfterDelay(0.5f));
 
             //Damage Enemy
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
@@ -67,10 +77,15 @@ public class DirtBehaviour : MonoBehaviour
                 Debug.Log(damage);
             }
             Debug.Log("Hit something");
-
-            //Destroy bullet
-            Destroy(gameObject);
         }
+    }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Destroy bullet
+        Destroy(gameObject);
     }
 
     private void SetStraightVelocity()

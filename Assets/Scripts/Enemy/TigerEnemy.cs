@@ -37,7 +37,7 @@ public class TigerEnemy : BaseEnemy
         if (targetPos != null && isChasing && !PlayerInSight())
         {
             MoveToTargetPosition();
-
+            animator.SetTrigger("Attack");
         }
 
         if (PlayerInSight())

@@ -16,6 +16,7 @@ public class PlayerAimAndShoot : MonoBehaviour
     [SerializeField] private GameObject shockProjectile;
     [SerializeField] private GameObject windProjectile;
     [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private AudioSource shootSFX;
     private Player player;
     private ElementalWheelController wheelController;
     
@@ -91,6 +92,8 @@ public class PlayerAimAndShoot : MonoBehaviour
         gun.SetActive(!player.IsMoving());
         if (Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
         {
+            //sfx
+            shootSFX.Play();
 
             Debug.Log(wheelController.elementID);
             if (wheelController.GetElementID() == 1)

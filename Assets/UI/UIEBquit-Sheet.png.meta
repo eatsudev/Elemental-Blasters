@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f705becc751bfe74882703254fb10966
+guid: 91349057d242c294a821efb9fbc10ccb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: windexplode_0
+      name: UIEBquit-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 200
-        height: 200
+        x: 8
+        y: 8
+        width: 784
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +107,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8d2e6dfba126345bfadfb568fe0456
-      internalID: -113128451
+      spriteID: 099e622703f5cf7469f209aec285789d
+      internalID: 199895762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: windexplode_1
+      name: UIEBquit-Sheet_1
       rect:
         serializedVersion: 2
-        x: 200
-        y: 0
-        width: 200
-        height: 200
+        x: 808
+        y: 8
+        width: 784
+        height: 288
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,71 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00c9c5d124fcf934fbaa066894346217
-      internalID: -10846872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: windexplode_2
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 0
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6d501d8ce94860a42b99f683759472c2
-      internalID: 1217685533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: windexplode_3
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 0
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74ec003800b273841907c6517319ed44
-      internalID: -1899055679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: windexplode_4
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 0
-        width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a52d8c88d9120ac40b3695edb666d861
-      internalID: 1402664636
+      spriteID: f6d471cda17ccf846880b93c1207c677
+      internalID: -1362718170
       vertices: []
       indices: 
       edges: []
@@ -208,11 +145,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      windexplode_0: -113128451
-      windexplode_1: -10846872
-      windexplode_2: 1217685533
-      windexplode_3: -1899055679
-      windexplode_4: 1402664636
+      UIEBquit-Sheet_0: 199895762
+      UIEBquit-Sheet_1: -1362718170
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

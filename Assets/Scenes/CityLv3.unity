@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ddef95bbb2a8ee9499021a4de0b59756, type: 3}
+  m_Sprite: {fileID: 1326282446, guid: ad319c7d7f8f09d47be79c05e7cae96c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4273,7 +4273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e52e1d9d702b6d4e9600c8beb48774d, type: 3}
+  m_Sprite: {fileID: -1697747054, guid: fd266e4f249a18b468fdffaab9ddd2ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5711,7 +5711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: be19a747484306c46a7751c64be8f774, type: 3}
+  m_Sprite: {fileID: -1177933515, guid: 363f5a0f7cdca4c499bf0dc26a856e53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7327,6 +7327,7 @@ GameObject:
   - component: {fileID: 1609964784}
   - component: {fileID: 1609964786}
   - component: {fileID: 1609964787}
+  - component: {fileID: 1609964788}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -7493,6 +7494,7 @@ MonoBehaviour:
   shockProjectile: {fileID: 4110420286078289652, guid: ee0b5aa5b11aaa3459cb7d606eb84b59, type: 3}
   windProjectile: {fileID: 4110420286078289652, guid: d54c7ac2d889d0646a2839c9155c0d53, type: 3}
   bulletSpawnPoint: {fileID: 829492372}
+  shootSFX: {fileID: 1609964788}
 --- !u!95 &1609964782
 Animator:
   serializedVersion: 5
@@ -7530,6 +7532,7 @@ MonoBehaviour:
   Dead: {fileID: 2041115202}
   animator: {fileID: 1609964782}
   playerHitSFX: {fileID: 1609964786}
+  MAX_HEALTH: 100
 --- !u!82 &1609964784
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7831,6 +7834,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgmGameObject: {fileID: 2133907865}
+--- !u!82 &1609964788
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609964775}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 93cc8a1eb144a724eb5ae65005027587, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.404
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1616400793
 GameObject:
   m_ObjectHideFlags: 0

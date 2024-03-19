@@ -11,6 +11,7 @@ public class WaterBehaviour : MonoBehaviour
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsWaterDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
+    [SerializeField] private AudioSource waterTriggerSFX;
 
     private int damage;
     private Rigidbody2D rb;
@@ -58,7 +59,7 @@ public class WaterBehaviour : MonoBehaviour
         if ((whatDestroysWater.value & (1 << collision.gameObject.layer)) > 0)
         {
             //SFX
-
+            waterTriggerSFX.Play();
             //Explosion Animation
             Animator animator = GetComponent<Animator>();
             if (animator != null)

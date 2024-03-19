@@ -12,6 +12,9 @@ public class WindBehaviour : MonoBehaviour
     [SerializeField] private int physicsWindDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
 
+    [SerializeField] private float impactForce = 5f;
+
+    [SerializeField] private AudioSource windTriggerSFX;
     private Rigidbody2D rb;
     private int damage;
 
@@ -21,6 +24,7 @@ public class WindBehaviour : MonoBehaviour
         Physics
     }
     public BulletType bulletType;
+    
 
     private void Start()
     {
@@ -58,7 +62,7 @@ public class WindBehaviour : MonoBehaviour
         if ((whatDestroysWind.value & (1 << collision.gameObject.layer)) > 0)
         {
             //SFX
-
+            windTriggerSFX.Play();
             //Explosion Animation
             Animator animator = GetComponent<Animator>();
             if (animator != null)
@@ -77,6 +81,13 @@ public class WindBehaviour : MonoBehaviour
                 Debug.Log(damage);
             }
             Debug.Log("Hit something");
+
+            Rigidbody2D enemyRb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (enemyRb != null)
+            {
+                Vector2 forceDirection = (collision.transform.position - transform.position).normalized;
+                enemyRb.AddForce(forceDirection * impactForce, ForceMode2D.Impulse);
+            }
 
         }
     }

@@ -12,6 +12,7 @@ public class FireBehaviour : MonoBehaviour
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsFireDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
+    [SerializeField] private AudioSource fireTriggerSFX;
 
     private Rigidbody2D rb;
     private int damage;
@@ -60,6 +61,7 @@ public class FireBehaviour : MonoBehaviour
         if ((whatDestroysFire.value & (1 << collision.gameObject.layer)) > 0)
         {
             //sfx
+            fireTriggerSFX.Play();
 
             //Explosion Animation
             Animator animator = GetComponent<Animator>();

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6d60734043e09d541978e26ea67a20f5
+guid: e279f28214d2ff1468fb5917411b3a19
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thundee_0
+      name: UIEBresume2-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2944
-        height: 512
+        x: 8
+        y: 8
+        width: 640
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +107,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 951c716dafad768498c62db6f529d29e
-      internalID: 2126375405
+      spriteID: c8ce2b4b7a1b0d441989a19a846873d8
+      internalID: 1627747806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thundee_1
+      name: UIEBresume2-Sheet_1
       rect:
         serializedVersion: 2
-        x: 2944
-        y: 0
-        width: 2944
-        height: 512
+        x: 664
+        y: 8
+        width: 640
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,71 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19d573f9bc1205443959757948b8d819
-      internalID: -981436883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: thundee_2
-      rect:
-        serializedVersion: 2
-        x: 5888
-        y: 0
-        width: 2944
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dedabf4d74a2660469dfaee442074af7
-      internalID: 176353092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: thundee_3
-      rect:
-        serializedVersion: 2
-        x: 8832
-        y: 0
-        width: 2944
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d30b0932eb61f09498305c0b088efe8d
-      internalID: -917263670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: thundee_4
-      rect:
-        serializedVersion: 2
-        x: 11776
-        y: 0
-        width: 2944
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70b561c3c1cbd12428b4b4c301f0abfd
-      internalID: 128242645
+      spriteID: ad8872be595c89841a8f4ae7ff2c41ef
+      internalID: -1815556787
       vertices: []
       indices: 
       edges: []
@@ -208,11 +145,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      thundee_0: 2126375405
-      thundee_1: -981436883
-      thundee_2: 176353092
-      thundee_3: -917263670
-      thundee_4: 128242645
+      UIEBresume2-Sheet_0: 1627747806
+      UIEBresume2-Sheet_1: -1815556787
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
