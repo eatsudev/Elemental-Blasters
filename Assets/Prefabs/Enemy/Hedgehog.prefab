@@ -98,10 +98,11 @@ MonoBehaviour:
   maxHP: 100
   damage: 25
   currHealth: 0
-  spikePrefabs: {fileID: 4200730175279339206, guid: 35e786104fe30f34b8121d3319807fa5, type: 3}
+  spikePrefabs: {fileID: 7178897449923348324, guid: fce3d617af47a4d4890ab031d578921b, type: 3}
   lifetime: 5
   speed: 2
   attackCooldown: 3
+  numberOfSpikes: 6
   rangeCollider: {fileID: 352854074210410867}
   playerLayer:
     serializedVersion: 2
@@ -153,7 +154,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 5
 --- !u!1 &5878764546417237734
 GameObject:
   m_ObjectHideFlags: 0
