@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public Animator animator;
     [SerializeField] private AudioSource playerHitSFX;
     public static PlayerHealth Instance { get; private set; }
-    private int MAX_HEALTH = 100;
+    public int MAX_HEALTH = 100;
 
     void Start()
     {
