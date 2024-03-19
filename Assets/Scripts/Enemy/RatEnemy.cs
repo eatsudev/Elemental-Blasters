@@ -6,6 +6,7 @@ public class RatEnemy : BaseEnemy, IDamageable
 {
     [SerializeField] private float explosionRange;
     [SerializeField] private float speed;
+    [SerializeField] private float maxActiveTime;
 
     public BoxCollider2D aggroColider;
 
@@ -13,6 +14,7 @@ public class RatEnemy : BaseEnemy, IDamageable
     private Vector2 targetPos;
     private Rigidbody2D rb2d;
     private bool isActive;
+    private float activeTime;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -22,10 +24,22 @@ public class RatEnemy : BaseEnemy, IDamageable
     // Update is called once per frames
     void Update()
     {
+
         if (isActive)
         {
             MoveToPosition();
+            activeTime += Time.deltaTime;
+
+            if (transform.position.x > targetPos.x - 0.1f && transform.position.x < targetPos.x + 0.1f)
+            {
+                Explode();
+            }
         }
+
+        /*if(activeTime > maxActiveTime)
+        {
+            Explode();
+        }*/
     }
 
     private void MoveToPosition()
@@ -34,20 +48,15 @@ public class RatEnemy : BaseEnemy, IDamageable
         {
             rb2d.velocity = new Vector2(speed, 0f);
         }
-        else
+        else if (transform.position.x > targetPos.x)
         {
             rb2d.velocity = new Vector2(-speed, 0f);
-        }
-
-        if(transform.position.x > aggroColider.bounds.size.x)
-        {
-            Explode();
         }
     }
 
     private void Explode()
     {
-        RaycastHit2D[] ray = Physics2D.CircleCastAll(transform.position, 5, Vector2.zero);
+        RaycastHit2D[] ray = Physics2D.CircleCastAll(transform.position, explosionRange, Vector2.zero);
         foreach (RaycastHit2D hit in ray)
         {
             if(hit.transform.gameObject.GetComponent<PlayerHealth>() != null)
@@ -67,6 +76,7 @@ public class RatEnemy : BaseEnemy, IDamageable
         isActive = true;
         targetedPlayer = player;
         targetPos = player.transform.position;
+        activeTime = 0f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
