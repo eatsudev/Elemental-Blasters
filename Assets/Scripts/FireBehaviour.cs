@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class FireBehaviour : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class FireBehaviour : MonoBehaviour
         Physics
     }
     public BulletType bulletType;
+    private float explosionRadius;
 
     private void Start()
     {
@@ -57,7 +59,17 @@ public class FireBehaviour : MonoBehaviour
     {
         if ((whatDestroysFire.value & (1 << collision.gameObject.layer)) > 0)
         {
-            //SFX
+            //sfx
+
+            //Explosion Animation
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetTrigger("Explode");
+            }
+
+            // Wait for the duration of the explosion animation
+            StartCoroutine(DestroyAfterDelay(0.5f));
 
             //Damage Enemy
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
@@ -67,9 +79,16 @@ public class FireBehaviour : MonoBehaviour
                 Debug.Log(damage);
             }
             Debug.Log("Hit something");
-            //Destroy bullet
-            Destroy(gameObject);
+
         }
+    }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Destroy bullet
+        Destroy(gameObject);
     }
 
     private void SetStraightVelocity()

@@ -5,12 +5,15 @@ using UnityEngine;
 public class DirtBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalDirtSpeed = 15f;
+    [SerializeField] private int normalDirtDamage = 1;
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysDirt;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
+    [SerializeField] private int physicsDirtDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
 
     private Rigidbody2D rb;
+    private int damage;
 
     public enum BulletType
     {
@@ -40,10 +43,12 @@ public class DirtBehaviour : MonoBehaviour
         if (bulletType == BulletType.Normal)
         {
             SetStraightVelocity();
+            damage = normalDirtDamage;
         }
         else if (bulletType == BulletType.Physics)
         {
             SetPhysicsVelocity();
+            damage = physicsDirtDamage;
         }
     }
 
@@ -55,6 +60,13 @@ public class DirtBehaviour : MonoBehaviour
             //SFX
 
             //Damage Enemy
+            IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
+            if (iDamageable != null)
+            {
+                iDamageable.TakeDamage((int)damage);
+                Debug.Log(damage);
+            }
+            Debug.Log("Hit something");
 
             //Destroy bullet
             Destroy(gameObject);

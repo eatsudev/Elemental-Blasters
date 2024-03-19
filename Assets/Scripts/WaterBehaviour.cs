@@ -5,11 +5,14 @@ using UnityEngine;
 public class WaterBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalWaterSpeed = 15f;
+    [SerializeField] private int normalWaterDamage = 1;
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysWater;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
+    [SerializeField] private int physicsWaterDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
 
+    private int damage;
     private Rigidbody2D rb;
 
     public enum BulletType
@@ -40,10 +43,12 @@ public class WaterBehaviour : MonoBehaviour
         if (bulletType == BulletType.Normal)
         {
             SetStraightVelocity();
+            damage = normalWaterDamage;
         }
         else if (bulletType == BulletType.Physics)
         {
             SetPhysicsVelocity();
+            damage = physicsWaterDamage;
         }
     }
 
@@ -54,11 +59,34 @@ public class WaterBehaviour : MonoBehaviour
         {
             //SFX
 
-            //Damage Enemy
+            //Explosion Animation
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetTrigger("Explode");
+            }
 
-            //Destroy bullet
-            Destroy(gameObject);
+            // Wait for the duration of the explosion animation
+            StartCoroutine(DestroyAfterDelay(0.5f));
+
+            //Damage Enemy
+            IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
+            if (iDamageable != null)
+            {
+                iDamageable.TakeDamage((int)damage);
+                Debug.Log(damage);
+            }
+            Debug.Log("Hit something");
+
         }
+    }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Destroy bullet
+        Destroy(gameObject);
     }
 
     private void SetStraightVelocity()

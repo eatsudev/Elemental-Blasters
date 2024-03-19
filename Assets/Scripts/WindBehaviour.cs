@@ -5,12 +5,15 @@ using UnityEngine;
 public class WindBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalWindSpeed = 15f;
+    [SerializeField] private int normalWindDamage = 1;
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysWind;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
+    [SerializeField] private int physicsWindDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
 
     private Rigidbody2D rb;
+    private int damage;
 
     public enum BulletType
     {
@@ -40,10 +43,12 @@ public class WindBehaviour : MonoBehaviour
         if (bulletType == BulletType.Normal)
         {
             SetStraightVelocity();
+            damage = normalWindDamage;
         }
         else if (bulletType == BulletType.Physics)
         {
             SetPhysicsVelocity();
+            damage = physicsWindDamage;
         }
     }
 
@@ -54,11 +59,34 @@ public class WindBehaviour : MonoBehaviour
         {
             //SFX
 
-            //Damage Enemy
+            //Explosion Animation
+            Animator animator = GetComponent<Animator>();
+            if (animator != null)
+            {
+                animator.SetTrigger("Explode");
+            }
 
-            //Destroy bullet
-            Destroy(gameObject);
+            // Wait for the duration of the explosion animation
+            StartCoroutine(DestroyAfterDelay(0.5f));
+
+            //Damage Enemy
+            IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
+            if (iDamageable != null)
+            {
+                iDamageable.TakeDamage((int)damage);
+                Debug.Log(damage);
+            }
+            Debug.Log("Hit something");
+
         }
+    }
+
+    private IEnumerator DestroyAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Destroy bullet
+        Destroy(gameObject);
     }
 
     private void SetStraightVelocity()

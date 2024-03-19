@@ -31,6 +31,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable
         return damage;
     }
 
+
     public void TakeDamage(int damageAmount)
     {
         currHealth -= damageAmount;
