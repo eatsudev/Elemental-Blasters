@@ -3536,10 +3536,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1218057294, guid: ef66403ca1f1074489bd7c5dbe0cde1e, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 1392583308836435394, guid: ef66403ca1f1074489bd7c5dbe0cde1e, type: 3}
       propertyPath: m_Name
       value: Hedgehog

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218057295}
   - component: {fileID: 1218057296}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RangeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,9 +156,9 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  enemyLayer:
+  notDestroyable:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 896
 --- !u!1 &5878764546417237734
 GameObject:
   m_ObjectHideFlags: 0
