@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5450556762748363760}
   m_Layer: 7
   m_Name: Fire_projectile
-  m_TagString: Untagged
+  m_TagString: fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   destroyTime: 3
   whatDestroysFire:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 1344
   physicsBulletSpeed: 17.5
   physicsFireDamage: 25
   physicsBulletGravity: 3
