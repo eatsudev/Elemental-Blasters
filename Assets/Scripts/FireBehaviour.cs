@@ -7,7 +7,7 @@ public class FireBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalFireSpeed = 15f;
     [SerializeField] private int normalFireDamage = 1;
-    [SerializeField] private float destroyTime = 3f;
+    [SerializeField] private float destroyTime = 10f;
     [SerializeField] private LayerMask whatDestroysFire;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsFireDamage = 2;
@@ -69,9 +69,9 @@ public class FireBehaviour : MonoBehaviour
             {
                 animator.SetTrigger("Explode");
             }
-
+            rb.velocity = Vector2.zero;
             // Wait for the duration of the explosion animation
-            StartCoroutine(DestroyAfterDelay(0.5f));
+            StartCoroutine(DestroyAfterDelay(10f));
 
             //Damage Enemy
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();

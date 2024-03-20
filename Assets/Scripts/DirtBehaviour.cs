@@ -6,12 +6,13 @@ public class DirtBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalDirtSpeed = 15f;
     [SerializeField] private int normalDirtDamage = 1;
-    [SerializeField] private float destroyTime = 3f;
+    [SerializeField] private float destroyTime = 13f;
     [SerializeField] private LayerMask whatDestroysDirt;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsDirtDamage = 2;
     [SerializeField] private float physicsBulletGravity = 3f;
     [SerializeField] private AudioSource earthTriggerSFX;
+    [SerializeField] private GameObject earthPlatform;
     private Rigidbody2D rb;
     private int damage;
 
@@ -34,7 +35,8 @@ public class DirtBehaviour : MonoBehaviour
     {
         if (bulletType == BulletType.Normal)
         {
-            transform.right = rb.velocity;
+            //transform.right = rb.velocity;
+            transform.right = GetComponent<Rigidbody2D>().velocity;
         }
     }
 
@@ -66,8 +68,9 @@ public class DirtBehaviour : MonoBehaviour
                 animator.SetTrigger("Explode");
             }
 
-            // Wait for the duration of the explosion animation
-            StartCoroutine(DestroyAfterDelay(0.5f));
+            // Stop projectile movement and make collider
+            rb.velocity = Vector2.zero;
+            earthPlatform.SetActive(true);
 
             //Damage Enemy
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
@@ -77,6 +80,7 @@ public class DirtBehaviour : MonoBehaviour
                 Debug.Log(damage);
             }
             Debug.Log("Hit something");
+            //StartCoroutine(DestroyAfterDelay(13f));
         }
     }
 
@@ -90,12 +94,14 @@ public class DirtBehaviour : MonoBehaviour
 
     private void SetStraightVelocity()
     {
-        rb.velocity = transform.right * normalDirtSpeed;
+        //rb.velocity = transform.right * normalDirtSpeed;
+        GetComponent<Rigidbody2D>().velocity = transform.right * normalDirtSpeed;
     }
 
     private void SetPhysicsVelocity()
     {
-        rb.velocity = transform.right * physicsBulletSpeed;
+        //rb.velocity = transform.right * physicsBulletSpeed;
+        GetComponent<Rigidbody2D>().velocity = transform.right * physicsBulletSpeed;
     }
 
     private void SetDestroyTime()

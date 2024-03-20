@@ -6,7 +6,7 @@ public class WaterBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalWaterSpeed = 15f;
     [SerializeField] private int normalWaterDamage = 1;
-    [SerializeField] private float destroyTime = 3f;
+    [SerializeField] private float destroyTime = 2.3f;
     [SerializeField] private LayerMask whatDestroysWater;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
     [SerializeField] private int physicsWaterDamage = 2;
@@ -66,9 +66,9 @@ public class WaterBehaviour : MonoBehaviour
             {
                 animator.SetTrigger("Explode");
             }
-
+            rb.velocity = Vector2.zero;
             // Wait for the duration of the explosion animation
-            StartCoroutine(DestroyAfterDelay(0.5f));
+            StartCoroutine(DestroyAfterDelay(2.3f));
 
             //Damage Enemy
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();

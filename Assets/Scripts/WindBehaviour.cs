@@ -69,9 +69,9 @@ public class WindBehaviour : MonoBehaviour
             {
                 animator.SetTrigger("Explode");
             }
-
+            rb.velocity = Vector2.zero;
             // Wait for the duration of the explosion animation
-            StartCoroutine(DestroyAfterDelay(0.5f));
+            StartCoroutine(DestroyAfterDelay(2f));
 
             //Damage Enemy
             IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
