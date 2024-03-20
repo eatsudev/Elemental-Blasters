@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 1392583309532350145}
   - component: {fileID: 1392583309532350150}
   m_Layer: 0
-  m_Name: Agro
+  m_Name: HurtBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
