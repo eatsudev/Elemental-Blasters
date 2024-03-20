@@ -74,10 +74,6 @@ public class HedgehogEnemy : BaseEnemy
 
         PlayerHealth playerHealth = raycastHit2D.transform.gameObject.GetComponent<PlayerHealth>();
 
-        Debug.Log(raycastHit2D.transform.gameObject);
-
-        Debug.Log(playerHealth != null);
-
         return playerHealth != null;
     }
 }

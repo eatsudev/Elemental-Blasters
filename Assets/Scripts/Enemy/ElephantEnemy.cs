@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,19 +17,25 @@ public class ElephantEnemy : BaseEnemy
     [SerializeField] private float numberOfBullet;
     [SerializeField] private int numberOfShoot;
 
-    [Header("Attack Parameters")]
-    [SerializeField] private int sa;
+    [Header("Charge Parameters")]
+    [SerializeField] private int chargeDamage;
+    [SerializeField] private int chargeLength;
+    [SerializeField] private int chargeDelay;
+    [SerializeField] private int chargeCooldown;
+    [SerializeField] private int chargeRange;
+    [SerializeField] private int chargeSpeed;
+
 
     [Header("Agro Parameter")]
     [SerializeField] private float aggroHeight;
     [SerializeField] private float aggroWidth;
     
     [Header("Reference")]
-    public CircleCollider2D rangeCollider;
     public LayerMask playerLayer;
     public LayerMask notDestroyable;
     public GameObject shootPoint;
     public GameObject gun;
+    public BoxCollider2D chargeHurtBox;
 
 
     private PlayerHealth targetedPlayer;
@@ -37,8 +45,9 @@ public class ElephantEnemy : BaseEnemy
 
     private bool isShooting;
     private bool isCharging;
+    private bool isAlreadyHit;
     private int amountAlreadyShot;
-    private float cooldownTimer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +55,7 @@ public class ElephantEnemy : BaseEnemy
         currHealth = MaxHP();
         isShooting = false;
         isCharging = false;
+        isAlreadyHit = false;
     }
 
     // Update is called once per frame
@@ -54,15 +64,20 @@ public class ElephantEnemy : BaseEnemy
         if (!isShooting && !isCharging)
         {
             CheckAggro();
+        }
+
+        if (isCharging && !isAlreadyHit)
+        {
+            Attack();
             Debug.Log("A");
         }
 
-        Debug.Log(isShooting);
+
     }
 
     private void CheckAggro()
     {
-        RaycastHit2D[] ray = Physics2D.BoxCastAll(transform.position, new Vector2(aggroWidth, aggroHeight), 0, Vector2.right, playerLayer);
+        RaycastHit2D[] ray = Physics2D.BoxCastAll(transform.position, new Vector2(aggroWidth, aggroHeight), 0, Vector2.zero, playerLayer);
 
         foreach (RaycastHit2D hit in ray)
         {
@@ -74,18 +89,15 @@ public class ElephantEnemy : BaseEnemy
                 Debug.Log(targetedPlayer);
             }
         }
-
-
-        
     }
 
     private void CheckState()
     {
-        if(amountAlreadyShot >= numberOfShoot)
+        if (amountAlreadyShot >= numberOfShoot)
         {
             amountAlreadyShot = 0;
             isCharging = true;
-
+            StartCoroutine(StartChargingProcess());
         }
         else
         {
@@ -97,13 +109,51 @@ public class ElephantEnemy : BaseEnemy
 
     private IEnumerator StartChargingProcess()
     {
-        yield return new WaitForSeconds(1f);
+        isAlreadyHit = false;
+        float timer = 0f;
+        int isRight = targetedPlayer.transform.position.x > transform.position.x? 1 : -1 ;
+        transform.localScale = new Vector3 (isRight * 2f, 2f, 1f);
+        gun.transform.localScale = new Vector3(isRight, 1f, 1f);
+
+        yield return new WaitForSeconds(chargeDelay);
+
+        while (timer < chargeLength)
+        {
+            rb2d.velocity = new Vector2(isRight * chargeSpeed, 0f);
+
+            timer += Time.deltaTime;
+        }
+
+        yield return new WaitForSeconds(chargeCooldown);
 
         isCharging = false;
     }
 
+
+    private void Attack()
+    {
+        RaycastHit2D[] hit = Physics2D.BoxCastAll(chargeHurtBox.transform.position, chargeHurtBox.bounds.size, 0, transform.localScale, chargeHurtBox.bounds.size.x * 2, playerLayer);
+
+        foreach (RaycastHit2D raycastHit2D in hit)
+        {
+            Debug.Log(raycastHit2D.collider);
+            if (raycastHit2D.transform.gameObject.GetComponent<PlayerHealth>() != null)
+            {
+                raycastHit2D.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(chargeDamage);
+                isAlreadyHit = true;
+            }
+            
+        }
+
+        
+    }
+
     private IEnumerator StartShootingProcess()
     {
+        float isRight = targetedPlayer.transform.position.x > transform.position.x ? 1f : -1f;
+        transform.localScale = new Vector3(isRight * 2f, 2f, 1f);
+        gun.transform.localScale = new Vector3(isRight, 1f, 1f);
+
         for (int i = 0; i <= numberOfBullet; i++)
         {
 
@@ -121,8 +171,6 @@ public class ElephantEnemy : BaseEnemy
             Shoot(target, randRot);
 
             yield return new WaitForSeconds(shootDelay);
-
-            Debug.Log(target);
         }
 
         yield return new WaitForSeconds(shootCooldown);

@@ -96,8 +96,6 @@ public class TigerEnemy : BaseEnemy
 
     private void Attack()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(damageCollider.transform.position, damageCollider.bounds.size, 0, transform.right, damageCollider.bounds.size.y, playerLayer);
-
         if (PlayerInSight())
         {
             targetedPlayer.TakeDamage(Damage());
