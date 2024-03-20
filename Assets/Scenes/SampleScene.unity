@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1392583308836435394, guid: 07b99f55653173741adf32a125f69984, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1392583308836435395, guid: 07b99f55653173741adf32a125f69984, type: 3}
       propertyPath: m_RootOrder
@@ -2644,6 +2644,10 @@ PrefabInstance:
     - target: {fileID: 1392583308836435394, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
       propertyPath: m_Name
       value: Elephant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1392583308836435394, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1392583308836435395, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
       propertyPath: m_RootOrder
@@ -5790,6 +5794,7 @@ MonoBehaviour:
   animator: {fileID: 1609964782}
   playerHitSFX: {fileID: 1609964786}
   MAX_HEALTH: 250
+  gunSprite: {fileID: 1255029616}
 --- !u!82 &1609964784
 AudioSource:
   m_ObjectHideFlags: 0

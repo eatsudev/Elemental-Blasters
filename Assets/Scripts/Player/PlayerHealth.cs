@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private AudioSource playerHitSFX;
     public static PlayerHealth Instance { get; private set; }
     public int MAX_HEALTH = 250;
+    public GameObject gunSprite;
 
     void Start()
     {
@@ -115,6 +116,8 @@ public class PlayerHealth : MonoBehaviour
         {
             isDead = true;
             Debug.Log("Player dead!");
+            animator.SetTrigger("Death");
+            gunSprite.SetActive(false);
             StartCoroutine(DeathPauseAndShowUI());
         }
     }
@@ -122,8 +125,10 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator DeathPauseAndShowUI()
     {
         Dead.SetActive(true);
-        Time.timeScale = 0f;
-        yield return new WaitForSeconds(3.0f);
+        //Time.timeScale = 0f;
+        yield return new WaitForSeconds(0.5f);
         Time.timeScale = 1f;
+        yield return new WaitForSeconds(0.5f);
+        Time.timeScale = 0f;
     }
 }
