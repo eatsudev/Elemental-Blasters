@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     //private HPCounter hpCounter;
-    [SerializeField] private int health = 10;
+    [SerializeField] private int health = 250;
     public GameObject Dead;
     private bool isDead = false;
     public Animator animator;
     [SerializeField] private AudioSource playerHitSFX;
     public static PlayerHealth Instance { get; private set; }
-    public int MAX_HEALTH = 100;
+    public int MAX_HEALTH = 250;
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Heal(10);
+            Heal(50);
         }
     }
 

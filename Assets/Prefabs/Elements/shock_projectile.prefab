@@ -138,14 +138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358a91a9ec2be0842b750b6d85a4e971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalShockSpeed: 10
-  normalShockDamage: 85
+  normalShockSpeed: 20
+  normalShockDamage: 90
   destroyTime: 3
   whatDestroysShock:
     serializedVersion: 2
     m_Bits: 320
   physicsBulletSpeed: 17.5
-  physicsShockDamage: 85
+  physicsShockDamage: 90
   physicsBulletGravity: 3
   shockTriggerSFX: {fileID: 6431389421707802104}
   bulletType: 0

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e5ccf0e39862f48bacb9a9e58343b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalDirtSpeed: 10
+  normalDirtSpeed: 20
   normalDirtDamage: 66
   destroyTime: 3
   whatDestroysDirt:

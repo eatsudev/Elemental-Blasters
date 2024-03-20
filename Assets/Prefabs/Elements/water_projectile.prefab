@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bdc98b4a3756144998feca06cbd2a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalWaterSpeed: 10
+  normalWaterSpeed: 20
   normalWaterDamage: 32
   destroyTime: 3
   whatDestroysWater:

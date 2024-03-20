@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc6a8aa3b4808a4ea9df600f62ca932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalWindSpeed: 10
+  normalWindSpeed: 20
   normalWindDamage: 1
   destroyTime: 3
   whatDestroysWind:

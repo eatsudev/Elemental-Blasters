@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf75030b4695a2a4483c5ed6ac6bc5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalFireSpeed: 10
+  normalFireSpeed: 20
   normalFireDamage: 25
   destroyTime: 3
   whatDestroysFire:

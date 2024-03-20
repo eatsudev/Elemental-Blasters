@@ -96,22 +96,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03132ff800791e469fd8a92d54a28f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 200
-  damage: 25
-  currHealth: 0
+  maxHP: 170
+  damage: 20
+  currHealth: 170
   bulletPrefabs: {fileID: 7178897449923348324, guid: 8f41ce3ee1d10a1469488fcdc6826d42, type: 3}
   lifetime: 5
   speed: 10
   shootDelay: 0.5
   shootCooldown: 2
   numberOfBullet: 1
-  numberOfShoot: 1
+  numberOfShoot: 2
   chargeDamage: 50
   chargeLength: 2
   chargeDelay: 3
   chargeCooldown: 5
-  chargeRange: 10
-  chargeSpeed: 10
+  chargeRange: 20
+  chargeSpeed: 20
   aggroHeight: 5
   aggroWidth: 20
   playerLayer:
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8170905896995897867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.088, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -336,7 +336,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0}
+  m_Offset: {x: 0.5, y: -0.21336663}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -347,7 +347,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.2}
+  m_Size: {x: 0.29999995, y: 0.47607756}
   m_EdgeRadius: 0
 --- !u!1 &8746571650448265422
 GameObject:

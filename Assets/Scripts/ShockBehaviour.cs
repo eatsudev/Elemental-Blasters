@@ -5,11 +5,11 @@ using UnityEngine;
 public class ShockBehaviour : MonoBehaviour
 {
     [SerializeField] private float normalShockSpeed = 15f;
-    [SerializeField] private int normalShockDamage = 1;
+    [SerializeField] private int normalShockDamage = 90;
     [SerializeField] private float destroyTime = 3f;
     [SerializeField] private LayerMask whatDestroysShock;
     [SerializeField] private float physicsBulletSpeed = 17.5f;
-    [SerializeField] private int physicsShockDamage = 2;
+    [SerializeField] private int physicsShockDamage = 90;
     [SerializeField] private float physicsBulletGravity = 3f;
     [SerializeField] private AudioSource shockTriggerSFX;
     private Rigidbody2D rb;

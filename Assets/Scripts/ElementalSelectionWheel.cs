@@ -8,7 +8,8 @@ public class ElementalSelectionWheel : MonoBehaviour
 {
     public int ID;
     public string itemName;
-    public TextMeshProUGUI itemText;
+    //public TextMeshProUGUI itemText;
+    public Image itemImage;
     public Image selectedItem;
     public Sprite icon;
 
@@ -28,7 +29,7 @@ public class ElementalSelectionWheel : MonoBehaviour
         if (selected)
         {
             selectedItem.sprite = icon;
-            itemText.text = itemName;
+            itemImage.sprite = icon;
         }
     }
 
@@ -46,11 +47,11 @@ public class ElementalSelectionWheel : MonoBehaviour
     public void HoverEnter()
     {
         animator.SetBool("Hover", true);
-        itemText.text = itemName;
+        itemImage.sprite = icon;
     }
     public void HoverExit()
     {
         animator.SetBool("Hover", false);
-        itemText.text = "";
+        itemImage.sprite = icon;
     }
 }
