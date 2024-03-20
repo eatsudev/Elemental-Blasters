@@ -69,10 +69,7 @@ public class ElephantEnemy : BaseEnemy
         if (isCharging && !isAlreadyHit)
         {
             Attack();
-            Debug.Log("A");
         }
-
-
     }
 
     private void CheckAggro()
@@ -142,10 +139,7 @@ public class ElephantEnemy : BaseEnemy
                 raycastHit2D.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(chargeDamage);
                 isAlreadyHit = true;
             }
-            
         }
-
-        
     }
 
     private IEnumerator StartShootingProcess()

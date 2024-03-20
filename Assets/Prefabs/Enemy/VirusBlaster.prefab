@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 1392583308836435395}
   - component: {fileID: 1298080406895543464}
   - component: {fileID: 1444035602930639057}
-  - component: {fileID: 1974321719016805073}
+  - component: {fileID: 5496318168082740520}
   m_Layer: 8
-  m_Name: Elephant
+  m_Name: VirusBlaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1392583308836435395
 Transform:
   m_ObjectHideFlags: 0
@@ -28,12 +28,12 @@ Transform:
   m_GameObject: {fileID: 1392583308836435394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4173777264068902838}
   - {fileID: 4241940327737338070}
-  - {fileID: 1275722856265448855}
+  - {fileID: 6611416042425483364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,7 +84,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1974321719016805073
+--- !u!114 &5496318168082740520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,27 +93,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392583308836435394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e03132ff800791e469fd8a92d54a28f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 056dd12a5fc3a9e40b479a3038fd006f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 170
-  damage: 20
-  currHealth: 170
-  bulletPrefabs: {fileID: 7178897449923348324, guid: 8f41ce3ee1d10a1469488fcdc6826d42, type: 3}
+  maxHP: 50
+  damage: 4
+  currHealth: 0
+  bulletPrefabs: {fileID: 7178897449923348324, guid: 8566487f723748740bbd6a709406b560, type: 3}
   lifetime: 5
-  speed: 10
-  shootDelay: 0.5
+  bulletSpeed: 5
+  shootDelay: 1
   shootCooldown: 2
   numberOfBullet: 1
-  numberOfShoot: 2
-  chargeDamage: 50
-  chargeLength: 2
-  chargeDelay: 3
-  chargeCooldown: 5
-  chargeRange: 20
-  chargeSpeed: 20
-  aggroHeight: 5
-  aggroWidth: 20
+  numberOfShoot: 1
+  rangeCollider: {fileID: 1221482197893478244}
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -122,7 +115,54 @@ MonoBehaviour:
     m_Bits: 896
   shootPoint: {fileID: 8746571650448265422}
   gun: {fileID: 8975330013776192239}
-  chargeHurtBox: {fileID: 3747286128044795752}
+--- !u!1 &1479367360566949315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6611416042425483364}
+  - component: {fileID: 1221482197893478244}
+  m_Layer: 9
+  m_Name: Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6611416042425483364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479367360566949315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1392583308836435395}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1221482197893478244
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479367360566949315}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
 --- !u!1 &3366124656999687834
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,64 +331,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8170905896995897867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1275722856265448855}
-  - component: {fileID: 3747286128044795752}
-  m_Layer: 8
-  m_Name: HurtBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1275722856265448855
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8170905896995897867}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.088, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1392583308836435395}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3747286128044795752
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8170905896995897867}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: -0.21336663}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.29999995, y: 0.47607756}
-  m_EdgeRadius: 0
 --- !u!1 &8746571650448265422
 GameObject:
   m_ObjectHideFlags: 0
