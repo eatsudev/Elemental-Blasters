@@ -1,26 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
-public class HedgehogSpikes : MonoBehaviour
+public class ElephantBullets : MonoBehaviour
 {
     public float lifetime = 1f;
     public float speed = 1f;
-    public HedgehogEnemy parent;
+    public ElephantEnemy parent;
 
     private Vector2 spawnPoint;
     private float timer = 0f;
 
-
     void Start()
     {
-        spawnPoint = new Vector2(transform.position.x, transform.position.y);
+
     }
+
+    // Update is called once per frame
     void Update()
     {
         if (timer >= lifetime) Destroy(gameObject);
         timer += Time.deltaTime;
+
 
         Movement();
     }
@@ -35,10 +36,10 @@ public class HedgehogSpikes : MonoBehaviour
         {
             collision.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(parent.Damage());
         }
-        
-        if(!((parent.notDestroyable.value & (1 << collision.gameObject.layer)) > 0))
+
+        if (!((parent.notDestroyable.value & (1 << collision.gameObject.layer)) > 0))
         {
             Destroy(gameObject);
-        }  
+        }
     }
 }

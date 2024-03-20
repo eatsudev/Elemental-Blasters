@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TigerEnemy : BaseEnemy
 {
+    [Header("Attack Parameters")]
     [SerializeField] private float aggroHeight;
     [SerializeField] private float aggroWidth;
     [SerializeField] private float speed;
     [SerializeField] private float attackCooldown;
 
+    [Header("References")]
     public BoxCollider2D damageCollider;
     public LayerMask playerLayer;
     public Animator animator;

@@ -8,7 +8,6 @@ public class HedgehogEnemy : BaseEnemy
     [SerializeField] private GameObject spikePrefabs;
     [SerializeField] private float lifetime;
     [SerializeField] private float speed;
-    [SerializeField] private float range;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float numberOfSpikes;
 
