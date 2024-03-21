@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: ac8ca5d188850754fa52696eeebed82c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 6
+        width: 280
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327fcdb2376367446aa829718b1a34a4
+      internalID: 1036452258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_1
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 6
+        width: 307
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd3eb86aced0e748979b2fb3a60fb4e
+      internalID: -1370924780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_2
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 6
+        width: 330
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b38080d3d5abf846892114bf78edd7f
+      internalID: -35143513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_3
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 6
+        width: 341
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700bf565458ee10488cd3a9d1ef42f61
+      internalID: 2038045870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_4
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 9
+        width: 328
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0825683549f52344682bde711492a1b1
+      internalID: 2146701531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_5
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 9
+        width: 311
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a780ee9e388d728499e27760fa9a4697
+      internalID: -1043674309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_6
+      rect:
+        serializedVersion: 2
+        x: 2278
+        y: 9
+        width: 301
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a94907265aaeb814ca7dc71271d8aba1
+      internalID: -1343047060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_7
+      rect:
+        serializedVersion: 2
+        x: 2661
+        y: 6
+        width: 289
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc461890466c726409f326477ba7bbd8
+      internalID: 1653924996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_8
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 6
+        width: 290
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c56802ad60dbe34ea8109008d078f97
+      internalID: 1345276025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_9
+      rect:
+        serializedVersion: 2
+        x: 3401
+        y: 6
+        width: 273
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd74d9fb642f4d4db3e7033cf81303a
+      internalID: 926788477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_10
+      rect:
+        serializedVersion: 2
+        x: 3769
+        y: 6
+        width: 270
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca4b3abf6f4eba45ae3e93a83616028
+      internalID: -1322030417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_11
+      rect:
+        serializedVersion: 2
+        x: 4141
+        y: 6
+        width: 288
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96d697ef07bfc944f9e38be96bd29efc
+      internalID: -1758007856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_12
+      rect:
+        serializedVersion: 2
+        x: 4509
+        y: 6
+        width: 296
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f46fbc1cd3d12b4b90b2974fb04ebf4
+      internalID: 1282861371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_13
+      rect:
+        serializedVersion: 2
+        x: 4881
+        y: 6
+        width: 288
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f662d8b8d4295d4b83dd6a0d050ed48
+      internalID: 1639128487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_14
+      rect:
+        serializedVersion: 2
+        x: 5249
+        y: 9
+        width: 292
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4632d7e202ebfd5498f06da7d15f1a47
+      internalID: -251598380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_15
+      rect:
+        serializedVersion: 2
+        x: 5621
+        y: 9
+        width: 292
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53055e03436eefb4d9da7ae05d1dd525
+      internalID: 1960541561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_16
+      rect:
+        serializedVersion: 2
+        x: 5989
+        y: 9
+        width: 291
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8d54e49fb3771499e8612a9b6b12a5
+      internalID: -1389164662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_17
+      rect:
+        serializedVersion: 2
+        x: 6361
+        y: 6
+        width: 288
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427adad8359c2b54da19e93bb2a65fee
+      internalID: 2078728277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_18
+      rect:
+        serializedVersion: 2
+        x: 6729
+        y: 6
+        width: 291
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15eaa69d66633ec48b046e3ea7a6dcdb
+      internalID: -768043743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_19
+      rect:
+        serializedVersion: 2
+        x: 7100
+        y: 6
+        width: 273
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81daa275c3ef1148a4570521018a2ba
+      internalID: -1258271758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gajah-Sheet_Dash_20
+      rect:
+        serializedVersion: 2
+        x: 7469
+        y: 6
+        width: 275
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd4538c0ca5b8048868660f0bf8bab2
+      internalID: -1434591083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gajah-Sheet_Dash_0: 1036452258
+      gajah-Sheet_Dash_1: -1370924780
+      gajah-Sheet_Dash_10: -1322030417
+      gajah-Sheet_Dash_11: -1758007856
+      gajah-Sheet_Dash_12: 1282861371
+      gajah-Sheet_Dash_13: 1639128487
+      gajah-Sheet_Dash_14: -251598380
+      gajah-Sheet_Dash_15: 1960541561
+      gajah-Sheet_Dash_16: -1389164662
+      gajah-Sheet_Dash_17: 2078728277
+      gajah-Sheet_Dash_18: -768043743
+      gajah-Sheet_Dash_19: -1258271758
+      gajah-Sheet_Dash_2: -35143513
+      gajah-Sheet_Dash_20: -1434591083
+      gajah-Sheet_Dash_3: 2038045870
+      gajah-Sheet_Dash_4: 2146701531
+      gajah-Sheet_Dash_5: -1043674309
+      gajah-Sheet_Dash_6: -1343047060
+      gajah-Sheet_Dash_7: 1653924996
+      gajah-Sheet_Dash_8: 1345276025
+      gajah-Sheet_Dash_9: 926788477
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
