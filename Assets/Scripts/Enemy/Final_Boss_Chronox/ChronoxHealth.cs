@@ -11,14 +11,13 @@ public class ChronoxHealth : BaseEnemy
     public LayerMask playerLayer;
     public Animator animator;
 
-    private ChronoxMovement ChronoxMovement;
+    private ChronoxMovementAndShoot ChronoxMovement;
 
-    private bool isDead;
     private int phase;
     void Start()
     {
         currHealth = MaxHP();
-        ChronoxMovement = GetComponent<ChronoxMovement>();
+        ChronoxMovement = GetComponent<ChronoxMovementAndShoot>();
         animator = GetComponent<Animator>();
         phase = 1;
     }
@@ -43,6 +42,7 @@ public class ChronoxHealth : BaseEnemy
         }
         else if(currHealth <= 0)
         {
+            isDead = true;
             Debug.Log("Dead");
         }
     }

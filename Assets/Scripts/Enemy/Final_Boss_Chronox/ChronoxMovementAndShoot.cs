@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChronoxMovement : MonoBehaviour
+public class ChronoxMovementAndShoot : MonoBehaviour
 {
     [Header("Laser Parameter")]
     [SerializeField] private GameObject laserPrefabs;

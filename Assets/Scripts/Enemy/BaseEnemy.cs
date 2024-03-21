@@ -8,7 +8,7 @@ public class BaseEnemy : MonoBehaviour, IDamageable
     [SerializeField] private int damage;
     public int currHealth;
 
-    private bool isDead;
+    public bool isDead;
 
     void Start()
     {
