@@ -12,6 +12,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     [SerializeField] private float shootDelay;
     [SerializeField] private float phase1ShootCooldown;
     [SerializeField] private float phase2ShootCooldown;
+    [SerializeField] private float timeBeforeGunDisappear;
     [SerializeField] private float numberOfLaser;
     [SerializeField] private int numberOfShoot;
 
@@ -25,10 +26,12 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     public LayerMask playerLayer;
     public LayerMask notDestroyable;
     public GameObject gun;
+    public SpriteRenderer gunSprite;
     public GameObject shootPoint;
+    public Animator animator;
 
     private PlayerHealth playerHealth;
-    private Animator animator;
+    
     private Vector2 targetPos;
     private Rigidbody2D rb2d;
     private ChronoxHealth chronoxHealth;
@@ -44,11 +47,13 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
         chronoxHealth = GetComponent<ChronoxHealth>();
-        animator = GetComponent<Animator>();
 
         timeUntilChangingPosTimer = 0f;
         reachedFlightPos = true;
         flightPos = FindObjectsOfType<ChronoxFlightPoint>();
+
+
+        gunSprite.enabled = false;
     }
 
     void Update()
@@ -94,6 +99,12 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     {
         reachedFlightPos = false;
 
+        animator.SetBool("isMoving", !reachedFlightPos);
+
+        float isRight = target.x > transform.position.x ? 1f : -1f;
+        transform.localScale = new Vector3(isRight * -1f, transform.localScale.y, transform.localScale.z);
+        gun.transform.localScale = new Vector3(isRight * -1f, gun.transform.localScale.y, gun.transform.localScale.z);
+
         while (Mathf.Abs(Vector2.Distance(transform.position, target)) > 0.1f)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -103,19 +114,27 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
         reachedFlightPos = true;
         timeUntilChangingPosTimer = 0f;
+        animator.SetBool("isMoving", !reachedFlightPos);
     }
 
     private IEnumerator StartShootingProcess(float shootCooldown)
     {
         isShooting = true;
+        gunSprite.enabled = true;
+        Debug.Log(gunSprite.enabled);
 
         float isRight = playerHealth.transform.position.x > transform.position.x ? 1f : -1f;
-        transform.localScale = new Vector3(isRight * 1f, transform.localScale.y, transform.localScale.z);
-        gun.transform.localScale = new Vector3(isRight * 1f, gun.transform.localScale.y, gun.transform.localScale.z);
+        transform.localScale = new Vector3(isRight * -1f, transform.localScale.y, transform.localScale.z);
+        gun.transform.localScale = new Vector3(isRight * -1f, gun.transform.localScale.y, gun.transform.localScale.z);
 
-        for (int i = 0; i <= numberOfLaser; i++)
+        Debug.Log(isRight);
+
+        animator.SetTrigger("shoot");
+
+        yield return new WaitForSeconds(0.1f);
+
+        for (int i = 0; i < numberOfLaser; i++)
         {
-
             Vector3 target = playerHealth.transform.position;
             Vector3 objectPosition = gun.transform.position;
 
@@ -132,7 +151,12 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             yield return new WaitForSeconds(shootDelay);
         }
 
-        yield return new WaitForSeconds(shootCooldown);
+        yield return new WaitForSeconds(timeBeforeGunDisappear);
+
+        gunSprite.enabled = false;
+        Debug.Log(gunSprite.enabled);
+
+        yield return new WaitForSeconds(shootCooldown - timeBeforeGunDisappear);
 
         isShooting = false;
     }

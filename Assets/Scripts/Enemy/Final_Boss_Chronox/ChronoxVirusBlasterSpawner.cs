@@ -8,18 +8,25 @@ public class ChronoxVirusBlasterSpawner : MonoBehaviour
     [SerializeField] private float phase1ShootCooldown;
     [SerializeField] private float phase2ShootCooldown;
 
+    public Animator animator;
+
     private VirusBlasterSpawnPoint[] virusBlasterSpawnPoints;
 
     private VirusBlaster spawnedVirusBlaster;
+    private ChronoxHealth chronoxHealth;
 
     void Start()
     {
         virusBlasterSpawnPoints = FindObjectsOfType<VirusBlasterSpawnPoint>();
+        chronoxHealth = GetComponent<ChronoxHealth>();
     }
 
-    public void SpawnAllVirusBlaster(int phase)
+    public IEnumerator SpawnAllVirusBlaster(int phase)
     {
-        foreach(VirusBlasterSpawnPoint spawnPoint in virusBlasterSpawnPoints)
+
+        yield return new WaitForSeconds(2f);
+
+        foreach (VirusBlasterSpawnPoint spawnPoint in virusBlasterSpawnPoints)
         {
             if(spawnPoint.virusBlaster == null)
             {
@@ -33,7 +40,8 @@ public class ChronoxVirusBlasterSpawner : MonoBehaviour
             {
                 spawnedVirusBlaster.SetShootCooldown(phase == 1 ? phase1ShootCooldown : phase2ShootCooldown);
             }
-            
         }
-    }
+
+        chronoxHealth.flag = 1;
+}
 }

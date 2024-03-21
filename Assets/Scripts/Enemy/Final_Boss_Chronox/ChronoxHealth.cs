@@ -12,17 +12,19 @@ public class ChronoxHealth : BaseEnemy
     public LayerMask playerLayer;
     public Animator animator;
 
-    private ChronoxMovementAndShoot chronoxMovement;
+    private ChronoxMovementAndShoot chronoxMovementAndShoot;
     private ChronoxVirusBlasterSpawner spawner;
 
     private int phase;
-    private int flag = 0;
+    public int flag = 0;
     void Start()
     {
         currHealth = MaxHP();
-        chronoxMovement = GetComponent<ChronoxMovementAndShoot>();
+        chronoxMovementAndShoot = GetComponent<ChronoxMovementAndShoot>();
         spawner = GetComponent<ChronoxVirusBlasterSpawner>();
-        animator = GetComponent<Animator>();
+
+        chronoxMovementAndShoot.enabled = false;
+
         phase = 1;
         isDead = false;
     }
@@ -32,8 +34,16 @@ public class ChronoxHealth : BaseEnemy
     {
         if(flag == 0)
         {
-            spawner.SpawnAllVirusBlaster(phase);
-            flag = 1;
+            animator.SetTrigger("throwVirus");
+            StartCoroutine(spawner.SpawnAllVirusBlaster(phase));
+            
+
+        }
+        if (flag == 1)
+        {
+            chronoxMovementAndShoot.enabled = true;
+            animator.ResetTrigger("throwVirus");
+            flag++;
         }
     }
 
@@ -68,9 +78,9 @@ public class ChronoxHealth : BaseEnemy
     {
         int temp = phase;
         phase = 0;
-        animator.SetTrigger("PhaseChange");
+        animator.SetTrigger("phaseChange");
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         phase = temp + 1;
         spawner.SpawnAllVirusBlaster(phase);
