@@ -28,6 +28,7 @@ public class TigerEnemy : BaseEnemy
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         currHealth = MaxHP();
+        Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
     }
     void Update()
     {

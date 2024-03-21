@@ -18,6 +18,7 @@ public class HedgehogEnemy : BaseEnemy
     public LayerMask notDestroyable;
 
     private Rigidbody2D rb2d;
+    private Animator animator;
     private GameObject spawnedSpikes;
     private float spikesSpread;
     private float cooldownTimer;
@@ -26,6 +27,7 @@ public class HedgehogEnemy : BaseEnemy
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         currHealth = MaxHP();
 
     }
@@ -38,7 +40,7 @@ public class HedgehogEnemy : BaseEnemy
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
-                Shoot();
+                animator.SetTrigger("shoot");
             }
         }
     }
@@ -50,8 +52,6 @@ public class HedgehogEnemy : BaseEnemy
             spikesSpread = 180f / numberOfSpikes;
 
             AttackPatern(spikesSpread, numberOfSpikes);
-
-            Debug.Log("Shoot");
 
         }
     }
@@ -72,9 +72,17 @@ public class HedgehogEnemy : BaseEnemy
 
     private bool InRange()
     {
-        RaycastHit2D raycastHit2D = Physics2D.CircleCast(transform.position, rangeCollider.radius, Vector2.up, playerLayer);
+        RaycastHit2D[] raycastHit2D = Physics2D.CircleCastAll(transform.position, rangeCollider.radius, Vector2.up, playerLayer);
 
-        PlayerHealth playerHealth = raycastHit2D.transform.gameObject.GetComponent<PlayerHealth>();
+        PlayerHealth playerHealth = null;
+
+        foreach (RaycastHit2D hit in raycastHit2D)
+        {
+            if (hit.transform.gameObject.GetComponent<PlayerHealth>() != null)
+            {
+                playerHealth = hit.transform.gameObject.GetComponent<PlayerHealth>();
+            }
+        }
 
         return playerHealth != null;
     }

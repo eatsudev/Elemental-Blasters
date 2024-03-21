@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1f441cfb55c2a94ebc10f8aae938165
+guid: 0654446be3674c641becce5b09b46be2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -94,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_0
+      name: hedgehogEBShootSpike-Sheet_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 45
-        width: 124
-        height: 70
+        x: 115
+        y: 157
+        width: 218
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa48febfd2fd093488c41c065431f13a
-      internalID: 685266979
+      spriteID: 9da9ea1fedd5e7745a1ea12347a8986f
+      internalID: -2047146234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_1
+      name: hedgehogEBShootSpike-Sheet_1
       rect:
         serializedVersion: 2
-        x: 244
-        y: 45
-        width: 129
-        height: 71
+        x: 629
+        y: 157
+        width: 214
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53626ae95a98ddf40a5cfdfe00645d4e
-      internalID: -600847148
+      spriteID: 933e353996439814f85e1235641d0613
+      internalID: -748003279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_2
+      name: hedgehogEBShootSpike-Sheet_2
       rect:
         serializedVersion: 2
-        x: 434
-        y: 48
-        width: 154
-        height: 65
+        x: 1139
+        y: 157
+        width: 218
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dc8cc680946b544db6d43e87f54a7ac
-      internalID: -1314478995
+      spriteID: 627d5c9ed2cd3774fb7025c99587e51c
+      internalID: -1225037151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_3
+      name: hedgehogEBShootSpike-Sheet_3
       rect:
         serializedVersion: 2
-        x: 634
-        y: 45
-        width: 146
-        height: 81
+        x: 1653
+        y: 157
+        width: 214
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0286891946d8a458f0c485f63dd7fd
-      internalID: -538072557
+      spriteID: 327d419b84b646b428b97949b036c2c9
+      internalID: -559192506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_4
+      name: hedgehogEBShootSpike-Sheet_4
       rect:
         serializedVersion: 2
-        x: 834
-        y: 45
-        width: 145
-        height: 67
+        x: 2163
+        y: 157
+        width: 218
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 122e9c790b392c5458eee308f1d86a1d
-      internalID: -261743405
+      spriteID: ce1bfdb424a008b4798ba3be0d4b856a
+      internalID: -49756883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_5
+      name: hedgehogEBShootSpike-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1042
-        y: 45
-        width: 138
-        height: 67
+        x: 2676
+        y: 157
+        width: 215
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23f7037b21dadfc42b4fec11aad67ac2
-      internalID: 1384374824
+      spriteID: 69694cb5afbaf3d498d6f7745150acf2
+      internalID: -192156308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_6
+      name: hedgehogEBShootSpike-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1249
-        y: 45
-        width: 142
-        height: 70
+        x: 3187
+        y: 157
+        width: 217
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3680aea2d743c0a4984b44d26b0c0a3e
-      internalID: -165241911
+      spriteID: a4a6ab0969ff62c4a90f7536980254d4
+      internalID: -1350203953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_7
+      name: hedgehogEBShootSpike-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1444
-        y: 45
-        width: 148
-        height: 70
+        x: 3684
+        y: 157
+        width: 232
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 278d2db578553be44a2936997d8ca9f1
-      internalID: -1369022658
+      spriteID: a6dfd8bef82968f46835421634077b50
+      internalID: -1990192128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_8
+      name: hedgehogEBShootSpike-Sheet_8
       rect:
         serializedVersion: 2
-        x: 1647
-        y: 45
-        width: 129
-        height: 70
+        x: 4188
+        y: 157
+        width: 240
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a88c975d682c91e4e9bf8fce7df8ead2
-      internalID: -191428619
+      spriteID: 2d4eb01423f8fb946bfceb5b6459e0c7
+      internalID: -752388368
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_9
+      name: hedgehogEBShootSpike-Sheet_9
       rect:
         serializedVersion: 2
-        x: 1824
-        y: 45
-        width: 166
-        height: 81
+        x: 4731
+        y: 157
+        width: 210
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1732191595b7644bad7826e514c0606
-      internalID: -1739465346
+      spriteID: c8c55363d4776a144a0b91b3c9646ff2
+      internalID: -793598471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_10
+      name: hedgehogEBShootSpike-Sheet_10
       rect:
         serializedVersion: 2
-        x: 2032
-        y: 45
-        width: 154
-        height: 84
+        x: 5244
+        y: 157
+        width: 208
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6cedb285721eec4dad9b27fc6288a22
-      internalID: -146638046
+      spriteID: cd1910c42467b274e8ced782df894d5f
+      internalID: 971700165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_11
+      name: hedgehogEBShootSpike-Sheet_11
       rect:
         serializedVersion: 2
-        x: 2232
-        y: 45
-        width: 153
-        height: 65
+        x: 5756
+        y: 157
+        width: 209
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ba05d4ebcba4a2469e4e53d52f7edbd
-      internalID: -1869154146
+      spriteID: 0a5de7f74851fe946a6c8bfb748b5218
+      internalID: -1978381555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Harimau_Attack-Sheet_12
+      name: hedgehogEBShootSpike-Sheet_12
       rect:
         serializedVersion: 2
-        x: 2440
-        y: 45
-        width: 146
-        height: 65
+        x: 6268
+        y: 157
+        width: 208
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,50 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 952ab0685cca1d84ab57fc0607d8cc4f
-      internalID: -1661961150
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Harimau_Attack-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 2648
-        y: 45
-        width: 124
-        height: 71
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76c44c1d3285f3f4d807561035d3ff14
-      internalID: 2106626402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Harimau_Attack-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 2848
-        y: 45
-        width: 123
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cee2c367f140284f827a13b473b9f35
-      internalID: -777658461
+      spriteID: 7ea197c13b6e11b47ac9a878f65d78b8
+      internalID: -2077328404
       vertices: []
       indices: 
       edges: []
@@ -430,21 +388,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Harimau_Attack-Sheet_0: 685266979
-      Harimau_Attack-Sheet_1: -600847148
-      Harimau_Attack-Sheet_10: -146638046
-      Harimau_Attack-Sheet_11: -1869154146
-      Harimau_Attack-Sheet_12: -1661961150
-      Harimau_Attack-Sheet_13: 2106626402
-      Harimau_Attack-Sheet_14: -777658461
-      Harimau_Attack-Sheet_2: -1314478995
-      Harimau_Attack-Sheet_3: -538072557
-      Harimau_Attack-Sheet_4: -261743405
-      Harimau_Attack-Sheet_5: 1384374824
-      Harimau_Attack-Sheet_6: -165241911
-      Harimau_Attack-Sheet_7: -1369022658
-      Harimau_Attack-Sheet_8: -191428619
-      Harimau_Attack-Sheet_9: -1739465346
+      hedgehogEBShootSpike-Sheet_0: -2047146234
+      hedgehogEBShootSpike-Sheet_1: -748003279
+      hedgehogEBShootSpike-Sheet_10: 971700165
+      hedgehogEBShootSpike-Sheet_11: -1978381555
+      hedgehogEBShootSpike-Sheet_12: -2077328404
+      hedgehogEBShootSpike-Sheet_2: -1225037151
+      hedgehogEBShootSpike-Sheet_3: -559192506
+      hedgehogEBShootSpike-Sheet_4: -49756883
+      hedgehogEBShootSpike-Sheet_5: -192156308
+      hedgehogEBShootSpike-Sheet_6: -1350203953
+      hedgehogEBShootSpike-Sheet_7: -1990192128
+      hedgehogEBShootSpike-Sheet_8: -752388368
+      hedgehogEBShootSpike-Sheet_9: -793598471
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
