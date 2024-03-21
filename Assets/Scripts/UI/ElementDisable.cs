@@ -14,34 +14,34 @@ public class ElementDisable : MonoBehaviour
     {
         if(collision.gameObject.tag == "disablefire")
         {
-            fire.SetActive(false);
+            //fire.SetActive(false);
             water.SetActive(true);
         }
 
         if(collision.gameObject.tag == "disablewater")
         {
-            water.SetActive(false);
+            //water.SetActive(false);
             earth.SetActive(true);
         }
 
         if(collision.gameObject.tag == "disableearth")
         {
-            earth.SetActive(false);
+            //earth.SetActive(false);
             shock.SetActive(true);
         }
 
         if(collision.gameObject.tag == "disableshock")
         {
-            shock.SetActive(false);
+            //shock.SetActive(false);
             wind.SetActive(true);
         }
 
         if(collision.gameObject.tag == "enableall")
         {
-            fire.SetActive(true);
-            water.SetActive(true);
-            earth.SetActive(true);
-            shock.SetActive(true);
+            //fire.SetActive(true);
+            //water.SetActive(true);
+            //earth.SetActive(true);
+            //shock.SetActive(true);
         }
     }
 }

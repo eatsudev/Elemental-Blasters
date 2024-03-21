@@ -15,6 +15,7 @@ public class RatEnemy : BaseEnemy
     private Rigidbody2D rb2d;
     private bool isActive;
     private float activeTime;
+    public Animator animator;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -47,10 +48,12 @@ public class RatEnemy : BaseEnemy
         if(transform.position.x < targetPos.x)
         {
             rb2d.velocity = new Vector2(speed, 0f);
+            animator.SetBool("isWalking", true);
         }
         else if (transform.position.x > targetPos.x)
         {
             rb2d.velocity = new Vector2(-speed, 0f);
+            animator.SetBool("isWalking", true);
         }
     }
 
@@ -66,10 +69,10 @@ public class RatEnemy : BaseEnemy
                 Vector2 dir = (hit.transform.position - transform.position).normalized;
 
                 hit.transform.gameObject.GetComponent<Rigidbody2D>().AddForceAtPosition(dir * 30f, hit.transform.position, ForceMode2D.Impulse);
+
                 Debug.Log(dir);
             }
         }
-        
         Destroy(gameObject);
         this.enabled = false;
     }
@@ -90,5 +93,4 @@ public class RatEnemy : BaseEnemy
         }
     }
 
-    
 }

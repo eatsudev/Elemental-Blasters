@@ -16,6 +16,7 @@ TagManager:
   - disablewind
   - enableall
   - disableearth
+  - buttoncity2
   layers:
   - Default
   - TransparentFX

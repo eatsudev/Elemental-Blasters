@@ -82,6 +82,7 @@ public class WindBehaviour : MonoBehaviour
             }
             Debug.Log("Hit something");
 
+            //push object
             Rigidbody2D enemyRb = collision.gameObject.GetComponent<Rigidbody2D>();
             if (enemyRb != null)
             {

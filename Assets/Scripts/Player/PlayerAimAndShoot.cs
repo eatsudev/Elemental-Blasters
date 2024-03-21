@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 
 public class PlayerAimAndShoot : MonoBehaviour
@@ -17,11 +17,15 @@ public class PlayerAimAndShoot : MonoBehaviour
     [SerializeField] private GameObject windProjectile;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private AudioSource shootSFX;
+    [SerializeField] private Text elementalCounterText;
+    [SerializeField] private int maxElementalShots = 3;
+
     private Player player;
     private ElementalWheelController wheelController;
     
     private Vector2 worldPosition;
     private Vector2 direction;
+    private int elementalShotsRemaining;
 
     private Vector3 originalScale;
     private Vector3 originalPlayerScale;
@@ -33,6 +37,9 @@ public class PlayerAimAndShoot : MonoBehaviour
 
         originalScale = gun.transform.localScale;
         originalPlayerScale = transform.localScale;
+
+        elementalShotsRemaining = maxElementalShots;
+        UpdateElementalCounterUI();
     }
     private void Update()
     {
@@ -90,37 +97,43 @@ public class PlayerAimAndShoot : MonoBehaviour
     private void HandleElementalShooting()
     {
         gun.SetActive(!player.IsMoving());
-        if (Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject())
+        if (wheelController.GetElementID() != 0 && Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject() && elementalShotsRemaining > 0)
         {
+            elementalShotsRemaining--;
+
+            UpdateElementalCounterUI();
+
             //sfx
             shootSFX.Play();
 
             Debug.Log(wheelController.elementID);
-            if (wheelController.GetElementID() == 1)
+            switch (wheelController.GetElementID())
             {
-                GameObject fireInst = Instantiate(fireProjectile, bulletSpawnPoint.position, gun.transform.rotation);
-            }
-            if (wheelController.GetElementID() == 2)
-            {
-                GameObject waterInst = Instantiate(waterProjectile, bulletSpawnPoint.position, gun.transform.rotation);
-            }
-            if (wheelController.GetElementID() == 3)
-            {
-                GameObject shockInst = Instantiate(shockProjectile, bulletSpawnPoint.position, gun.transform.rotation);
-            }
-            if (wheelController.GetElementID() == 4)
-            {
-                GameObject windInst = Instantiate(windProjectile, bulletSpawnPoint.position, gun.transform.rotation);
-            }
-            if (wheelController.GetElementID() == 5)
-            {
-                GameObject dirtInst = Instantiate(dirtProjectile, bulletSpawnPoint.position, gun.transform.rotation);
-            }
-            else
-            {
-                Debug.Log("No Elements");
+                case 1:
+                    Instantiate(fireProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+                    break;
+                case 2:
+                    Instantiate(waterProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+                    break;
+                case 3:
+                    Instantiate(shockProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+                    break;
+                case 4:
+                    Instantiate(windProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+                    break;
+                case 5:
+                    Instantiate(dirtProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+                    break;
+                default:
+                    Debug.Log("No Elements");
+                    break;
             }
 
         }
+    }
+
+    private void UpdateElementalCounterUI()
+    {
+        elementalCounterText.text = ": " + elementalShotsRemaining.ToString();
     }
 }
