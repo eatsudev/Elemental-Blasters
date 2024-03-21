@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class HedgehogEnemy : BaseEnemy
 {
+    [Header("Spikes Parameter")]
     [SerializeField] private GameObject spikePrefabs;
     [SerializeField] private float lifetime;
     [SerializeField] private float speed;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float numberOfSpikes;
 
+    [Header("References")]
     public CircleCollider2D rangeCollider;
     public LayerMask playerLayer;
     public LayerMask notDestroyable;
@@ -39,7 +41,6 @@ public class HedgehogEnemy : BaseEnemy
                 Shoot();
             }
         }
-       
     }
 
     private void Shoot()
@@ -56,7 +57,7 @@ public class HedgehogEnemy : BaseEnemy
     }
     private void AttackPatern(float zRotation, float numberOfRepetition)
     {
-        for(int i = 0; i < numberOfSpikes; i++)
+        for(int i = 0; i < numberOfRepetition; i++)
         {
             Quaternion rot = Quaternion.Euler(Quaternion.identity.x, Quaternion.identity.y, i * zRotation + zRotation/2);
 
@@ -65,6 +66,7 @@ public class HedgehogEnemy : BaseEnemy
             HedgehogSpikes hedgehogSpikes = spawnedSpikes.GetComponent<HedgehogSpikes>();
             hedgehogSpikes.parent = this;
             hedgehogSpikes.speed = speed;
+            hedgehogSpikes.lifetime = lifetime;
         }
     }
 

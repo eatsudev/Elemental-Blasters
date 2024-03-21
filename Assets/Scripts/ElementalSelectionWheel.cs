@@ -37,7 +37,9 @@ public class ElementalSelectionWheel : MonoBehaviour
     {
         selected = true;
         controller.elementID = ID;
+        controller.Interacted();
         elementPressedSFX.Play();
+
     }
     public void Deselected()
     {

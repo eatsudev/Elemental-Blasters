@@ -30,7 +30,7 @@ public class ElephantEnemy : BaseEnemy
     [SerializeField] private float aggroHeight;
     [SerializeField] private float aggroWidth;
     
-    [Header("Reference")]
+    [Header("References")]
     public LayerMask playerLayer;
     public LayerMask notDestroyable;
     public GameObject shootPoint;

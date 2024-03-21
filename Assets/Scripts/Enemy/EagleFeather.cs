@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElephantBullets : MonoBehaviour
+public class EagleFeather : MonoBehaviour
 {
     public float lifetime = 1f;
     public float speed = 1f;
-    public ElephantEnemy parent;
+    public EagleEnemy parent;
 
     private Vector2 spawnPoint;
     private float timer = 0f;
+
     void Update()
     {
         if (timer >= lifetime) Destroy(gameObject);

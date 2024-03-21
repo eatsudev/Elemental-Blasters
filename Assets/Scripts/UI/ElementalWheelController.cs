@@ -22,17 +22,7 @@ public class ElementalWheelController : MonoBehaviour
     {
         if (UserInput.instance.controls.Interact.ElementalWheel.WasPressedThisFrame())
         {
-            weaponWheelSelected = !weaponWheelSelected;
-            if (weaponWheelSelected)
-            {
-                animator.SetTrigger("OpenWheel");
-                WheelSlowDown();
-            }
-            else
-            {
-                animator.SetTrigger("CloseWheel");
-                WheelResume();
-            }
+            Interacted();
         }
 
         switch (elementID)
@@ -58,6 +48,20 @@ public class ElementalWheelController : MonoBehaviour
             case 6:
                 Debug.Log("6");
                 break;
+        }
+    }
+    public void Interacted()
+    {
+        weaponWheelSelected = !weaponWheelSelected;
+        if (weaponWheelSelected)
+        {
+            animator.SetTrigger("OpenWheel");
+            WheelSlowDown();
+        }
+        else
+        {
+            animator.SetTrigger("CloseWheel");
+            WheelResume();
         }
     }
     public int GetElementID()
