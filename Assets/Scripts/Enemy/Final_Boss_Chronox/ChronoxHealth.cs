@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ChronoxHealth : BaseEnemy
@@ -11,22 +12,29 @@ public class ChronoxHealth : BaseEnemy
     public LayerMask playerLayer;
     public Animator animator;
 
-    private ChronoxMovementAndShoot ChronoxMovement;
+    private ChronoxMovementAndShoot chronoxMovement;
+    private ChronoxVirusBlasterSpawner spawner;
 
     private int phase;
+    private int flag = 0;
     void Start()
     {
         currHealth = MaxHP();
-        ChronoxMovement = GetComponent<ChronoxMovementAndShoot>();
+        chronoxMovement = GetComponent<ChronoxMovementAndShoot>();
+        spawner = GetComponent<ChronoxVirusBlasterSpawner>();
         animator = GetComponent<Animator>();
         phase = 1;
         isDead = false;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        if(flag == 0)
+        {
+            spawner.SpawnAllVirusBlaster(phase);
+            flag = 1;
+        }
     }
 
     public int Phase()
@@ -36,21 +44,43 @@ public class ChronoxHealth : BaseEnemy
 
     public override void TakeDamage(int damageAmount)
     {
-        currHealth -= damageAmount;
-        if (currHealth <= changePhaseWhenHPReach && !isDead)
+        if(phase == 0)
         {
-            GoNextPhase();
+            return;
+        }
+
+        currHealth -= damageAmount;
+        if (currHealth <= changePhaseWhenHPReach && phase != 2)
+        {
+            StartCoroutine(GoNextPhase());
+            Debug.Log("Phase 2");
         }
         else if(currHealth <= 0)
         {
             isDead = true;
             Debug.Log("Dead");
+
+            
         }
     }
 
-    public void GoNextPhase()
+    public IEnumerator GoNextPhase()
     {
-        phase++;
+        int temp = phase;
+        phase = 0;
         animator.SetTrigger("PhaseChange");
+
+        yield return new WaitForSeconds(3f);
+
+        phase = temp + 1;
+        spawner.SpawnAllVirusBlaster(phase);
+    }
+
+    private IEnumerator Death()
+    {
+
+        yield return new WaitForSeconds(3f);
+
+        Destroy(gameObject);
     }
 }

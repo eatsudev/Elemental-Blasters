@@ -10,14 +10,16 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     [SerializeField] private float lifetime;
     [SerializeField] private float laserSpeed;
     [SerializeField] private float shootDelay;
-    [SerializeField] private float shootCooldown;
+    [SerializeField] private float phase1ShootCooldown;
+    [SerializeField] private float phase2ShootCooldown;
     [SerializeField] private float numberOfLaser;
     [SerializeField] private int numberOfShoot;
 
     [Header("Flight Position and Parameters")]
     [SerializeField] private ChronoxFlightPoint[] flightPos;
     [SerializeField] private float timeUntilChangingPos;
-    [SerializeField] private float speed;
+    [SerializeField] private float phase1Speed;
+    [SerializeField] private float phase2Speed;
 
     [Header("References")]
     public LayerMask playerLayer;
@@ -60,26 +62,35 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             {
                 int temp = Random.Range(0, flightPos.Length);
 
-                FlytToSetPosition(flightPos[temp]);
+                FlytToSetPosition(flightPos[temp], phase1Speed);
             }
             if (!isShooting)
             {
-                StartCoroutine(StartShootingProcess());
+                StartCoroutine(StartShootingProcess(phase1ShootCooldown));
             }
 
         }
         else if (chronoxHealth.Phase() == 2)
         {
+            if (timeUntilChangingPosTimer >= timeUntilChangingPos && reachedFlightPos)
+            {
+                int temp = Random.Range(0, flightPos.Length);
 
+                FlytToSetPosition(flightPos[temp], phase2Speed);
+            }
+            if (!isShooting)
+            {
+                StartCoroutine(StartShootingProcess(phase2ShootCooldown));
+            }
         }
     }
     
-    private void FlytToSetPosition(ChronoxFlightPoint targetFlightPos)
+    private void FlytToSetPosition(ChronoxFlightPoint targetFlightPos, float speed)
     {
-        StartCoroutine(MoveTo(targetFlightPos.transform.position));
+        StartCoroutine(MoveTo(targetFlightPos.transform.position, speed));
     }
 
-    private IEnumerator MoveTo(Vector2 target)
+    private IEnumerator MoveTo(Vector2 target, float speed)
     {
         reachedFlightPos = false;
 
@@ -94,7 +105,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         timeUntilChangingPosTimer = 0f;
     }
 
-    private IEnumerator StartShootingProcess()
+    private IEnumerator StartShootingProcess(float shootCooldown)
     {
         isShooting = true;
 
@@ -134,7 +145,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
         spawnedLasersScript.parent = this;
         spawnedLasersScript.lifetime = lifetime;
-        spawnedLasersScript.speed = speed;
+        spawnedLasersScript.speed = laserSpeed;
     }
 
     public int LaserDamage()
