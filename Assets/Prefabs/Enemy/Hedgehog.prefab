@@ -196,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddb70b6e26ab1d449b000b5804935e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  damage: 25
+  maxHP: 25
+  damage: 30
   currHealth: 0
   isDead: 0
   spikePrefabs: {fileID: 7178897449923348324, guid: fce3d617af47a4d4890ab031d578921b, type: 3}

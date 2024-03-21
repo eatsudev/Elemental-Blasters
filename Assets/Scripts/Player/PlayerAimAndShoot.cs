@@ -132,8 +132,9 @@ public class PlayerAimAndShoot : MonoBehaviour
         }
     }
 
+
     private void UpdateElementalCounterUI()
     {
-        elementalCounterText.text = "Shot Left : " + elementalShotsRemaining.ToString();
+        elementalCounterText.text = ": " + elementalShotsRemaining.ToString();
     }
 }
