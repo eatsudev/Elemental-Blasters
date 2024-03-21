@@ -15,7 +15,7 @@ public class ElephantEnemy : BaseEnemy
     [SerializeField] private float shootDelay;
     [SerializeField] private float shootCooldown;
     [SerializeField] private float numberOfBullet;
-    [SerializeField] private int numberOfShoot;
+    [SerializeField] private int numberOfShootBeforeChangingState;
 
     [Header("Charge Parameters")]
     [SerializeField] private int chargeDamage;
@@ -90,7 +90,7 @@ public class ElephantEnemy : BaseEnemy
 
     private void CheckState()
     {
-        if (amountAlreadyShot >= numberOfShoot)
+        if (amountAlreadyShot >= numberOfShootBeforeChangingState)
         {
             amountAlreadyShot = 0;
             isCharging = true;
@@ -174,8 +174,6 @@ public class ElephantEnemy : BaseEnemy
 
     private void Shoot(Vector2 direction, float randRot)
     {
-        //Quaternion zRot = Quaternion.LookRotation(direction);
-
         spawnedBullets = Instantiate(bulletPrefabs, shootPoint.transform.position, gun.transform.rotation);
 
         ElephantBullets spawnedBulletsScript = spawnedBullets.GetComponent<ElephantBullets>();

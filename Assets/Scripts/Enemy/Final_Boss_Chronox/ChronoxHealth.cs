@@ -20,6 +20,7 @@ public class ChronoxHealth : BaseEnemy
         ChronoxMovement = GetComponent<ChronoxMovementAndShoot>();
         animator = GetComponent<Animator>();
         phase = 1;
+        isDead = false;
     }
 
     // Update is called once per frame

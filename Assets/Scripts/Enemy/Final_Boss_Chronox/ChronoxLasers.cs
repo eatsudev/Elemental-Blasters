@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ElephantBullets : MonoBehaviour
+public class ChronoxLasers : MonoBehaviour
 {
     public float lifetime = 1f;
     public float speed = 1f;
-    public ElephantEnemy parent;
+    public ChronoxMovementAndShoot parent;
 
     private Vector2 spawnPoint;
     private float timer = 0f;
@@ -26,7 +26,7 @@ public class ElephantBullets : MonoBehaviour
     {
         if (collision.transform.gameObject.GetComponent<PlayerHealth>() != null)
         {
-            collision.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(parent.Damage());
+            collision.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(parent.LaserDamage());
         }
 
         if (!((parent.notDestroyable.value & (1 << collision.gameObject.layer)) > 0))
