@@ -23,7 +23,6 @@ public class ChronoxVirusBlasterSpawner : MonoBehaviour
 
     public IEnumerator SpawnAllVirusBlaster(int phase)
     {
-
         yield return new WaitForSeconds(2f);
 
         foreach (VirusBlasterSpawnPoint spawnPoint in virusBlasterSpawnPoints)
@@ -43,5 +42,5 @@ public class ChronoxVirusBlasterSpawner : MonoBehaviour
         }
 
         chronoxHealth.flag = 1;
-}
+    }
 }

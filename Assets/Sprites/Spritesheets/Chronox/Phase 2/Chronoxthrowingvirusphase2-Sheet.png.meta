@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f93d99c5c20e99948a6a3e3e5af7af9f
+guid: c91048da4af57564f82f6c3029471296
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_0
+      name: Chronoxthrowingvirusphase2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6388bd7b423d34439dd5f99af4d2846
-      internalID: 1308118369
+      spriteID: 6313c3f5aa2bee54ba095d0f38ddf872
+      internalID: 449567200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_1
+      name: Chronoxthrowingvirusphase2-Sheet_1
       rect:
         serializedVersion: 2
-        x: 95
+        x: 760
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3db17d64d7250fb48a48e32c954b60a8
-      internalID: 410319419
+      spriteID: a61c342e77283ac45afd785ab376ae6a
+      internalID: -1704542305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_2
+      name: Chronoxthrowingvirusphase2-Sheet_2
       rect:
         serializedVersion: 2
-        x: 190
+        x: 1520
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd74804124e9d3b45be732f949e3664d
-      internalID: 1838221974
+      spriteID: 14af1e6cc6928f142bc0e7b89c682b80
+      internalID: 767547098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_3
+      name: Chronoxthrowingvirusphase2-Sheet_3
       rect:
         serializedVersion: 2
-        x: 285
+        x: 2280
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1569c73799ed7a940b14166a5d01a155
-      internalID: 671074913
+      spriteID: d9edcebbfd4f8dd4fa34a0a88c835ad6
+      internalID: -1791657851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_4
+      name: Chronoxthrowingvirusphase2-Sheet_4
       rect:
         serializedVersion: 2
-        x: 380
+        x: 3040
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a452e43c941ad5144a8d3276262cc8eb
-      internalID: 1354704333
+      spriteID: ce32b94664e3f494aa65cd2ef04dee97
+      internalID: 1188816631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_5
+      name: Chronoxthrowingvirusphase2-Sheet_5
       rect:
         serializedVersion: 2
-        x: 475
+        x: 3800
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7da79936b94568943b10924f8b951169
-      internalID: -153035617
+      spriteID: c9ce57cc00a39764eaff0c15bf7fcf0b
+      internalID: -613151279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_6
+      name: Chronoxthrowingvirusphase2-Sheet_6
       rect:
         serializedVersion: 2
-        x: 570
+        x: 4560
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddba9b9ceb1dfcc468391b971a77b22f
-      internalID: 778387096
+      spriteID: 421c1a192dad5354a8202693ff84bba4
+      internalID: -1997778933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxthrowvirusphase2-Sheet_7
+      name: Chronoxthrowingvirusphase2-Sheet_7
       rect:
         serializedVersion: 2
-        x: 665
+        x: 5320
         y: 0
-        width: 95
-        height: 64
+        width: 760
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b462c15f7f109024aa31db4eee7f7d20
-      internalID: -1378765404
+      spriteID: 84364af565470e44888ee86c7c5209c8
+      internalID: -906142639
       vertices: []
       indices: 
       edges: []
@@ -283,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chronoxthrowvirusphase2-Sheet_0: 1308118369
-      Chronoxthrowvirusphase2-Sheet_1: 410319419
-      Chronoxthrowvirusphase2-Sheet_2: 1838221974
-      Chronoxthrowvirusphase2-Sheet_3: 671074913
-      Chronoxthrowvirusphase2-Sheet_4: 1354704333
-      Chronoxthrowvirusphase2-Sheet_5: -153035617
-      Chronoxthrowvirusphase2-Sheet_6: 778387096
-      Chronoxthrowvirusphase2-Sheet_7: -1378765404
+      Chronoxthrowingvirusphase2-Sheet_0: 449567200
+      Chronoxthrowingvirusphase2-Sheet_1: -1704542305
+      Chronoxthrowingvirusphase2-Sheet_2: 767547098
+      Chronoxthrowingvirusphase2-Sheet_3: -1791657851
+      Chronoxthrowingvirusphase2-Sheet_4: 1188816631
+      Chronoxthrowingvirusphase2-Sheet_5: -613151279
+      Chronoxthrowingvirusphase2-Sheet_6: -1997778933
+      Chronoxthrowingvirusphase2-Sheet_7: -906142639
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

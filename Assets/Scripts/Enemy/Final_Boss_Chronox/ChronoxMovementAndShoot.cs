@@ -31,7 +31,6 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     public Animator animator;
 
     private PlayerHealth playerHealth;
-    
     private Vector2 targetPos;
     private Rigidbody2D rb2d;
     private ChronoxHealth chronoxHealth;
@@ -61,7 +60,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         timeUntilChangingPosTimer += Time.deltaTime;
         shootTimer += Time.deltaTime;
 
-        if (chronoxHealth.Phase() == 1)
+        if (chronoxHealth.Phase() == 1 && !chronoxHealth.isDead)
         {
             if (timeUntilChangingPosTimer >= timeUntilChangingPos && reachedFlightPos)
             {
@@ -75,7 +74,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             }
 
         }
-        else if (chronoxHealth.Phase() == 2)
+        else if (chronoxHealth.Phase() == 2 && !chronoxHealth.isDead)
         {
             if (timeUntilChangingPosTimer >= timeUntilChangingPos && reachedFlightPos)
             {
@@ -111,6 +110,10 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
             yield return new WaitForSeconds(Time.deltaTime);
         }
+
+        isRight = target.x > transform.position.x ? 1f : -1f;
+        transform.localScale = new Vector3(isRight * -1f, transform.localScale.y, transform.localScale.z);
+        gun.transform.localScale = new Vector3(isRight * -1f, gun.transform.localScale.y, gun.transform.localScale.z);
 
         reachedFlightPos = true;
         timeUntilChangingPosTimer = 0f;
