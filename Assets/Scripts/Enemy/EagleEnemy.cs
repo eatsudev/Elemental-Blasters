@@ -29,16 +29,13 @@ public class EagleEnemy : BaseEnemy
 
     private GameObject spawnedProjectile;
     private float shootTimer;
-    private Vector3 projectilesOffsetVector;
 
     void Start()
     {
         currHealth = MaxHP();
 
-        projectilesOffsetVector = new Vector3(0f, projectilesOffset, 0f);
+        playerHealth = GameObject.FindAnyObjectByType<PlayerHealth>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         shootTimer += Time.deltaTime;
