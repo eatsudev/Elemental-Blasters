@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 4686953678973130048}
   - component: {fileID: 6125275044612011384}
   - component: {fileID: 1444035602794123702}
+  - component: {fileID: 1755763495036967308}
   - component: {fileID: 1444035602794123703}
   m_Layer: 8
   m_Name: Chronox
@@ -300,14 +301,16 @@ MonoBehaviour:
   laserPrefabs: {fileID: 7178897449923348324, guid: 3818b2767aa3eb647bd27c2731ef86a1, type: 3}
   laserDamage: 20
   lifetime: 5
-  laserSpeed: 20
+  laserSpeed: 15
   shootDelay: 0.1
-  shootCooldown: 5
+  phase1ShootCooldown: 5
+  phase2ShootCooldown: 3
   numberOfLaser: 5
   numberOfShoot: 1
   flightPos: []
   timeUntilChangingPos: 5
-  speed: 10
+  phase1Speed: 0
+  phase2Speed: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -337,6 +340,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 0}
+--- !u!114 &1755763495036967308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067158809437306963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ca3f43edb3a1f4c86a46e675733d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virusBlasterPrefabs: {fileID: 5496318168082740520, guid: d30d9467273d5554da895e44bb1e6a9d, type: 3}
+  phase1ShootCooldown: 5
+  phase2ShootCooldown: 3
 --- !u!95 &1444035602794123703
 Animator:
   serializedVersion: 5

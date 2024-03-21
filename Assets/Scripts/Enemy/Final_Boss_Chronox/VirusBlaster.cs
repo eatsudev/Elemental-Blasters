@@ -42,8 +42,12 @@ public class VirusBlaster : BaseEnemy
                 cooldownTimer = 0f;
                 Shoot(targetedPlayer.transform.position);
             }
-            
         }
+    }
+
+    public void SetShootCooldown(float shootCooldown)
+    {
+        this.shootCooldown = shootCooldown;
     }
 
     private void Shoot(Vector2 target)
