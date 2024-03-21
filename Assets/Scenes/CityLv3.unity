@@ -3821,7 +3821,7 @@ RectTransform:
   - {fileID: 1103275103}
   - {fileID: 963724601}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9052,7 +9052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7298552842597904079, guid: fa49a59284bc35b4eb82c6ddda7c2eb1, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 7298552842597904079, guid: fa49a59284bc35b4eb82c6ddda7c2eb1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10048,7 +10048,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2135124128
 GameObject:

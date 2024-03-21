@@ -12,6 +12,7 @@ public class ShockBehaviour : MonoBehaviour
     [SerializeField] private int physicsShockDamage = 90;
     [SerializeField] private float physicsBulletGravity = 3f;
     [SerializeField] private AudioSource shockTriggerSFX;
+    [SerializeField] private GameObject thunder;
     private Rigidbody2D rb;
     private int damage;
     public enum BulletType
@@ -65,6 +66,7 @@ public class ShockBehaviour : MonoBehaviour
                 animator.SetTrigger("Explode");
             }
             rb.velocity = Vector2.zero;
+            thunder.SetActive(true);
             // Wait for the duration of the explosion animation
             StartCoroutine(DestroyAfterDelay(3f));
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseObstacles : MonoBehaviour, IDamageable
+public class BaseObstacleIron : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHP = 1;
     [SerializeField] private int damage;
@@ -38,10 +38,10 @@ public class BaseObstacles : MonoBehaviour, IDamageable
         if (currHealth <= 0)
         {
             currHealth = 0;
-            animator.SetTrigger("Bakar");
+            animator.SetTrigger("Karat");
             Debug.Log("obstacle destroyed");
             StartCoroutine(DelayBeforeDestroy(1.5f));
-            
+
         }
     }
 
@@ -50,5 +50,4 @@ public class BaseObstacles : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
-
 }

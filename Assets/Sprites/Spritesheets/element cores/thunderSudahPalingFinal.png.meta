@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 356f79ccf49602d4899cc555123d1d41
+guid: 1d39f3f89bd968d45ab8762b9edae445
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 2
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: karat_0
+      name: thunderSudahPalingFinal_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 248
         y: 0
-        width: 97
-        height: 189
+        width: 248
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +107,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd618bbffe83404fa20e215975b204e
-      internalID: -560477207
+      spriteID: 06055ee6ed532fa4c8e9f67cace18d1e
+      internalID: 741658728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: karat_1
+      name: thunderSudahPalingFinal_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 496
         y: 0
-        width: 97
-        height: 189
+        width: 248
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,20 +128,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9f4973ed9fb0294d94f7fe800d1c0aa
-      internalID: 1225697051
+      spriteID: 8f211f5bd710d934289608efbdf23f27
+      internalID: 1363498012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: karat_2
+      name: thunderSudahPalingFinal_2
       rect:
         serializedVersion: 2
-        x: 194
+        x: 744
         y: 0
-        width: 97
-        height: 189
+        width: 248
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce0005bd0bc6914794c47920f28ad0c
-      internalID: 530505559
+      spriteID: 210a2329b5a9c7e4a8f229ba3babc9bc
+      internalID: -1288276552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: karat_3
+      name: thunderSudahPalingFinal_3
       rect:
         serializedVersion: 2
-        x: 291
+        x: 992
         y: 0
-        width: 97
-        height: 189
+        width: 248
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +170,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2373f3f2ae162549bd1adcacdc5a970
-      internalID: -1727148699
+      spriteID: a9838d97b0232b148afb1411e49d4ee5
+      internalID: -926511737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: karat_4
+      name: thunderSudahPalingFinal_4
       rect:
         serializedVersion: 2
-        x: 388
+        x: 1240
         y: 0
-        width: 97
-        height: 189
+        width: 248
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa62038f7934f564f8d3f7dc5bfe4351
-      internalID: -2043573542
+      spriteID: c5b0ba74c5c2e8841b1e8edb3809956f
+      internalID: -706803570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: karat_5
+      name: thunderSudahPalingFinal_5
       rect:
         serializedVersion: 2
-        x: 485
+        x: 1488
         y: 0
-        width: 97
-        height: 189
+        width: 248
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +212,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c6a6550f94a01a45be6325d3cdfe61b
-      internalID: 995019173
+      spriteID: 50b83bd669c3aa04b959634690801121
+      internalID: 1735839417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunderSudahPalingFinal_6
+      rect:
+        serializedVersion: 2
+        x: 1736
+        y: 0
+        width: 248
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9305d5af85cddd34fbaac88f53bf5eb9
+      internalID: 697350619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunderSudahPalingFinal_7
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 248
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7770eb614f0dab4e8293e7a6fa5e277
+      internalID: -536051646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunderSudahPalingFinal_8
+      rect:
+        serializedVersion: 2
+        x: 2232
+        y: 0
+        width: 248
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ffb49ce4a132a438ff2e768de95fb6
+      internalID: 865586807
       vertices: []
       indices: 
       edges: []
@@ -229,12 +292,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      karat_0: -560477207
-      karat_1: 1225697051
-      karat_2: 530505559
-      karat_3: -1727148699
-      karat_4: -2043573542
-      karat_5: 995019173
+      thunderSudahPalingFinal_0: 741658728
+      thunderSudahPalingFinal_1: 1363498012
+      thunderSudahPalingFinal_2: -1288276552
+      thunderSudahPalingFinal_3: -926511737
+      thunderSudahPalingFinal_4: -706803570
+      thunderSudahPalingFinal_5: 1735839417
+      thunderSudahPalingFinal_6: 697350619
+      thunderSudahPalingFinal_7: -536051646
+      thunderSudahPalingFinal_8: 865586807
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -9,6 +9,13 @@ TagManager:
   - prof
   - sceneCollider
   - fire
+  - water
+  - disablefire
+  - disablewater
+  - disableshock
+  - disablewind
+  - enableall
+  - disableearth
   layers:
   - Default
   - TransparentFX
@@ -21,7 +28,7 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - ObstacleDmg
-  - 
+  - ObstacleDmg2
   - 
   - 
   - 
