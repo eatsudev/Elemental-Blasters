@@ -13,20 +13,26 @@ public class RatEnemy : BaseEnemy
     private PlayerHealth targetedPlayer;
     private Vector2 targetPos;
     private Rigidbody2D rb2d;
-    private bool isActive;
-    private float activeTime;
+    private BoxCollider2D boxCollider2D;
     public Animator animator;
+
+    private bool isActive;
+    private bool isExpoded;
+    private float activeTime;
+    
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
         currHealth = MaxHP();
+        isExpoded = false;
     }
 
     // Update is called once per frames
     void Update()
     {
 
-        if (isActive)
+        if (isActive && !isExpoded)
         {
             MoveToPosition();
             activeTime += Time.deltaTime;
@@ -49,16 +55,20 @@ public class RatEnemy : BaseEnemy
         {
             rb2d.velocity = new Vector2(speed, 0f);
             animator.SetBool("isWalking", true);
+            transform.parent.localScale = Vector3.one;
         }
         else if (transform.position.x > targetPos.x)
         {
             rb2d.velocity = new Vector2(-speed, 0f);
             animator.SetBool("isWalking", true);
+            transform.parent.localScale = new Vector3(-1, 1, 1);
         }
     }
 
     private void Explode()
     {
+        animator.SetTrigger("explode");
+
         RaycastHit2D[] ray = Physics2D.CircleCastAll(transform.position, explosionRange, Vector2.zero);
         foreach (RaycastHit2D hit in ray)
         {
@@ -73,10 +83,17 @@ public class RatEnemy : BaseEnemy
                 Debug.Log(dir);
             }
         }
-        Destroy(gameObject);
-        this.enabled = false;
+
+        isExpoded = true;
+        rb2d.velocity = Vector2.zero;
+        Destroy(rb2d);
+        Destroy(boxCollider2D);
     }
 
+    private void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
     public void Activate(PlayerHealth player)
     {
         isActive = true;
