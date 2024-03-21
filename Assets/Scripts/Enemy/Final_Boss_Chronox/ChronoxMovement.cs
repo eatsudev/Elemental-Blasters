@@ -13,34 +13,69 @@ public class ChronoxMovement : MonoBehaviour
     [SerializeField] private float numberOfLaser;
     [SerializeField] private int numberOfShoot;
 
-    [Header("Attack Parameters")]
-    [SerializeField] private float aggroHeight;
-    [SerializeField] private float aggroWidth;
+    [Header("Flight Position and Parameters")]
+    [SerializeField] private ChronoxFlightPoint[] flightPos;
+    [SerializeField] private float timeUntilChangingPos;
     [SerializeField] private float speed;
-    [SerializeField] private float attackCooldown;
-
-    [Header("FlightPosition")]
-    [SerializeField] private GameObject[] flightPos;
 
     [Header("References")]
-    public BoxCollider2D damageCollider;
     public LayerMask playerLayer;
     public Animator animator;
 
     private PlayerHealth targetedPlayer;
     private Vector2 targetPos;
     private Rigidbody2D rb2d;
+    private ChronoxHealth chronoxHealth;
 
     private float cooldownTimer;
-    private bool isChasing;
+    private float timeUntilChangingPosTimer;
+    private bool reachedFlightPos;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        chronoxHealth = GetComponent<ChronoxHealth>();
+        timeUntilChangingPosTimer = 0f;
+        reachedFlightPos = true;
+        flightPos = FindObjectsOfType<ChronoxFlightPoint>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timeUntilChangingPosTimer += Time.deltaTime;
+
+        if (chronoxHealth.Phase() == 1)
+        {
+            if (timeUntilChangingPosTimer >= timeUntilChangingPos && reachedFlightPos)
+            {
+                int temp = Random.Range(0, flightPos.Length);
+
+                FlytToSetPosition(flightPos[temp]);
+            }
+        }
+        else if (chronoxHealth.Phase() == 2)
+        {
+
+        }
     }
+
+    private void FlytToSetPosition(ChronoxFlightPoint targetFlightPos)
+    {
+        StartCoroutine(MoveTo(targetFlightPos.transform.position));
+    }
+
+    private IEnumerator MoveTo(Vector2 target)
+    {
+        reachedFlightPos = false;
+
+        while (Mathf.Abs(Vector2.Distance(transform.position, target)) > 0.1f)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        reachedFlightPos = true;
+        timeUntilChangingPosTimer = 0f;
+    }
+
 }

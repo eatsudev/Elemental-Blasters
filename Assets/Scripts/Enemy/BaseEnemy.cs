@@ -32,8 +32,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable
     }
 
 
-    public void TakeDamage(int damageAmount)
-    {
+    virtual public void TakeDamage(int damageAmount)
+    { 
         currHealth -= damageAmount;
         if (currHealth <= 0)
         {
@@ -44,17 +44,8 @@ public class BaseEnemy : MonoBehaviour, IDamageable
             
     }
 
-    public void DealDamage()
+    virtual public void DealDamage()
     {
 
     }
-
-    /*public void Damage(float damageAmount)
-    {
-        currHealth -= damageAmount;
-        if(currHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }*/
 }
