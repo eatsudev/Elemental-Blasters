@@ -91,18 +91,18 @@ public class EagleEnemy : BaseEnemy
 
         shootPoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        StartCoroutine(Shoot(0f, Vector3.zero));
-        StartCoroutine(Shoot(middleProjectileAheadTime, projectilesOffsetVector));
-        StartCoroutine(Shoot(middleProjectileAheadTime, -projectilesOffsetVector));
+        StartCoroutine(Shoot(0f, 0f));
+        StartCoroutine(Shoot(middleProjectileAheadTime, projectilesOffset));
+        StartCoroutine(Shoot(middleProjectileAheadTime, -projectilesOffset));
     }
 
-    private IEnumerator Shoot(float delay, Vector3 offset)
+    private IEnumerator Shoot(float delay, float offset)
     {
         yield return new WaitForSeconds(delay);
 
-        spawnedProjectile = Instantiate(projectilePrefabs, shoot.transform.localPosition + offset, shootPoint.transform.rotation);
+        spawnedProjectile = Instantiate(projectilePrefabs, shootPoint.transform.position + (shoot.transform.up * offset), shootPoint.transform.rotation);
 
-        Debug.Log(shootPoint.transform.position + offset);
+        Debug.Log(shoot.transform.up * projectilesOffset);
 
         EagleFeather eagleFeather = spawnedProjectile.GetComponent<EagleFeather>();
         eagleFeather.parent = this;

@@ -166,7 +166,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &2655596732640772567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 896
   shootPoint: {fileID: 7920615443506258418}
-  shootIndicator: {fileID: 6450237437786956124}
+  shoot: {fileID: 6450237437786956124}
   playerHealth: {fileID: 0}
 --- !u!1 &5878764546417237734
 GameObject:
