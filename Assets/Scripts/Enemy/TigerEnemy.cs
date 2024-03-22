@@ -21,13 +21,15 @@ public class TigerEnemy : BaseEnemy
 
     private float cooldownTimer;
     private bool isChasing;
-
+    private Vector3 originalScale;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
         currHealth = MaxHP();
+        originalScale = transform.localScale;
+
         Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer);
     }
     void Update()
@@ -58,12 +60,12 @@ public class TigerEnemy : BaseEnemy
         if (transform.position.x < targetPos.x)
         {
             rb2d.velocity = new Vector2(speed, 0f);
-            transform.localScale = Vector3.one;
+            transform.localScale = originalScale;
         }
         else if (transform.position.x > targetPos.x)
         {
             rb2d.velocity = new Vector2(-speed, 0f);
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(originalScale.x * -1, originalScale.y, originalScale.z);
         }
 
         if(transform.position.x > targetPos.x - 0.1f && transform.position.x < targetPos.x + 0.1f)

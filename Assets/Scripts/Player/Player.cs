@@ -12,6 +12,8 @@ public class Player : MonoBehaviour, IUnit
     [SerializeField] private AudioSource walkingSFX;
     [SerializeField] private AudioSource jumpSFX;
     public Animator anim;
+
+
     private Rigidbody2D rb;
     private Collider2D coll;
     private float moveInput;
