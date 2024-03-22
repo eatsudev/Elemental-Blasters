@@ -44,7 +44,7 @@ public class Player : MonoBehaviour, IUnit
         moveInput = UserInput.instance.moveInput.x;
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
         isMoving = Mathf.Abs(moveInput) > 0.1f;
-        anim.SetFloat("Speed", Mathf.Abs(moveInput));
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
 
         if (isMoving && IsGrounded())
         {
@@ -56,11 +56,6 @@ public class Player : MonoBehaviour, IUnit
         else
         {
             walkingSFX.Stop();
-        }
-
-        if ((moveInput > 0 && !isFacingRight) || (moveInput < 0 && isFacingRight))
-        {
-            //Flip();
         }
     }
 
@@ -105,12 +100,10 @@ public class Player : MonoBehaviour, IUnit
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
-                
             }
             else
             {
                 isJumping = false;
-                
             }
         }
 

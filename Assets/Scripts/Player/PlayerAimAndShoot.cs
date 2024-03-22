@@ -26,6 +26,7 @@ public class PlayerAimAndShoot : MonoBehaviour
     private Vector2 worldPosition;
     private Vector2 direction;
     private int elementalShotsRemaining;
+    private bool elementalShootingEnabled;
 
     private Vector3 originalScale;
     private Vector3 originalPlayerScale;
@@ -44,10 +45,14 @@ public class PlayerAimAndShoot : MonoBehaviour
     private void Update()
     {
         HandleGunRotation();
-        HandleElementalShooting();
-
-        //Debug.Log(wheelController.elementID);
-        //Debug.Log(wheelController.GetElementID() == 1);    
+        if (elementalShootingEnabled)
+        {
+            HandleElementalShooting();
+        }
+        else
+        {
+            UnableToShoot();
+        }
     }
 
     private void HandleGunRotation()
@@ -93,6 +98,20 @@ public class PlayerAimAndShoot : MonoBehaviour
         }
         
     }*/
+
+    public void ChangeElementalState(bool state)
+    {
+        elementalShootingEnabled = state;
+    }
+
+    private void UnableToShoot()
+    {
+        gun.SetActive(!player.IsMoving());
+        if (wheelController.GetElementID() != 0 && Mouse.current.leftButton.wasPressedThisFrame && !EventSystem.current.IsPointerOverGameObject() && elementalShotsRemaining > 0)
+        {
+            shootSFX.Play();
+        }
+    }
 
     private void HandleElementalShooting()
     {

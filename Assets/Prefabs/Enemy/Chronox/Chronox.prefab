@@ -360,6 +360,8 @@ MonoBehaviour:
   currHealth: 0
   isDead: 0
   changePhaseWhenHPReach: 250
+  healthWhenActivatingUltimate: 150
+  ultimateTimeLength: 20
   playerLayer:
     serializedVersion: 2
     m_Bits: 8

@@ -61,7 +61,6 @@ public class EagleEnemy : BaseEnemy
                     ShootProcess();
                 }
             }
-
             int isRight = playerHealth.transform.position.x > transform.position.x ? -1 : 1;
             transform.localScale = new Vector3(originalScale.x * isRight, originalScale.y, originalScale.z);
         }
@@ -96,14 +95,12 @@ public class EagleEnemy : BaseEnemy
         Vector3 targetPosition = target.transform.position;
         Vector3 objectPosition = transform.transform.position;
 
-        targetPosition.x = targetPosition.x - objectPosition.x;
-        targetPosition.y = targetPosition.y - objectPosition.y;
+        targetPosition.x -= objectPosition.x;
+        targetPosition.y -= objectPosition.y;
 
         float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
 
         shootPoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        
 
         StartCoroutine(Shoot(0f, 0f));
         StartCoroutine(Shoot(middleProjectileAheadTime, projectilesOffset));

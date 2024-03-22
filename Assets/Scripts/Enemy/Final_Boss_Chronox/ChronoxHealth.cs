@@ -8,10 +8,15 @@ public class ChronoxHealth : BaseEnemy
 {
     [Header("PhaseChange Parameter")]
     [SerializeField] private int changePhaseWhenHPReach;
-    
+    [SerializeField] private int healthWhenActivatingUltimate;
+
+    [Header("Ultimate Parameter")]
+    [SerializeField] private int ultimateTimeLength;
+
     [Header("References")]
     public LayerMask playerLayer;
     public Animator animator;
+    public PlayerAimAndShoot playerAimAndShoot;
 
     private ChronoxMovementAndShoot chronoxMovementAndShoot;
     private ChronoxVirusBlasterSpawner spawner;
@@ -52,7 +57,7 @@ public class ChronoxHealth : BaseEnemy
 
         /*if(Input.GetKeyDown(KeyCode.T))
         {
-            StartCoroutine(Death());
+            StartCoroutine(ChronoxUltimate());
         }*/
     }
 
@@ -73,6 +78,11 @@ public class ChronoxHealth : BaseEnemy
         {
             StartCoroutine(GoNextPhase());
             Debug.Log("Phase 2");
+        }
+        else if (currHealth <= healthWhenActivatingUltimate && phase == 2)
+        {
+            StartCoroutine(ChronoxUltimate());
+            Debug.Log("Ultimate");
         }
         else if(currHealth <= 0)
         {
@@ -126,6 +136,17 @@ public class ChronoxHealth : BaseEnemy
         rb2d.gravityScale = 0;
         phase = temp + 1;
         flag = 0;
+    }
+    public IEnumerator ChronoxUltimate()
+    {
+        playerAimAndShoot.ChangeElementalState(false);
+        chronoxMovementAndShoot.ActivateUltimate(true);
+        StartCoroutine(chronoxMovementAndShoot.UltimateProcess());
+
+        yield return new WaitForSeconds(ultimateTimeLength);
+
+        playerAimAndShoot.ChangeElementalState(true);
+        chronoxMovementAndShoot.ActivateUltimate(false);
     }
 
 }

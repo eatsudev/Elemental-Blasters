@@ -38,8 +38,10 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
     private float shootTimer;
     private float timeUntilChangingPosTimer;
+    private float ultimateTimer;
     private bool reachedFlightPos;
     private bool isShooting;
+    private bool isActivatingUltimate;
     void Start()
     {
         playerHealth = GameObject.FindAnyObjectByType<PlayerHealth>();
@@ -50,7 +52,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         timeUntilChangingPosTimer = 0f;
         reachedFlightPos = true;
         flightPos = FindObjectsOfType<ChronoxFlightPoint>();
-
+        ultimateTimer = 0f;
 
         gunSprite.enabled = false;
     }
@@ -60,7 +62,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         timeUntilChangingPosTimer += Time.deltaTime;
         shootTimer += Time.deltaTime;
 
-        if (chronoxHealth.Phase() == 1 && !chronoxHealth.isDead)
+        if (chronoxHealth.Phase() == 1 && !chronoxHealth.isDead && !isActivatingUltimate)
         {
             if (timeUntilChangingPosTimer >= timeUntilChangingPos && reachedFlightPos)
             {
@@ -72,9 +74,8 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             {
                 StartCoroutine(StartShootingProcess(phase1ShootCooldown));
             }
-
         }
-        else if (chronoxHealth.Phase() == 2 && !chronoxHealth.isDead)
+        else if (chronoxHealth.Phase() == 2 && !chronoxHealth.isDead && !isActivatingUltimate)
         {
             if (timeUntilChangingPosTimer >= timeUntilChangingPos && reachedFlightPos)
             {
@@ -86,6 +87,11 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             {
                 StartCoroutine(StartShootingProcess(phase2ShootCooldown));
             }
+        }
+        else if(isActivatingUltimate)
+        {
+            ultimateTimer += Time.deltaTime;
+
         }
     }
     
@@ -141,15 +147,14 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             Vector3 target = playerHealth.transform.position;
             Vector3 objectPosition = gun.transform.position;
 
-            target.x = target.x - objectPosition.x;
-            target.y = target.y - objectPosition.y;
+            target.x -= objectPosition.x;
+            target.y -= objectPosition.y;
 
 
             float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
             gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            float randRot = Random.Range(-1f, 1f);
-            Shoot(target, randRot);
+            Shoot(target);
 
             yield return new WaitForSeconds(shootDelay);
         }
@@ -164,7 +169,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         isShooting = false;
     }
 
-    private void Shoot(Vector2 direction, float randRot)
+    private void Shoot(Vector2 direction)
     {
         spawnedLaser = Instantiate(laserPrefabs, shootPoint.transform.position, gun.transform.rotation);
 
@@ -173,6 +178,16 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         spawnedLasersScript.parent = this;
         spawnedLasersScript.lifetime = lifetime;
         spawnedLasersScript.speed = laserSpeed;
+    }
+
+    public void ActivateUltimate(bool state)
+    {
+        isActivatingUltimate = state;
+    }
+
+    public IEnumerator UltimateProcess()
+    {
+        yield return new WaitForSeconds(5f);
     }
 
     public int LaserDamage()

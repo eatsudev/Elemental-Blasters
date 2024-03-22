@@ -159,15 +159,14 @@ public class ElephantEnemy : BaseEnemy
             Vector3 target = targetedPlayer.transform.position;
             Vector3 objectPosition = gun.transform.position;
 
-            target.x = target.x - objectPosition.x;
-            target.y = target.y - objectPosition.y;
+            target.x -= objectPosition.x;
+            target.y -= objectPosition.y;
 
 
             float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
             gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            float randRot = Random.Range(-1f, 1f);
-            Shoot(target, randRot);
+            Shoot(target);
 
             yield return new WaitForSeconds(shootDelay);
         }
@@ -177,7 +176,7 @@ public class ElephantEnemy : BaseEnemy
         isShooting = false;
     }
 
-    private void Shoot(Vector2 direction, float randRot)
+    private void Shoot(Vector2 direction)
     {
         spawnedBullets = Instantiate(bulletPrefabs, shootPoint.transform.position, gun.transform.rotation);
 
