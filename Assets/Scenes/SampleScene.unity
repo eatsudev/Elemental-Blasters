@@ -4730,6 +4730,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396277430}
   m_CullTransparentMesh: 1
+--- !u!114 &1399813144 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1399813144, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
+  m_PrefabInstance: {fileID: 6125275043819209973}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1430202602
 GameObject:
   m_ObjectHideFlags: 0
@@ -8571,14 +8582,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1399813144, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
+      propertyPath: m_Intensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444035602794123702, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
+      propertyPath: ultimateLight
+      value: 
+      objectReference: {fileID: 1399813144}
     - target: {fileID: 1444035602794123702, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
       propertyPath: playerAimAndShoot
       value: 
       objectReference: {fileID: 1609964781}
-    - target: {fileID: 1444035602794123702, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
-      propertyPath: ultimateTimeLength
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5067158809437306962, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -8627,18 +8642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chronox
       objectReference: {fileID: 0}
-    - target: {fileID: 5067158809437306963, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6125275044612011384, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
       propertyPath: ultimateFlightPos
       value: 
       objectReference: {fileID: 5120442397946610879}
-    - target: {fileID: 6125275044612011384, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
-      propertyPath: notDestroyable.m_Bits
-      value: 896
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
 --- !u!114 &6125275043819209974 stripped

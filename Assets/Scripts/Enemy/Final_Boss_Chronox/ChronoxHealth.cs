@@ -3,6 +3,8 @@ using System.Collections.Generic;
 //using Unity.VisualScripting;
 //using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 
 public class ChronoxHealth : BaseEnemy
 {
@@ -11,6 +13,7 @@ public class ChronoxHealth : BaseEnemy
     [SerializeField] private int healthWhenActivatingUltimate;
 
     [Header("Ultimate Parameter")]
+    [SerializeField] private Light2D ultimateLight;
     [SerializeField] private int ultimateTimeLength;
 
     [Header("References")]
@@ -152,7 +155,22 @@ public class ChronoxHealth : BaseEnemy
         StartCoroutine(chronoxMovementAndShoot.UltimateProcess());
         phase = 0;
 
-        yield return new WaitForSeconds(ultimateTimeLength);
+        yield return new WaitForSeconds(1.2f);
+
+        Light2D light = Instantiate(ultimateLight, transform.position, Quaternion.identity);
+
+        light.intensity = 100f;
+
+        float timer = 0f;
+
+        while (timer < ultimateTimeLength)
+        {
+            timer += Time.deltaTime;
+            light.intensity = Mathf.Lerp(light.intensity, 0, timer / ultimateTimeLength);
+
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
 
         playerAimAndShoot.ChangeElementalState(true);
         chronoxMovementAndShoot.ActivateUltimate(false);

@@ -27,15 +27,28 @@ public class VirusBlaster : BaseEnemy
     private PlayerAimAndShoot targetedPlayerShoot;
     private GameObject spawnedBullets;
     private float cooldownTimer;
+    private float spawnTimer;
+    public bool isSpawned;
     void Start()
     {
         currHealth = MaxHP();
         targetedPlayerShoot = FindObjectOfType<PlayerAimAndShoot>();
+        spawnTimer = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (spawnTimer > 1f)
+        {
+            isSpawned = true;
+        }
+        else
+        {
+            spawnTimer += Time.deltaTime;
+            return;
+        }
+        
+
         cooldownTimer += Time.deltaTime;
         
         if (InRange())
@@ -104,6 +117,11 @@ public class VirusBlaster : BaseEnemy
 
     public override void TakeDamage(int damageAmount)
     {
+        if (!isSpawned)
+        {
+            return;
+        }
+
         currHealth -= damageAmount;
         if (currHealth <= 0)
         {
