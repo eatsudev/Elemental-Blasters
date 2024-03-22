@@ -83,7 +83,6 @@ public class ElephantEnemy : BaseEnemy
             {
                 targetedPlayer = hit.transform.gameObject.GetComponent<PlayerHealth>();
                 CheckState();
-                Debug.Log(targetedPlayer);
             }
         }
     }

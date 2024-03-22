@@ -128,7 +128,7 @@ public class ChronoxHealth : BaseEnemy
         phase = 0;
         animator.SetTrigger("phaseChange");
 
-        rb2d.gravityScale = 1f;
+        rb2d.gravityScale = 2f;
         boxColl.isTrigger = false;
         rb2d.constraints = RigidbodyConstraints2D.None;
         chronoxMovementAndShoot.gun.SetActive(false);

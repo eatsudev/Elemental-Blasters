@@ -41,11 +41,6 @@ public class ElementalSelectionWheel : MonoBehaviour
         elementPressedSFX.Play();
 
     }
-    public void Deselected()
-    {
-        selected = false;
-        controller.elementID = 0;
-    }
     public void HoverEnter()
     {
         animator.SetBool("Hover", true);

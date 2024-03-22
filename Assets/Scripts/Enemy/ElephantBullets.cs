@@ -36,10 +36,5 @@ public class ElephantBullets : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        if (collision.CompareTag("DestroyProjectile"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

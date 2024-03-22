@@ -64,6 +64,8 @@ public class PlayerAimAndShoot : MonoBehaviour
         {
             elementalShotsRemaining = maxElementalShots;
         }
+
+        UpdateElementalCounterUI();
     }
     private void HandleGunRotation()
     {

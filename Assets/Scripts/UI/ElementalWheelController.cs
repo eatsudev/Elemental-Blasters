@@ -75,6 +75,17 @@ public class ElementalWheelController : MonoBehaviour
 
         Time.timeScale = 0.2f;
     }
+
+    public IEnumerator WheelStop()
+    {
+        gameManager.elementalWheelSlowDown = true;
+        animator.speed = 5f;
+
+        yield return new WaitForSeconds(0.2f);
+
+        Time.timeScale = 0f;
+    }
+
     public void WheelResume()
     {
         gameManager.elementalWheelSlowDown = false;

@@ -13,6 +13,9 @@ public class VirusBlaster : BaseEnemy
     [SerializeField] private float numberOfBullet;
     [SerializeField] private int numberOfShoot;
 
+    [Header("Ammo Parameter")]
+    [SerializeField] private int ammoAddedOnDeath;
+
     [Header("Reference")]
     public CircleCollider2D rangeCollider;
     public LayerMask playerLayer;
@@ -21,11 +24,13 @@ public class VirusBlaster : BaseEnemy
     public GameObject gun;
 
     private PlayerHealth targetedPlayer;
+    private PlayerAimAndShoot targetedPlayerShoot;
     private GameObject spawnedBullets;
     private float cooldownTimer;
     void Start()
     {
         currHealth = MaxHP();
+        targetedPlayerShoot = FindObjectOfType<PlayerAimAndShoot>();
     }
 
     // Update is called once per frame
@@ -88,11 +93,24 @@ public class VirusBlaster : BaseEnemy
                 playerHealth = hit.transform.gameObject.GetComponent<PlayerHealth>();
 
                 targetedPlayer = playerHealth;
+                targetedPlayerShoot = hit.transform.gameObject.GetComponent<PlayerAimAndShoot>();
             }
         }
 
         bool temp = playerHealth != null;
 
         return temp;
+    }
+
+    public override void TakeDamage(int damageAmount)
+    {
+        currHealth -= damageAmount;
+        if (currHealth <= 0)
+        {
+            currHealth = 0;
+            Debug.Log("dead");
+            targetedPlayerShoot.AddElementalAmmo(ammoAddedOnDeath);
+            Destroy(gameObject);
+        }
     }
 }
