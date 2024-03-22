@@ -26,13 +26,18 @@ public class EagleEnemy : BaseEnemy
     public GameObject shoot;
     public PlayerHealth playerHealth;
 
-
+    private PlayerHealth target;
+    private Animator animator;
     private GameObject spawnedProjectile;
+    private Vector3 originalScale;
     private float shootTimer;
 
     void Start()
     {
         currHealth = MaxHP();
+        animator = GetComponent<Animator>();
+
+        originalScale = transform.localScale;
 
         playerHealth = GameObject.FindAnyObjectByType<PlayerHealth>();
     }
@@ -51,42 +56,54 @@ public class EagleEnemy : BaseEnemy
                 if (shootTimer >= attackCooldown)
                 {
                     shootTimer = 0;
-                    ShootProcess(playerHealth);
+                    animator.SetTrigger("attack");
+
+                    ShootProcess();
                 }
             }
+
+            int isRight = playerHealth.transform.position.x > transform.position.x ? -1 : 1;
+            transform.localScale = new Vector3(originalScale.x * isRight, originalScale.y, originalScale.z);
+        }
+        else
+        {
+            target = null;
         }
     }
 
     private bool InAggroRange()
     {
-        bool isInRange = Mathf.Abs(Vector2.Distance(playerHealth.transform.position, transform.position)) <= aggroRange;
+        bool isInAggroRange = Mathf.Abs(Vector2.Distance(playerHealth.transform.position, transform.position)) <= aggroRange;
+        target = playerHealth;
 
-        return isInRange;
+        return isInAggroRange;
     }
     private bool InShootingRange()
     {
-        bool isInRange = Mathf.Abs(Vector2.Distance(playerHealth.transform.position, transform.position)) <= shootingRange;
-        
-        return isInRange;
+        bool isInShootingRange = Mathf.Abs(Vector2.Distance(playerHealth.transform.position, transform.position)) <= shootingRange;
+        target = playerHealth;
+
+        return isInShootingRange;
     }
 
     private void MoveTo(Vector2 target)
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
     }
 
-    private void ShootProcess(PlayerHealth targetPlayer)
+    private void ShootProcess()
     {
-        Vector3 target = targetPlayer.transform.position;
+        Vector3 targetPosition = target.transform.position;
         Vector3 objectPosition = transform.transform.position;
 
-        target.x = target.x - objectPosition.x;
-        target.y = target.y - objectPosition.y;
+        targetPosition.x = targetPosition.x - objectPosition.x;
+        targetPosition.y = targetPosition.y - objectPosition.y;
 
-        float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(targetPosition.y, targetPosition.x) * Mathf.Rad2Deg;
 
         shootPoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        
 
         StartCoroutine(Shoot(0f, 0f));
         StartCoroutine(Shoot(middleProjectileAheadTime, projectilesOffset));
