@@ -6041,23 +6041,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 941816093, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1030391999, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1135840847, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1365551583, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1902534779, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3767380909550869448, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7556,6 +7556,7 @@ MonoBehaviour:
   dirtProjectile: {fileID: 4110420286078289652, guid: d13e7ca420443c540ad4f29fa2cc932d, type: 3}
   shockProjectile: {fileID: 4110420286078289652, guid: ee0b5aa5b11aaa3459cb7d606eb84b59, type: 3}
   windProjectile: {fileID: 4110420286078289652, guid: d54c7ac2d889d0646a2839c9155c0d53, type: 3}
+  explosionProjectile: {fileID: 4110420286078289652, guid: dd4b132b8e53c7540a6ba83f05913455, type: 3}
   bulletSpawnPoint: {fileID: 829492372}
   shootSFX: {fileID: 1609964788}
   elementalCounterText: {fileID: 1205458146}
