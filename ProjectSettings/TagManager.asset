@@ -19,6 +19,8 @@ TagManager:
   - buttoncity2
   - DestroyProjectile
   - chronox
+  - cyborg
+  - explosionproj
   layers:
   - Default
   - TransparentFX
