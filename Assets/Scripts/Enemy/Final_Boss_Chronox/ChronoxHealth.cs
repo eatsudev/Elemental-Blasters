@@ -23,6 +23,7 @@ public class ChronoxHealth : BaseEnemy
     private Rigidbody2D rb2d;
     private BoxCollider2D boxColl;
 
+    private bool alreadyUltimate;
     private int phase;
     public int flag = 0;
     void Start()
@@ -37,6 +38,7 @@ public class ChronoxHealth : BaseEnemy
 
         phase = 1;
         isDead = false;
+        alreadyUltimate = false;
     }
 
     
@@ -79,9 +81,10 @@ public class ChronoxHealth : BaseEnemy
             StartCoroutine(GoNextPhase());
             Debug.Log("Phase 2");
         }
-        else if (currHealth <= healthWhenActivatingUltimate && phase == 2)
+        else if (currHealth <= healthWhenActivatingUltimate && phase == 2 && !alreadyUltimate)
         {
             StartCoroutine(ChronoxUltimate());
+            alreadyUltimate = true;
             Debug.Log("Ultimate");
         }
         else if(currHealth <= 0)
@@ -96,13 +99,15 @@ public class ChronoxHealth : BaseEnemy
         animator.SetTrigger("death");
 
         phase = 3;
+
+        rb2d = GetComponent<Rigidbody2D>();
+        chronoxMovementAndShoot = GetComponent<ChronoxMovementAndShoot>();
+
         rb2d.gravityScale = 1f;
         boxColl.isTrigger = false;
         boxColl.offset = new Vector2(-0.5f, -1f);
         boxColl.size = new Vector2(3.5f, 1f);
         rb2d.constraints = RigidbodyConstraints2D.None;
-
-        chronoxMovementAndShoot = GetComponent<ChronoxMovementAndShoot>();
 
         chronoxMovementAndShoot.enabled = false;
         spawner.enabled = false;
@@ -112,7 +117,7 @@ public class ChronoxHealth : BaseEnemy
         chronoxMovementAndShoot.enabled = false;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
-        Debug.Log(chronoxMovementAndShoot.enabled);
+        yield return new WaitForSeconds(2f);
 
         //Death Cutscene;
     }
@@ -142,11 +147,13 @@ public class ChronoxHealth : BaseEnemy
         playerAimAndShoot.ChangeElementalState(false);
         chronoxMovementAndShoot.ActivateUltimate(true);
         StartCoroutine(chronoxMovementAndShoot.UltimateProcess());
+        phase = 0;
 
         yield return new WaitForSeconds(ultimateTimeLength);
 
         playerAimAndShoot.ChangeElementalState(true);
         chronoxMovementAndShoot.ActivateUltimate(false);
+        phase = 2;
     }
 
 }

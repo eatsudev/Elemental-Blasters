@@ -2963,7 +2963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: 597}
+  m_AnchoredPosition: {x: -0.000011444, y: 499}
   m_SizeDelta: {x: 681.046, y: 137.362}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709044566
@@ -6398,7 +6398,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 829492372}
   shootSFX: {fileID: 1609964788}
   elementalCounterText: {fileID: 448735988}
-  maxElementalShots: 3
+  maxElementalShots: 5
 --- !u!95 &1609964782
 Animator:
   serializedVersion: 5
@@ -9528,6 +9528,10 @@ PrefabInstance:
       propertyPath: ultimateFlightPos
       value: 
       objectReference: {fileID: 5120442397946610879}
+    - target: {fileID: 6125275044612011384, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
+      propertyPath: notDestroyable.m_Bits
+      value: 896
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
 --- !u!114 &6125275043819209974 stripped

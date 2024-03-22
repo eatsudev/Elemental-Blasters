@@ -468,9 +468,9 @@ MonoBehaviour:
   - {fileID: 690981165}
   - {fileID: 1213859949}
   - {fileID: 503814251}
-  ultimateDamage: 0
-  ultimateProjectileSpeed: 0
-  ultimateShootDelay: 0
+  ultimateDamage: 30
+  ultimateProjectileSpeed: 10
+  ultimateShootDelay: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 8

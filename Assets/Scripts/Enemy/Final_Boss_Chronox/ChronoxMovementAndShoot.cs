@@ -43,6 +43,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     private Rigidbody2D rb2d;
     private ChronoxHealth chronoxHealth;
     private GameObject spawnedLaser;
+    private UltimateProjectile spawnedUltimateProjectile;
 
     private float shootTimer;
     private float timeUntilChangingPosTimer;
@@ -188,13 +189,15 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
     public IEnumerator UltimateProcess()
     {
-        animator.SetTrigger("Ultimate");
+        animator.SetTrigger("UltimateStart");
 
         yield return new WaitForSeconds(2f);
 
         StartCoroutine(MoveTo(ultimateFlightPos.transform.position, phase2Speed + 5f));
 
         yield return new WaitForSeconds(3f);
+
+        animator.SetTrigger("UltimateShoot");
 
         StartCoroutine(UltimateShootProcess());
 
@@ -203,27 +206,31 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
     private IEnumerator UltimateShootProcess()
     {
-        for (int i = 0; i < ultimateProjectileSpawnPos.Length; i++)
+        Debug.Log(ultimateProjectileSpawnPos.Length);
+
+        foreach (GameObject position in ultimateProjectileSpawnPos)
         {
             Vector3 target = playerHealth.transform.position;
-            Vector3 objectPosition = ultimateProjectileSpawnPos[i].transform.position;
+            Vector3 objectPosition = position.transform.position;
 
             target.x -= objectPosition.x;
             target.y -= objectPosition.y;
 
             float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
-            ultimateProjectileSpawnPos[i].transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            position.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            UltimateShoot(ultimateProjectileSpawnPos[i]);
+            StartCoroutine(UltimateShoot(position.transform.gameObject));
 
             yield return new WaitForSeconds(0.1f);
         }
+
     }
+
     private IEnumerator UltimateShoot(GameObject currentSpawnPoint)
     {
-        spawnedLaser = Instantiate(laserPrefabs, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
+        spawnedUltimateProjectile = Instantiate(ultimateProjectilePrefabs, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
 
-        UltimateProjectile spawnedUltimateProjectileScript = spawnedLaser.GetComponent<UltimateProjectile>();
+        UltimateProjectile spawnedUltimateProjectileScript = spawnedUltimateProjectile.GetComponent<UltimateProjectile>();
 
         spawnedUltimateProjectileScript.parent = this;
         spawnedUltimateProjectileScript.lifetime = 100f;
