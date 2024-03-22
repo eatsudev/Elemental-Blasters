@@ -173,7 +173,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
   m_Color: {r: 0.013697854, g: 0.8792453, b: 0, a: 1}
-  m_Intensity: 10
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -582,7 +582,7 @@ MonoBehaviour:
   isDead: 0
   changePhaseWhenHPReach: 250
   healthWhenActivatingUltimate: 150
-  ultimateLight: {fileID: 0}
+  ultimateLight: {fileID: 1399813144}
   ultimateTimeLength: 7
   playerLayer:
     serializedVersion: 2
