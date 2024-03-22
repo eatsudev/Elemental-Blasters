@@ -40,7 +40,6 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     public Animator animator;
 
     private PlayerHealth playerHealth;
-    private Vector2 targetPos;
     private Rigidbody2D rb2d;
     private ChronoxHealth chronoxHealth;
     private GameObject spawnedLaser;

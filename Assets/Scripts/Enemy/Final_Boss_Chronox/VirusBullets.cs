@@ -8,7 +8,6 @@ public class VirusBullets : MonoBehaviour
     public float speed = 1f;
     public VirusBlaster parent;
 
-    private Vector2 spawnPoint;
     private float timer = 0f;
 
     void Update()
