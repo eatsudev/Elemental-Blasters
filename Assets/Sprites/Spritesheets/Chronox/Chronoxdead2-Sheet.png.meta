@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 01797ed7e6ef0254ebd643b73830fbfe
+guid: 9a53e2c2c7aebb94c8f73e54c5a9bb35
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_0
+      name: Chronoxdead2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac2b10da37105174289028d6bf50bde3
-      internalID: 1501136136
+      spriteID: 4e2794153fb2bf744a53241c7e5a5496
+      internalID: -1676118028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_1
+      name: Chronoxdead2-Sheet_1
       rect:
         serializedVersion: 2
         x: 760
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2077b7af8b8cc149bb8c1bb4836975a
-      internalID: 1563454344
+      spriteID: a93dc2bacca559a4c895b71b90bb4f54
+      internalID: -11821941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_2
+      name: Chronoxdead2-Sheet_2
       rect:
         serializedVersion: 2
         x: 1520
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52d2536f8e20f4b428da4c994d3f9593
-      internalID: 1366349791
+      spriteID: 1cfebf5cd663ebd4faad4657bebe1230
+      internalID: -2112592472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_3
+      name: Chronoxdead2-Sheet_3
       rect:
         serializedVersion: 2
         x: 2280
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a33ae0c4a2685fe45a5bf782d15ca1c0
-      internalID: -2085928924
+      spriteID: b9a76818c4dbb4f4aa67b0e291992bbf
+      internalID: -1766523488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_4
+      name: Chronoxdead2-Sheet_4
       rect:
         serializedVersion: 2
         x: 3040
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45fab99af4e9a3c4fa9d34f010557d8a
-      internalID: -1911769055
+      spriteID: 0ec44fbc1eff95d479679cf0d8d120f5
+      internalID: -1147690657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_5
+      name: Chronoxdead2-Sheet_5
       rect:
         serializedVersion: 2
         x: 3800
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1b7bc8056eb68c43a81b65f521f909e
-      internalID: -1380437779
+      spriteID: 416dc1d2aa65281419ebd6f064e46084
+      internalID: -701610403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chronoxfalling-Sheet_6
+      name: Chronoxdead2-Sheet_6
       rect:
         serializedVersion: 2
         x: 4560
@@ -245,71 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46cbfa7d86a47ed45b5f6f42eac945d1
-      internalID: 1292178059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chronoxfalling-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 5320
-        y: 0
-        width: 760
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 063051993a8ff624b913f21acad924ba
-      internalID: -1080381728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chronoxfalling-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 6080
-        y: 0
-        width: 760
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1451fe94786371440b97b86c5af3d2f4
-      internalID: 363917167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chronoxfalling-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 6840
-        y: 0
-        width: 760
-        height: 512
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7906c7eae4945d40adeb19bc372f2ff
-      internalID: 1068405149
+      spriteID: edbc566b083684741879d461d2876a2a
+      internalID: 2007971310
       vertices: []
       indices: 
       edges: []
@@ -325,16 +262,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chronoxfalling-Sheet_0: 1501136136
-      Chronoxfalling-Sheet_1: 1563454344
-      Chronoxfalling-Sheet_2: 1366349791
-      Chronoxfalling-Sheet_3: -2085928924
-      Chronoxfalling-Sheet_4: -1911769055
-      Chronoxfalling-Sheet_5: -1380437779
-      Chronoxfalling-Sheet_6: 1292178059
-      Chronoxfalling-Sheet_7: -1080381728
-      Chronoxfalling-Sheet_8: 363917167
-      Chronoxfalling-Sheet_9: 1068405149
+      Chronoxdead2-Sheet_0: -1676118028
+      Chronoxdead2-Sheet_1: -11821941
+      Chronoxdead2-Sheet_2: -2112592472
+      Chronoxdead2-Sheet_3: -1766523488
+      Chronoxdead2-Sheet_4: -1147690657
+      Chronoxdead2-Sheet_5: -701610403
+      Chronoxdead2-Sheet_6: 2007971310
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

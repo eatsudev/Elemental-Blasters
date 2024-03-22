@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e5f8e532eae4d84f977363ceaa9e4af
-      internalID: -499108612
+      spriteID: 89bb3259a7bad6d4d92fb3ddf2f89a6b
+      internalID: -69012940
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aeefa296a47be2441800da73439656a0
-      internalID: 1355655617
+      spriteID: 6397ccc6c77da734e8ed12ab92c34390
+      internalID: -1774541971
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fde730882a637414480d5656bb3b0990
-      internalID: -1060163234
+      spriteID: 625f675c36dc0da459243134506a65f2
+      internalID: 1214986505
       vertices: []
       indices: 
       edges: []
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0ad5d5b24edb4b48badefc7bf6cfa7b
-      internalID: 1922959120
+      spriteID: 409eea72b71ea4a47905e4a9b35f31bb
+      internalID: -303735233
       vertices: []
       indices: 
       edges: []
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b94c4cf61b63cd41921ca282dd0e8c6
-      internalID: 791912075
+      spriteID: af4bdfd0cf1c86b43bc948a80e351499
+      internalID: -304869663
       vertices: []
       indices: 
       edges: []
@@ -224,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 576c53d1e5598c04c8f254e95df0856e
-      internalID: -1974391050
+      spriteID: 49fb923c6f8322f4ebddee417885ac77
+      internalID: 1019282531
       vertices: []
       indices: 
       edges: []
@@ -245,8 +245,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c88921c795dd7e24eb8f1671065d4c70
-      internalID: -975729069
+      spriteID: 6b45e2653cd74ea4facfd659e605df02
+      internalID: -1986739184
       vertices: []
       indices: 
       edges: []
@@ -266,8 +266,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ef299e1cece2e34cbad7be97bad7621
-      internalID: -923571236
+      spriteID: 9dbd5a239522d594a85a676ae2e82abd
+      internalID: 1393356352
       vertices: []
       indices: 
       edges: []
@@ -287,8 +287,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef16f5af88efb2446ae673c1c087b613
-      internalID: -861737348
+      spriteID: d5d7e1b744fee4e42bd3e81ba0970932
+      internalID: 485807845
       vertices: []
       indices: 
       edges: []
@@ -308,8 +308,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63d7692c643ad9d4889162776e0d11f3
-      internalID: 1744861750
+      spriteID: 51c10af26c0245943a7b6f30a8bd3d91
+      internalID: 949467938
       vertices: []
       indices: 
       edges: []
@@ -329,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9149e6cfbfab5d741bc48c24a0c303ee
-      internalID: 504105505
+      spriteID: 743fa0b79c8915a428fc41c926363e72
+      internalID: -415868822
       vertices: []
       indices: 
       edges: []
@@ -350,8 +350,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 710e44c3e4a41a24598587780ad61361
-      internalID: 1377712772
+      spriteID: 2c9c35a8bbef16c48a2149a88a43a054
+      internalID: 208077865
       vertices: []
       indices: 
       edges: []
@@ -371,8 +371,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51f14a5bc802e2d4199098e726a93a86
-      internalID: -1352279766
+      spriteID: e270790b0918abc4a9cffce9718a6e02
+      internalID: -653354093
       vertices: []
       indices: 
       edges: []
@@ -392,8 +392,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8b9bc02bfb16b449b5d2eacc2da4ba3
-      internalID: -12619045
+      spriteID: aeee76caf7f20a44295e37d925831dd3
+      internalID: -293061827
       vertices: []
       indices: 
       edges: []
@@ -413,8 +413,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5d6eb071e9ca4e44b96515e94168d86
-      internalID: 1676440138
+      spriteID: 9c258310085413c419bcdbc151b85dbc
+      internalID: -1766520267
       vertices: []
       indices: 
       edges: []
@@ -430,21 +430,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Harimau_Attack-Sheet_kebalik_0: -499108612
-      Harimau_Attack-Sheet_kebalik_1: 1355655617
-      Harimau_Attack-Sheet_kebalik_10: 504105505
-      Harimau_Attack-Sheet_kebalik_11: 1377712772
-      Harimau_Attack-Sheet_kebalik_12: -1352279766
-      Harimau_Attack-Sheet_kebalik_13: -12619045
-      Harimau_Attack-Sheet_kebalik_14: 1676440138
-      Harimau_Attack-Sheet_kebalik_2: -1060163234
-      Harimau_Attack-Sheet_kebalik_3: 1922959120
-      Harimau_Attack-Sheet_kebalik_4: 791912075
-      Harimau_Attack-Sheet_kebalik_5: -1974391050
-      Harimau_Attack-Sheet_kebalik_6: -975729069
-      Harimau_Attack-Sheet_kebalik_7: -923571236
-      Harimau_Attack-Sheet_kebalik_8: -861737348
-      Harimau_Attack-Sheet_kebalik_9: 1744861750
+      Harimau_Attack-Sheet_kebalik_0: -69012940
+      Harimau_Attack-Sheet_kebalik_1: -1774541971
+      Harimau_Attack-Sheet_kebalik_10: -415868822
+      Harimau_Attack-Sheet_kebalik_11: 208077865
+      Harimau_Attack-Sheet_kebalik_12: -653354093
+      Harimau_Attack-Sheet_kebalik_13: -293061827
+      Harimau_Attack-Sheet_kebalik_14: -1766520267
+      Harimau_Attack-Sheet_kebalik_2: 1214986505
+      Harimau_Attack-Sheet_kebalik_3: -303735233
+      Harimau_Attack-Sheet_kebalik_4: -304869663
+      Harimau_Attack-Sheet_kebalik_5: 1019282531
+      Harimau_Attack-Sheet_kebalik_6: -1986739184
+      Harimau_Attack-Sheet_kebalik_7: 1393356352
+      Harimau_Attack-Sheet_kebalik_8: 485807845
+      Harimau_Attack-Sheet_kebalik_9: 949467938
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -21,13 +21,15 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     [SerializeField] private float timeUntilChangingPos;
     [SerializeField] private float phase1Speed;
     [SerializeField] private float phase2Speed;
-    [SerializeField] private GameObject ultimatePos;
+    [SerializeField] private GameObject ultimateFlightPos;
 
     [Header("Ultimate Parameters")]
-    [SerializeField] private GameObject ultimateProjectilePrefabs;
+    [SerializeField] private UltimateProjectile ultimateProjectilePrefabs;
+    [SerializeField] private GameObject[] ultimateProjectileSpawnPos;
     [SerializeField] private int ultimateDamage;
+    [SerializeField] private int ultimateProjectileSpeed;
     [SerializeField] private float ultimateShootDelay;
-
+    
 
     [Header("References")]
     public LayerMask playerLayer;
@@ -45,7 +47,6 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
     private float shootTimer;
     private float timeUntilChangingPosTimer;
-    private float ultimateTimer;
     private bool reachedFlightPos;
     private bool isShooting;
     private bool isActivatingUltimate;
@@ -59,7 +60,6 @@ public class ChronoxMovementAndShoot : MonoBehaviour
         timeUntilChangingPosTimer = 0f;
         reachedFlightPos = true;
         flightPos = FindObjectsOfType<ChronoxFlightPoint>();
-        ultimateTimer = 0f;
 
         gunSprite.enabled = false;
     }
@@ -193,37 +193,53 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        StartCoroutine(MoveTo(ultimatePos.transform.position, phase2Speed + 5f));
+        StartCoroutine(MoveTo(ultimateFlightPos.transform.position, phase2Speed + 5f));
 
         yield return new WaitForSeconds(3f);
 
+        StartCoroutine(UltimateShootProcess());
 
+        yield return new WaitForSeconds(5f);
     }
 
-    private IEnumerator UltimateShootProcess(float shootCooldown)
+    private IEnumerator UltimateShootProcess()
     {
-        for (int i = 0; i < numberOfLaser; i++)
+        for (int i = 0; i < ultimateProjectileSpawnPos.Length; i++)
         {
             Vector3 target = playerHealth.transform.position;
-            Vector3 objectPosition = gun.transform.position;
+            Vector3 objectPosition = ultimateProjectileSpawnPos[i].transform.position;
 
             target.x -= objectPosition.x;
             target.y -= objectPosition.y;
 
-
             float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
-            gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            ultimateProjectileSpawnPos[i].transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-            Shoot(target);
+            UltimateShoot(ultimateProjectileSpawnPos[i]);
 
-            yield return new WaitForSeconds(ultimateShootDelay);
+            yield return new WaitForSeconds(0.1f);
         }
-
-        yield return new WaitForSeconds(3f);
     }
+    private IEnumerator UltimateShoot(GameObject currentSpawnPoint)
+    {
+        spawnedLaser = Instantiate(laserPrefabs, currentSpawnPoint.transform.position, currentSpawnPoint.transform.rotation);
 
+        UltimateProjectile spawnedUltimateProjectileScript = spawnedLaser.GetComponent<UltimateProjectile>();
+
+        spawnedUltimateProjectileScript.parent = this;
+        spawnedUltimateProjectileScript.lifetime = 100f;
+        spawnedUltimateProjectileScript.speed = 0f;
+
+        yield return new WaitForSeconds(1f);
+
+        spawnedUltimateProjectileScript.speed = ultimateProjectileSpeed;
+    }
     public int LaserDamage()
     {
         return laserDamage;
+    }
+    public int UltimateDamage()
+    {
+        return ultimateDamage;
     }
 }
