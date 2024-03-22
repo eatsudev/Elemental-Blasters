@@ -56,7 +56,15 @@ public class PlayerAimAndShoot : MonoBehaviour
             UnableToShoot();
         }
     }
+    public void AddElementalAmmo(int amount)
+    {
+        elementalShotsRemaining += amount;
 
+        if(elementalShotsRemaining > maxElementalShots)
+        {
+            elementalShotsRemaining = maxElementalShots;
+        }
+    }
     private void HandleGunRotation()
     {
         worldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

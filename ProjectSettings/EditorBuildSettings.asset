@@ -30,6 +30,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LabLv4.unity
     guid: 2e78c583bfe59be42873298a4c0f7d69
   - enabled: 1
+    path: Assets/Scenes/LabLv5.unity
+    guid: ad49bd0c90a15934b9b693a5919668d9
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 80beef05049e34b4a81b12caa808ff23
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: cbc0aac2bda603843adb520e1705d7c2
   m_configObjects: {}

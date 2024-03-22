@@ -5,14 +5,18 @@ using UnityEngine;
 public class Thunder : MonoBehaviour
 {
     [SerializeField] private int damage;
+    [SerializeField] private LayerMask enemyLayer;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
-        if (iDamageable != null)
+        if (enemyLayer == (enemyLayer | (1 << collision.gameObject.layer)))
         {
-            iDamageable.TakeDamage((int)damage);
-            Debug.Log(damage);
+            IDamageable iDamageable = collision.gameObject.GetComponent<IDamageable>();
+            if (iDamageable != null)
+            {
+                iDamageable.TakeDamage((int)damage);
+                Debug.Log(damage);
+            }
         }
     }
 }
