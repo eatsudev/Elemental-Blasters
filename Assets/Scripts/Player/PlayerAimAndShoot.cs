@@ -15,6 +15,7 @@ public class PlayerAimAndShoot : MonoBehaviour
     [SerializeField] private GameObject dirtProjectile;
     [SerializeField] private GameObject shockProjectile;
     [SerializeField] private GameObject windProjectile;
+    [SerializeField] private GameObject explosionProjectile;
     [SerializeField] private Transform bulletSpawnPoint;
     [SerializeField] private AudioSource shootSFX;
     [SerializeField] private Text elementalCounterText;
@@ -154,6 +155,9 @@ public class PlayerAimAndShoot : MonoBehaviour
                     break;
                 case 5:
                     Instantiate(dirtProjectile, bulletSpawnPoint.position, gun.transform.rotation);
+                    break;
+                case 6:
+                    Instantiate(explosionProjectile, bulletSpawnPoint.position, gun.transform.rotation);
                     break;
                 default:
                     Debug.Log("No Elements");

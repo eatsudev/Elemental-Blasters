@@ -22,7 +22,7 @@ public class MapUI : MonoBehaviour
     }
     public void LabButton()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("LabLv4");
         Time.timeScale = 1.0f;
     }
     

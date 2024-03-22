@@ -18,6 +18,7 @@ TagManager:
   - disableearth
   - buttoncity2
   - DestroyProjectile
+  - chronox
   layers:
   - Default
   - TransparentFX
