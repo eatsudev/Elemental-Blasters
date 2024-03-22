@@ -233,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb0966dbf67b0b458b9692808df6e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  damage: 25
+  maxHP: 65
+  damage: 38
   currHealth: 0
   isDead: 0
   aggroHeight: 1

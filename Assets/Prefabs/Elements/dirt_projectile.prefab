@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalDirtSpeed: 20
   normalDirtDamage: 66
-  destroyTime: 3
+  destroyTime: 6
   whatDestroysDirt:
     serializedVersion: 2
     m_Bits: 320

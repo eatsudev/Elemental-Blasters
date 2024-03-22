@@ -140,13 +140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalShockSpeed: 20
-  normalShockDamage: 85
+  normalShockDamage: 0
   destroyTime: 3
   whatDestroysShock:
     serializedVersion: 2
     m_Bits: 320
   physicsBulletSpeed: 17.5
-  physicsShockDamage: 85
+  physicsShockDamage: 0
   physicsBulletGravity: 3
   shockTriggerSFX: {fileID: 6431389421707802104}
   thunder: {fileID: 9195549044675300204}

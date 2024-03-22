@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ea1b9cf5f48fd4c83cdf289e7e4ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  damage: 25
+  maxHP: 20
+  damage: 34
   currHealth: 0
   isDead: 0
   explosionRange: 3
