@@ -5597,7 +5597,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 829492372}
   shootSFX: {fileID: 1609964788}
   elementalCounterText: {fileID: 448735988}
-  maxElementalShots: 5
+  maxElementalShots: 10
 --- !u!95 &1609964782
 Animator:
   serializedVersion: 5
@@ -8350,6 +8350,10 @@ PrefabInstance:
     - target: {fileID: 3767380909550869448, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767380909828617765, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
+      propertyPath: m_Text
+      value: ': 10'
       objectReference: {fileID: 0}
     - target: {fileID: 3767380910165873647, guid: 5adf8784b0baef943b604e06b529a640, type: 3}
       propertyPath: playerHealth

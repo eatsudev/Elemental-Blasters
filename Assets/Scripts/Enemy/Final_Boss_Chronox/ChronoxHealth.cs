@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class ChronoxHealth : BaseEnemy
 {
@@ -124,6 +125,7 @@ public class ChronoxHealth : BaseEnemy
         yield return new WaitForSeconds(2f);
 
         //Death Cutscene;
+        SceneManager.LoadScene("Ending");
     }
 
     public IEnumerator GoNextPhase()
