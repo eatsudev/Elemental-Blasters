@@ -87,7 +87,7 @@ public class ChronoxHealth : BaseEnemy
             alreadyUltimate = true;
             Debug.Log("Ultimate");
         }
-        else if(currHealth <= 0)
+        else if(currHealth <= 0 && !isDead)
         {
             isDead = true;
             StartCoroutine(Death());
@@ -105,8 +105,8 @@ public class ChronoxHealth : BaseEnemy
 
         rb2d.gravityScale = 1f;
         boxColl.isTrigger = false;
-        boxColl.offset = new Vector2(-0.5f, -1f);
-        boxColl.size = new Vector2(3.5f, 1f);
+        boxColl.offset = new Vector2(0f, -1f);
+        boxColl.size = new Vector2(1.5f, 1f);
         rb2d.constraints = RigidbodyConstraints2D.None;
 
         chronoxMovementAndShoot.enabled = false;
@@ -116,6 +116,7 @@ public class ChronoxHealth : BaseEnemy
 
         chronoxMovementAndShoot.enabled = false;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        transform.rotation = Quaternion.identity;
 
         yield return new WaitForSeconds(2f);
 
