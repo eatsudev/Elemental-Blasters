@@ -6037,8 +6037,6 @@ MonoBehaviour:
   walkingSFX: {fileID: 1609964784}
   jumpSFX: {fileID: 1609964785}
   anim: {fileID: 1609964782}
-  slideSpeed: 0
-  slideTime: 0
 --- !u!114 &1609964781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9009,7 +9007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5067158809437306963, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125275044612011384, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184f0470d21dfaa44a2373f89914bcae, type: 3}

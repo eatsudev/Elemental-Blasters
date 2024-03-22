@@ -378,8 +378,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virusBlasterPrefabs: {fileID: 5496318168082740520, guid: d30d9467273d5554da895e44bb1e6a9d, type: 3}
+  virusBlasterSeedPrefabs: {fileID: 1993477118352744971, guid: e558f7aeb06eb78499c7b62e120d9dc8, type: 3}
   phase1ShootCooldown: 5
   phase2ShootCooldown: 3
+  seedSpeed: 10
   animator: {fileID: 8268028982712023467}
 --- !u!1 &6125275043931936346
 GameObject:

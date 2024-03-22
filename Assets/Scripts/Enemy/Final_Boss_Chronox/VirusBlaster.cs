@@ -21,13 +21,10 @@ public class VirusBlaster : BaseEnemy
     public GameObject gun;
 
     private PlayerHealth targetedPlayer;
-    private Vector2 targetPos;
-    private Rigidbody2D rb2d;
     private GameObject spawnedBullets;
     private float cooldownTimer;
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
         currHealth = MaxHP();
     }
 
@@ -35,6 +32,7 @@ public class VirusBlaster : BaseEnemy
     void Update()
     {
         cooldownTimer += Time.deltaTime;
+        
         if (InRange())
         {
             if(cooldownTimer >= shootCooldown)
@@ -71,8 +69,8 @@ public class VirusBlaster : BaseEnemy
     {
         Vector3 objectPosition = gun.transform.position;
 
-        target.x = target.x - objectPosition.x;
-        target.y = target.y - objectPosition.y;
+        target.x -= objectPosition.x;
+        target.y -= objectPosition.y;
 
         float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
         gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));

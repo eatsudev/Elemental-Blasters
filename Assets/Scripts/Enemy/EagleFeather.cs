@@ -8,7 +8,6 @@ public class EagleFeather : MonoBehaviour
     public float speed = 1f;
     public EagleEnemy parent;
 
-    private Vector2 spawnPoint;
     private float timer = 0f;
 
     void Update()

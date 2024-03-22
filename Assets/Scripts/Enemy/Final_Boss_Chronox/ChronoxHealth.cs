@@ -43,17 +43,17 @@ public class ChronoxHealth : BaseEnemy
             animator.SetTrigger("throwVirus");
             StartCoroutine(spawner.SpawnAllVirusBlaster(phase));
         }
-        if (flag == 1)
+        if (flag == 2)
         {
             chronoxMovementAndShoot.enabled = true;
             animator.ResetTrigger("throwVirus");
             flag++;
         }
 
-        if(Input.GetKeyDown(KeyCode.T))
+        /*if(Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(Death());
-        }
+        }*/
     }
 
     public int Phase()
@@ -121,6 +121,7 @@ public class ChronoxHealth : BaseEnemy
 
         boxColl.isTrigger = true;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
+        transform.rotation = Quaternion.identity;
 
         rb2d.gravityScale = 0;
         phase = temp + 1;
