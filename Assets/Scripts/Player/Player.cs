@@ -104,6 +104,7 @@ public class Player : MonoBehaviour, IUnit
             else
             {
                 isJumping = false;
+                anim.SetBool("Jumping", false);
             }
         }
 

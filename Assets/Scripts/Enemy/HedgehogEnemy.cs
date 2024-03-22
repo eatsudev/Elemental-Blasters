@@ -16,6 +16,7 @@ public class HedgehogEnemy : BaseEnemy
     public CircleCollider2D rangeCollider;
     public LayerMask playerLayer;
     public LayerMask notDestroyable;
+    public AudioSource attackSFX;
 
     private Rigidbody2D rb2d;
     private Animator animator;
@@ -29,7 +30,7 @@ public class HedgehogEnemy : BaseEnemy
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currHealth = MaxHP();
-
+        cooldownTimer = 0f;
     }
 
     void Update()
@@ -68,6 +69,8 @@ public class HedgehogEnemy : BaseEnemy
             hedgehogSpikes.speed = speed;
             hedgehogSpikes.lifetime = lifetime;
         }
+
+        attackSFX.Play();
     }
 
     private bool InRange()

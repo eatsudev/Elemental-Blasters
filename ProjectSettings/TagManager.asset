@@ -17,6 +17,7 @@ TagManager:
   - enableall
   - disableearth
   - buttoncity2
+  - DestroyProjectile
   layers:
   - Default
   - TransparentFX

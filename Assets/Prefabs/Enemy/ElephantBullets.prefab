@@ -65,6 +65,9 @@ MonoBehaviour:
   lifetime: 1
   speed: 1
   parent: {fileID: 1974321719016805073, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
+  notDestroyable:
+    serializedVersion: 2
+    m_Bits: 384
 --- !u!1 &7934020384442298710
 GameObject:
   m_ObjectHideFlags: 0

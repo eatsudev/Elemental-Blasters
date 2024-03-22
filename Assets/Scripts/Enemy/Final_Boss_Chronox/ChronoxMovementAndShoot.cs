@@ -189,6 +189,8 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
     public IEnumerator UltimateProcess()
     {
+        yield return new WaitForSeconds(1f);
+
         animator.SetTrigger("UltimateStart");
 
         yield return new WaitForSeconds(2f);
@@ -201,7 +203,7 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
         StartCoroutine(UltimateShootProcess());
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1);
     }
 
     private IEnumerator UltimateShootProcess()

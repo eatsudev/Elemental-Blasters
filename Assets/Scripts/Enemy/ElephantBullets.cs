@@ -7,6 +7,7 @@ public class ElephantBullets : MonoBehaviour
     public float lifetime = 1f;
     public float speed = 1f;
     public ElephantEnemy parent;
+    public LayerMask notDestroyable;
 
     private Vector2 spawnPoint;
     private float timer = 0f;
@@ -14,6 +15,8 @@ public class ElephantBullets : MonoBehaviour
     {
         if (timer >= lifetime) Destroy(gameObject);
         timer += Time.deltaTime;
+
+        notDestroyable = parent.notDestroyable;
 
         Movement();
     }
@@ -29,7 +32,12 @@ public class ElephantBullets : MonoBehaviour
             collision.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(parent.Damage());
         }
 
-        if (!((parent.notDestroyable.value & (1 << collision.gameObject.layer)) > 0))
+        if (!((notDestroyable.value & (1 << collision.gameObject.layer)) > 0))
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("DestroyProjectile"))
         {
             Destroy(gameObject);
         }
