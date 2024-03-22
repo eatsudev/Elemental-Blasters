@@ -2713,13 +2713,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1298080406895543464, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
+      propertyPath: m_Size.x
+      value: 1.6066855
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298080406895543464, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4446228
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298080406895543464, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.32642812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1298080406895543464, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.003946066
+      objectReference: {fileID: 0}
     - target: {fileID: 1392583308836435394, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
       propertyPath: m_Name
       value: Elephant
-      objectReference: {fileID: 0}
-    - target: {fileID: 1392583308836435394, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1392583308836435395, guid: 9bdcf91a92d41bb478846bc906e6e589, type: 3}
       propertyPath: m_RootOrder

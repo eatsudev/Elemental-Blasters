@@ -36,12 +36,12 @@ public class ElephantEnemy : BaseEnemy
     public GameObject shootPoint;
     public GameObject gun;
     public BoxCollider2D chargeHurtBox;
-
+    public Animator animator;
 
     private PlayerHealth targetedPlayer;
-    private Vector2 targetPos;
     private Rigidbody2D rb2d;
     private GameObject spawnedBullets;
+    
 
     private bool isShooting;
     private bool isCharging;
@@ -53,6 +53,7 @@ public class ElephantEnemy : BaseEnemy
     {
         rb2d = GetComponent<Rigidbody2D>();
         currHealth = MaxHP();
+
         isShooting = false;
         isCharging = false;
         isAlreadyHit = false;
@@ -80,7 +81,6 @@ public class ElephantEnemy : BaseEnemy
         {
             if (hit.transform.gameObject.GetComponent<PlayerHealth>() != null)
             {
-                targetPos = hit.transform.position;
                 targetedPlayer = hit.transform.gameObject.GetComponent<PlayerHealth>();
                 CheckState();
                 Debug.Log(targetedPlayer);
@@ -114,12 +114,17 @@ public class ElephantEnemy : BaseEnemy
 
         yield return new WaitForSeconds(chargeDelay);
 
+        animator.SetBool("attacking", true);
+
         while (timer < chargeLength)
         {
             rb2d.velocity = new Vector2(isRight * chargeSpeed, 0f);
 
             timer += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
+
+        animator.SetBool("attacking", false);
 
         yield return new WaitForSeconds(chargeCooldown);
 
