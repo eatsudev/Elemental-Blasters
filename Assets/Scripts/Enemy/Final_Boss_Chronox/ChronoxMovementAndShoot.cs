@@ -208,6 +208,9 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     {
         Debug.Log(ultimateProjectileSpawnPos.Length);
 
+        float isRight = playerHealth.transform.position.x > transform.position.x ? 1f : -1f;
+        transform.localScale = new Vector3(isRight * -1f, transform.localScale.y, transform.localScale.z);
+
         foreach (GameObject position in ultimateProjectileSpawnPos)
         {
             Vector3 target = playerHealth.transform.position;

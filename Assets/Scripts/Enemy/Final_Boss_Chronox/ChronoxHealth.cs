@@ -131,12 +131,14 @@ public class ChronoxHealth : BaseEnemy
         rb2d.gravityScale = 1f;
         boxColl.isTrigger = false;
         rb2d.constraints = RigidbodyConstraints2D.None;
+        chronoxMovementAndShoot.gun.SetActive(false);
 
         yield return new WaitForSeconds(2f);
 
         boxColl.isTrigger = true;
         rb2d.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.rotation = Quaternion.identity;
+        chronoxMovementAndShoot.gun.SetActive(true);
 
         rb2d.gravityScale = 0;
         phase = temp + 1;
