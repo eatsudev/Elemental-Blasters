@@ -8343,6 +8343,7 @@ MonoBehaviour:
   dirtProjectile: {fileID: 4110420286078289652, guid: d13e7ca420443c540ad4f29fa2cc932d, type: 3}
   shockProjectile: {fileID: 4110420286078289652, guid: ee0b5aa5b11aaa3459cb7d606eb84b59, type: 3}
   windProjectile: {fileID: 4110420286078289652, guid: d54c7ac2d889d0646a2839c9155c0d53, type: 3}
+  explosionProjectile: {fileID: 4110420286078289652, guid: dd4b132b8e53c7540a6ba83f05913455, type: 3}
   bulletSpawnPoint: {fileID: 829492372}
   shootSFX: {fileID: 1609964788}
   elementalCounterText: {fileID: 733352518}
