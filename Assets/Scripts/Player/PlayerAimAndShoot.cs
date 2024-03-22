@@ -41,6 +41,8 @@ public class PlayerAimAndShoot : MonoBehaviour
 
         elementalShotsRemaining = maxElementalShots;
         UpdateElementalCounterUI();
+
+        elementalShootingEnabled = true;
     }
     private void Update()
     {

@@ -21,6 +21,13 @@ public class ChronoxMovementAndShoot : MonoBehaviour
     [SerializeField] private float timeUntilChangingPos;
     [SerializeField] private float phase1Speed;
     [SerializeField] private float phase2Speed;
+    [SerializeField] private GameObject ultimatePos;
+
+    [Header("Ultimate Parameters")]
+    [SerializeField] private GameObject ultimateProjectilePrefabs;
+    [SerializeField] private int ultimateDamage;
+    [SerializeField] private float ultimateShootDelay;
+
 
     [Header("References")]
     public LayerMask playerLayer;
@@ -87,11 +94,6 @@ public class ChronoxMovementAndShoot : MonoBehaviour
             {
                 StartCoroutine(StartShootingProcess(phase2ShootCooldown));
             }
-        }
-        else if(isActivatingUltimate)
-        {
-            ultimateTimer += Time.deltaTime;
-
         }
     }
     
@@ -187,7 +189,37 @@ public class ChronoxMovementAndShoot : MonoBehaviour
 
     public IEnumerator UltimateProcess()
     {
-        yield return new WaitForSeconds(5f);
+        animator.SetTrigger("Ultimate");
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(MoveTo(ultimatePos.transform.position, phase2Speed + 5f));
+
+        yield return new WaitForSeconds(3f);
+
+
+    }
+
+    private IEnumerator UltimateShootProcess(float shootCooldown)
+    {
+        for (int i = 0; i < numberOfLaser; i++)
+        {
+            Vector3 target = playerHealth.transform.position;
+            Vector3 objectPosition = gun.transform.position;
+
+            target.x -= objectPosition.x;
+            target.y -= objectPosition.y;
+
+
+            float angle = Mathf.Atan2(target.y, target.x) * Mathf.Rad2Deg;
+            gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            Shoot(target);
+
+            yield return new WaitForSeconds(ultimateShootDelay);
+        }
+
+        yield return new WaitForSeconds(3f);
     }
 
     public int LaserDamage()
