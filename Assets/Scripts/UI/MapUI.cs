@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MapUI : MonoBehaviour
 {
+    private Animator animator;
+
     public void TutorialButton()
     {
         SceneManager.LoadScene("TutorialLab");
@@ -25,5 +27,11 @@ public class MapUI : MonoBehaviour
         SceneManager.LoadScene("LabLv4");
         Time.timeScale = 1.0f;
     }
-    
+    public void HoverEnter()
+    {
+        animator.SetBool("Hover", true);    }
+    public void HoverExit()
+    {
+        animator.SetBool("Hover", false);
+    }
 }
