@@ -2472,7 +2472,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.32
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8619,8 +8619,6 @@ MonoBehaviour:
   walkingSFX: {fileID: 1609964785}
   jumpSFX: {fileID: 1609964784}
   anim: {fileID: 1609964782}
-  slideSpeed: 0
-  slideTime: 0
 --- !u!114 &1609964781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11624,7 +11622,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1609964779}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 7.32
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
